@@ -1,0 +1,14 @@
+*.log
+*.make
+*.bbl
+*.aux
+*.fls
+*.d
+*.out
+*.pdf
+
+*.DS_Store
+.*.swp
+
+old
+forRTF
