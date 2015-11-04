@@ -5,7 +5,6 @@
 *.fls
 *.d
 *.out
-*.pdf
 
 *.DS_Store
 .*.swp
