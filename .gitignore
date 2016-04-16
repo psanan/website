@@ -5,6 +5,7 @@
 *.fls
 *.d
 *.out
+*.make.temp
 
 *.DS_Store
 .*.swp
