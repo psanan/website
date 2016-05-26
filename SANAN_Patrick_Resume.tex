@@ -6,19 +6,24 @@
 
 \renewcommand{\labelitemi}{$\circ$}
 
-\begin{document}
-
-\pagestyle{fancy}
-\lfoot{\thepage \ / \pageref{LastPage}}
-\cfoot{}
-\rfoot{\tiny [Generated \today]}
+\fancypagestyle{firstpagestyle}{
+  \setlength{\headsep}{0.0in}
+}
+\fancypagestyle{lastpagestyle}{
+  \rfoot{\tiny [Generated \today]}
+}
+\cfoot{\thepage \ / \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
+\setlength{\headsep}{0.2in}
 
+\begin{document}
+\thispagestyle{firstpagestyle}
+\pagestyle{fancy}
 
 \begin{center}
-%{\Huge Curriculum Vit\ae} \\
-{\Large Patrick Sanan}\\
+\vspace{10px}{\Large Patrick Sanan}\\
+\vspace{10px}
 {\tt \href{mailto:patrick.sanan@gmail.com}{patrick.sanan@\{gmail.com,usi.ch,erdw.ethz.ch\}}}\\
 {\href{http://www.patricksanan.com}{patricksanan.com}}\\
 {\texttt +41 77 485 17 96}
@@ -68,7 +73,7 @@ Walnut Creek, California, United States\\
 \item Patrick Sanan and Nathan Litke, ``Bounded-distortion Surface Parameterization with Seam Constraints'', 2013 [preprint]
 \item Patrick Sanan and Peter Schr\"{o}der, ``Logarithmic Strain Measures for Elasticity Simulation and Geometry Processing'', 2012 [preprint]
 \item Patrick Sanan, ``Sound Synthesis with Nonlinear Elastodynamics and Fully Variational Integrators" [poster], International Computer Music Conference 2011 .
-\item Isaac Chao, Ulrich Pinkall, Patrick Sanan, and Peter Schr\"{o}der, ``A Simple Geometric Model For Elastic Deformation'', ACM Transactions on Graphics (TOG) Volume 29 , Issue 4 (July 2010). Proceedings of ACM SIGGRAPH 2010.{\href{http://multires.caltech.edu/pubs/GeomElastic.pdf}{[available online]}}
+\item Isaac Chao, Ulrich Pinkall, Patrick Sanan, and Peter Schr\"{o}der, ``A Simple Geometric Model For Elastic Deformation'', ACM Transactions on Graphics (TOG) Volume 29, Issue 4 (July 2010). Proceedings of ACM SIGGRAPH 2010.{\href{http://multires.caltech.edu/pubs/GeomElastic.pdf}{[available online]}}
 \item Wang-Juh Chen, Hoi Tin Kong, Minah Oh, Patrick Sanan, Ying Wang and Brendt Wohlberg.``Visual Words: Text Analysis Concepts for Computer Vision'' [Preprint; Part of a week-long 2009 IMA team workshop]. 
 \end{itemize}
 
@@ -176,4 +181,5 @@ General Atomics Lynx Systems, San Diego, CA, United States\\
 \noindent Part time 2000-2001 : \textbf{Sales Clerk}\\
 Longs Drugs, Walnut Creek, CA, United States\\
 
+\thispagestyle{lastpagestyle}
 \end{document}
