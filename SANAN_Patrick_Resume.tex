@@ -1,17 +1,27 @@
 \documentclass[12pt]{article}
 \usepackage{fullpage}
-\usepackage[urlcolor=blue, colorlinks=true ]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
 
 \renewcommand{\labelitemi}{$\circ$}
 
 \begin{document}
 
+\pagestyle{fancy}
+\lfoot{\thepage \ / \pageref{LastPage}}
+\cfoot{}
+\rfoot{\tiny [Generated \today]}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+
 \begin{center}
 %{\Huge Curriculum Vit\ae} \\
 {\Large Patrick Sanan}\\
-{\tt \href{mailto:patrick.sanan@gmail.com}{patrick.sanan@\{gmail.com, usi.ch, erdw.ethz.ch\}}}\\
+{\tt \href{mailto:patrick.sanan@gmail.com}{patrick.sanan@\{gmail.com,usi.ch,erdw.ethz.ch\}}}\\
 {\href{http://www.patricksanan.com}{patricksanan.com}}\\
-%+41 77 485 17 96
+{\texttt +41 77 485 17 96}
 \end{center}
 
 \section*{Education}
@@ -41,7 +51,7 @@ Walnut Creek, California, United States\\
 \begin{itemize}
 % Submitted SC ILDL paper (expected to be rejected)
 % ViennaCL ILDL paper in progress
-\item Patrick Sanan, Olaf Schenk, Dave May, Matthias Bollh\"{o}ffer, Karl Rupp, ``Advancing Parallel Multigrid Solvers for Highly Heterogeneous Viscosity Stokes Flow Structure through Localized Incomplete $LDL^T$ Smoothers'' [poster], SIAM Conference on Parallell Procssing 2016, April 12-15, Paris, France.
+\item Patrick Sanan, Olaf Schenk, Dave May, Matthias Bollh\"{o}ffer, Karl Rupp, ``Advancing Parallel Multigrid Solvers for Highly Heterogeneous Viscosity Stokes Flow Structure through Localized Incomplete $LDL^T$ Smoothers'' [poster], SIAM Conference on Parallel Processing 2016, April 12-15, Paris, France.
 \item Dave May, Matthew G. Knepley, Barry Smith, Karl Rupp, and Patrick Sanan, ``Extreme-scale Multigrid Components within PETSc'', Proceedings of the 2016 ACM/PASC16 Conference [accepted][\href{(http://arxiv.org/abs/1604.07163}{preprint online}].
 \item Patrick Sanan, Sascha M. Schnepp, Dave A. May, ``Pipelined, Flexible Krylov Subspace Methods'' [in revision for SISC] \href{http://arxiv.org/abs/1511.07226}{[preprint online]}.
 \item Matthew G. Knepley, Hannah Morgan, Patrick Sanan, L. Ridgway Scott, ``A Stochastic Performance Model for Asynchronous Krylov Methods''. Concurrency and Computation: Practice and Experience \href{http://onlinelibrary.wiley.com/doi/10.1002/cpe.3820/full}{[available online]}.
@@ -67,7 +77,7 @@ Volume 29 , Issue 4 (July 2010). Proceedings of ACM SIGGRAPH 2010.
 % PASC talk
 % PETSc-20 talk
 \begin{itemize}
-\item ``Accelerating Parallel Multilevel Solvers for Stokes Flow with Highly Heterogeneous Viscosity Structure: Localized Incompletel $LDL^T$ Smoothers and GPUs'', European Geosciences Union (EGU) General Assembly, Vienna, Austria, April 17-22, 2016.
+\item ``Accelerating Parallel Multilevel Solvers for Stokes Flow with Highly Heterogeneous Viscosity Structure: Localized Incomplete $LDL^T$ Smoothers and GPUs'', European Geosciences Union (EGU) General Assembly, Vienna, Austria, April 17-22, 2016.
 \item ``Co-designing algorithms: Pipelined, Flexible Krylov Subspace Methods and  Accelerated Subdomain Solves''. SeisMIC, Technical University of Ostrava, Czech Republic, February 5, 2016.
 \item ``Co-designing algorithms: Pipelined, Flexible Krylov Subspace Methods and  Accelerated Subdomain Solves''. Computing Sciences Seminar, Lawrence Berkeley Lab, January 12, 2016.
 \item ``Pipelined, Flexible Krylov Subspace Methods and Accelerated Subdomain Smoothing: Attacks on aggressive nested preconditioners for challenging geophysical Stokes flow problems''[minisymposium talk], SIAM Conference on Applied Linear Algebra, Atlanta, Georgia, USA, October 26-30, 2015.
