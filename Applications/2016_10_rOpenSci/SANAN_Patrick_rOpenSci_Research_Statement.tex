@@ -1,27 +1,49 @@
 \documentclass{article}
+\usepackage{hyperref}
+
+\title{rOpenSci: HPC Reproducibility and Intrepretability Proposal}
+\author{Patrick Sanan}
 
 \begin{document}
+\maketitle
 
-\cite{Hoefler2015}
+% Proof by reference here. Add lots of citations for everything
 
-% My vision 
-% - High performance computing is important, but reproducibility is hard
-%  - Presentation is non-standard, people aren't so interested in data analysis
-%   - Presentation of robustness is difficult
-%    - Work on interfaces to numerical libraries
-%     - Work on tools that make it easy to present "interpretable" results.
-%      - This is becoming very important, given the complexity of modern hardware. 
-%       - I would immediately propose to work with NERSc 
-%        - Performance modelling must be included.
-%
-%         - This embarassment is known, but will never be fixed unless it is very, very easy to do the right thing.
-%
-%          - I've done some preliminary stuff like this, in the context of this pipelined solvers project
+High Performance Computing (HPC), also known as ``supercomputing,'' suffers from systemic scientific problems.
 
-% Goals
-% A framework that can be transparently used with common batch systems
-% Graphics which automatically produce the sorts of plots seen in Hoefler's paper
-% ..
+First, the complexity of systems and the lack of standards of performance assessment allow a great deal of ``gaming'' to take place,
+which is encouraged by the general ``publish or perish'' environment in which quantity, novelty, and fundability are valued over 
+scientific quality or usefulness to society.
+
+Second, reproducibility itself is difficult. H\"{o}efler and Belli have proposed a reasonable set of guidelines for a relaxed standard which they term \emph{interpretability}\cite{HoeflerBelli2015} - loosely, the ability to determine if the results presented in a paper can be understood by a reader interested in using or extending them, even if it is impossible to truly reproduce the experiments.
+
+Related to both of these issues is the fact that computational science research is too difficult to produce actually-useful ideas very often. Instead, many publications focus on ``merely'' interesting, speculative, or limited-use techniques, but feel compelled to present these in the best possible light. The title of the H\"{o}fler and Belli paper mentioned above makes playful reference to Georg Hager's seminal blog series on ``Fooling the Masses''\cite{HagerBlog}. The popularity of this series amongst HPC researchers is telling.
+
+My proposal is based on the supposition that researchers do not want to do things this way, but have little choice because of the institutional pressures under which they work. 
+They must produce publications and results, and simply don't have the incentives to make their results intrepretable or reproducible. This is well-recognized in the community, and steps are being taken to encourage reproducibility \cite{SCRepro}.
+
+Software development would center around providing an interface to HPC clusters to make it easy to do the right thing. 
+HPC practitioners typically do not enjoy running things in a cluster environment - jobs must be queued, systems are complex and controlled by other people, and debugging and ``scoping'' are difficult. Thus, most development is done on small, local machines, and later, batch jobs are put together as quickly as possible and run.
+The proposed package which we would distribute would masquerade/double as a convenient way to launch your jobs in a uniform way on both local and remote machines, but would have the ``statistical batteries included''. That is, it should be transparent to run the same job several times (in parallel), it should be simple to gather and plot statistics, and one should be presented with valid metrics by default (time to solution, dof/s, estimate of energy used, etc).
+
+An indispensable component in so-called performance engineering is knowing how well one is exploiting available computational resources. Indeed, it is common usage to use the word ``performance'' to mean ``percentage of available FLOPs used,'' which of course does not line up with the better definition of performance, after Hager: ``useful work per unit time''.
+Monitoring resource usage (memory footprint, FLOP rate, memory bandwidth, cache reuse, etc.) is of course useful, as is points to potential places to look for optimizations and reveals bottlenecks. The process also creates an ethical hazards, as more useful measures of performance (solving ``real'' problems with less computing time, human time, energy, or money) are obscured.
+Related is the need for a good performance model of the tasks being performed, and reliable data about peak performance of machines being used. 
+
+\section*{Goals}
+Goals for the project include
+\begin{itemize}
+  \item The development of a tool to handle submission and processing of batch jobs on local machines, clusters, and supercomputing systems. I have already developed a set of python scripts to accomplish this.
+  \item An extension to these tools to allow the incorporation of performance models.
+    \item A set of R tools to process the output produced by the backend tools, automatically producing statistics and plots designed for interpretability.
+      \item R tools to serve as a frontend for these tools.
+      \item A set of tutorials and demos demonstrating the usage of these tools on common systems.
+      \item A project building on my previous work with communication-hiding numerical methods, using these tools to produce meaningful performance data across several systems.
+      \item In conjunction with the above project, a tutorial on how a resulting paper uses the tools developed (and source as an example).
+      \item Collaborations with HPC and computational science researchers (such as those providing my references) to iterate on providing a truly simple-to-use environment. 
+\end{itemize}
+
+
 
 \bibliography{refs}{}
 \bibliographystyle{plain}
