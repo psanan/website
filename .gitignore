@@ -6,6 +6,7 @@
 *.d
 *.out
 *.make.temp
+*.fdb_latexmk
 
 *.DS_Store
 .*.swp
