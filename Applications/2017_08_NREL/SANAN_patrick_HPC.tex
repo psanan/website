@@ -1,0 +1,61 @@
+\documentclass{letter}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{fullpage}
+
+\signature{Patrick Sanan\\\href{mailto:patrick.sanan@erdw.ethz.ch}{patrick.sanan@erdw.ethz.ch}}
+\address{Department of Earth Sciences\\Institute of Geophysics\\ETH Z\"{u}rich NO H23\\Sonneggstrasse 5\\ 8092 Zurich\\ Switzerland\\}
+\begin{document}
+\begin{letter}{}
+\opening{Dear Hiring Committee,}
+
+I am excited to apply for the ``HPC Complex Systems Algorithms and Software Architecture'' Researcher position within the Complex Systems Simulation and Optimization Group at NREL.
+
+I am an excellent fit to carry out the duties as described, and would be able both the quickly integrate with current projects and help guide the development of new ones.
+The combination of research duties with software development and deep involvement in ongoing application projects is attractive; this combination allows agility on both fronts; more relevant algorithmic research, and more availability of good algorithms in application code.
+
+  My current postdoctoral position is under the auspices of a co-design project funded by PASC, a Swiss supercomputing initiative. It involves bringing recent developments in communication-hiding algorithms and coprocessor-equipped supercomputers to precondition linear solvers in geophysical Stokes flow problems, where these solves constitute a bottleneck. This has allowed me the chance to broaden my experience and interests, based in applied mathematics, to  HPC, general computational science, software design, and geodynamics. I have had the opportunity to attend many conferences, becoming acquainted with a broad range of topics and people around computational science.
+  I first gained by interests in HPC, scalable solvers, and scientific software during a summer internship working with the \textsc{PETSc} team at ANL, and since that time have been a heavy user as well as a contributor to the library.
+  I have contributed to the development of the geodynamics codes \textsc{pTatin3D}\footnote{We are currently preparing version 1.0 for release, projected for September 2017}, built closely on \textsc{PETSc} and \textsc{StagYY}, a bespoke Fortran code, as well as a small-scale ODE solver for planetary evolution.
+
+I care about software design and maintenance, which is crucial for these collaborations. In this spirit I performed extensive editing on the PETSc development and users' manuals, of which I will be a co-author as of version 3.8.
+
+  My recent experience working with the ETH Zurich Geophysical Fluid Dynamics group has proven instructive by allowing me to develop skills relevant to working with large application codes and teams with diverse backgrounds and experience. I introduced version control, easy installation, and basic testing to the group's workhorse \textsc{StagYY} mantle convection code, which has had a positive impact on the productivity of the large team using this code (and now able to more easily contribute to it).
+
+I am interested in being involved in the principled selection and assessment of HPC systems. To this end I am now working with the authors to run the HPGMG benchmark on the recently-upgraded Piz Daint at CSCS \footnote{Incidentally, seeing Peregrine on the HPGMG results page was what led me to the NREL website and the posting for this position.}.
+
+  I have experienced first-hand the joys of frustrations of working with cutting-edge HPC systems. Our work with pipelined, flexible Krylov methods involved a great deal of work to extract and measure performance in highly strong-scaled problems on many thousands of cores using MPI-3 nonblocking reductions, and recent work with GPU-accelerated matrix-free operator/smoother application has allowed direct assessment of MPI-3 shared memory capabilities\footnote{for instance, see the recent presentation at \href{http://www.patricksanan.com/talks/SANAN_patrick_PASC17.pdf}{patricksanan.com/talks/SANAN\_patrick\_PASC17.pdf}}.
+
+
+% Working with accelerators
+
+% Scalable Algorithms
+
+
+My suitability for this position is enhanced by my ``full stack" training and interest, which are quite useful as far as the aspects of this position that involve interfacing mathematicians, physicists, software engineers, domain scientists, etc. I have worked at low levels in both mathematics and programming, I have worked on algorithms, I have worked on application codes, and I understand the unique challenges of each.
+Similarly, my previous experience has given me exposure to the cultures of corporations (General Atomics, Rhythm and Hues), Universities (UCSD, University of Manchester, Caltech, USI Lugano, ETH Zurich), and national labs and computing centers (ANL and frequent interaction with CSCS).
+  My ability to quickly grasp problems and work towards solving them is one that I am keen to apply to new collaborative projects of scientific and societal importance.
+
+  I recognize the inefficiency inherent in algorithmic research without clear usefulness in application, and of engineering and research practice with suboptimal methods (and software). My mission is to use my broad base of skills and interests to improve performance while advancing the state of algorithmic research, forward-looking computing systems, and open/community software.
+
+While my overarching objective is to bring useful mathematical and computation expertise to relevant simulation projects, my own list of research aims includes:
+\begin{itemize}
+\item Continuing to work on scalable flow solvers, particularly continuing to work with scalable, coprocessor- and multicore-enabled preconditioners.
+  \item Extending my work on communication-hiding solvers, in the short term further analyzing the performance of pipelined Krylov methods with nonlinear preconditioners.
+\item Exploring the link between scalable Stokes solvers (a current interest) and Augmented Lagrangian methods (which I used in my thesis work on inversion-free surface parameterization).
+\item Developing composable software components to allow scalable solvers to practically be used on current and future HPC systems, with their increasingly hybrid, heterogeneous, and multi-level processor and memory structures. This would ideally occur with tight collaboration with \textsc{PETSc}.
+\item Extending developments in the above to nonlinear solvers.
+\item Collaborating with application teams to develop extreme-scale application codes.
+\item Working on multi-scale ODE/DAE solvers (a topic I began pursuing at ANL)
+\end{itemize}
+
+ The transition to renewable energy is obviously one of the most relevant tasks of our time.
+The United States has a moral imperative, not to mention an economic and political one, to continue its tradition of technological leadership here.
+As an American, I would be honored to bring my skills and enthusiasm to such a task, which provides an undeniably worthwhile application of my skills, interests, and experience in HPC, mathematics, and software.
+NREL attracts me greatly as I would anticipate that its superlatively important mission would inform high quality research, as it would prioritize complete cooperation and integrity amongst like-minded colleagues working on pressing problems.
+
+\closing{Sincerely,}
+\end{letter}
+\end{document}
