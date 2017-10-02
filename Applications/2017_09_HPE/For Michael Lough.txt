@@ -1,0 +1,69 @@
+Questions for Michael Lough
+
+
+
+9. Where can I fit in? My expertise is on algorithms, and what I  would hope to do is to bring knowledge and interest in these things to help get the big efficiency gains: that is, those involved in choosing the right algorithm and understanding what deviations from algorithmic optimality are being chosen. 
+
+1. Opportunities to work with algorithms, in particular scalable solvers?
+
+1. Opportunities to work with software?
+
+2. Opportunity to work from Zurich?
+
+3. Opportunities to work in the Bay Area?
+
+4. Opportunities to collaborate with academics?
+
+5. Where have people come from and gone to on the team? Relationships with U.S. national labs?
+
+5. Links with Intel?
+
+5. Opportunity to contribute to open source projects (PETSc)?
+
+6. Nature of team?
+
+7. Overall objectives in exascale push?
+
+8. Links to American policy objectives? (defense, energy,..)
+
+Specifics of what the team does:
+- opportunities in algorithms/collaborations to leverage new hardware?
+- consulting?
+- software dev?
+- co-design?
+- application testing?
+
+9. Exascale: a race to the future of HPC white paper:
+
+Michael:
+Big Bid support:
+application support - weather, government agency
+
+What HPE is doing now:
+DOE exascale initiative
+Gen-Z fabric is the thing they're pushing
+ - processor (?) pins with direct connects to the fabric
+ - fabric-attached memory
+ - prototype system exists
+
+ Want application dev people, new approaches to programming
+ Work with people in the DOE labs
+
+ worldwide project, but center of mass is in Colorado and Palo Alto
+ - meetings pretty late
+ - HPC group
+
+ PathForward - till Feb 2020, procurements in between 2010-2023 timeframe. Full system with interconnect. Work with processor and memory vendors.
+
+ Took over SGI last year - they have systems at NASA, NCAR, etc.
+
+ Co-design project has openings:
+  - opening : should I apply
+
+  HP Labs is where Rob works (this is where I might like to work)
+  - more forward-looking
+
+Chat w/ Rob in California!
+- get his slant on things
+
+HP have a site in Grenoble as well! (people in CH)
