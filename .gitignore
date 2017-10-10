@@ -1,5 +1,8 @@
 SANAN_patrick_CV.pdf
 
+#bitbucket.org/psanan/pdsbib
+pds.bib
+
 *.log
 *.make
 *.bbl
@@ -12,6 +15,3 @@ SANAN_patrick_CV.pdf
 
 *.DS_Store
 .*.swp
-
-old
-forRTF
