@@ -1,0 +1,21 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\usepackage{listings}
+\usepackage{natbib}
+\usepackage{bibentry}
+
+\renewcommand{\labelitemi}{$\circ$}
+
+\fancypagestyle{firstpagestyle}{
+  \setlength{\headsep}{0.0in}
+}
+\fancypagestyle{lastpagestyle}{
+  \rfoot{\tiny [Generated \today]}
+}
+\cfoot{\thepage \ / \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\setlength{\headsep}{0.2in}
