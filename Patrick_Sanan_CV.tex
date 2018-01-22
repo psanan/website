@@ -1,0 +1,54 @@
+\input{header.inc.tex}
+
+% For some reason I need this both here and at the end
+\nobibliography{pds}
+
+\begin{document}
+\thispagestyle{firstpagestyle}
+\pagestyle{fancy}
+
+\begin{center}
+\vspace{10px}{\Large Patrick Sanan}\\
+\vspace{10px}
+\input{info.inc.tex}
+\vspace{10pt}
+\framebox{\tiny
+A pdf version of this document, with links, is available at \href{http://www.patricksanan.com/cv.pdf}{patricksanan.com/cv.pdf}
+}
+\end{center}
+
+\section*{Education}
+\input{education.inc.tex}
+
+\section*{Publications and Preprints}
+\input{publications.inc.tex}
+
+\section*{Posters}
+\input{posters.inc.tex}
+
+\section*{Selected Talks and Presentations}
+\input{talks.inc.tex}
+
+%\section*{Selected Software Contributions}
+%\input{software,inc.tex}
+\section*{Audiovisual Installations}
+\input{av.inc.tex}
+
+\section*{Honors}
+\input{honors.inc.tex}
+
+\section*{Computer Skills}
+\input{computer.inc.tex}
+
+\section*{Teaching Experience}
+\input{teaching.inc.tex}
+
+\section*{Employment}
+\input{employment.inc.tex}
+
+\thispagestyle{lastpagestyle}
+
+\bibliographystyle{plain}
+\nobibliography{pds}
+
+\end{document}

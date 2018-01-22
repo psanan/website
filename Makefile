@@ -1,36 +1,50 @@
 PDFS =  \
-				SANAN_Patrick_CV.pdf \
-				SANAN_Patrick_publications_list.pdf
+				Patrick_Sanan_CV.pdf \
+				Patrick_Sanan_Resume.pdf \
+				Patrick_Sanan_publications_list.pdf
 
 BIBFILES = pds.bib
 
-# any plots to be generated with python scripts of the same name
-PLOT_PDFS=
-
 PDFLATEX=pdflatex --halt-on-error
 BIBTEX=bibtex
-PYTHON3=python3
 
 all : $(PDFS)
 
-plots : $(PLOT_PDFS)
-
-%.pdf : %.tex $(BIBFILES) plots
+# Usual pdfs (w/ bibtex)
+%.pdf : %.tex $(BIBFILES)
 	$(PDFLATEX) $<
 	$(BIBTEX) $(<:.tex=)
 	$(PDFLATEX) $<
 	$(PDFLATEX) $<
 
-images/%.pdf : images/%.py
-	$(PYTHON3) $<
-	mv $(@:images/%=%) images
+# Simple pdfs (no bibtex)
+Patrick_Sanan_Resume.pdf : Patrick_Sanan_Resume.tex
+	$(PDFLATEX) $<
+	$(PDFLATEX) $<
 
-# Keep the intermediate images
-.SECONDARY : $(PLOT_PDFS)
+# Inclusion dependencies (ugly, would be better to automate somehow)
+# Broken??
+Patrick_Sanan_CV.tex : \
+	av.inc.tex \
+	computer.inc.tex \
+	education.inc.tex \
+	employment.inc.tex \
+	honors.inc.tex \
+	info.inc.tex \
+	posters.inc.tex \
+	software.inc.tex \
+	talks.inc.tex \
+	teaching.inc.tex
+
+Patrick_Sanan_Resume.tex : \
+	education.inc.tex \
+	employment.inc.tex \
+	info.inc.tex \
+	interests.inc.tex
 
 # Remove intermediate files
 clean :
 	rm -f *.aux *.log *.bbl *.blg *-blx.bib *.nav *.snm *.toc *.vrb *.run.xml *.out *.spl *.fls *.fdb_latexmk
-	rm -f $(PDFS) $(PLOT_PDFS)
+	rm -f $(PDFS)
 
-.PHONY : all clean plots
+.PHONY : all clean

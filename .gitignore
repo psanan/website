@@ -1,4 +1,6 @@
-SANAN_patrick_CV.pdf
+Patrick_Sanan_CV.pdf
+Patrick_Sanan_Resume.pdf
+Patrick_Sanan_publications_list.pdf
 
 #bitbucket.org/psanan/pdsbib
 pds.bib
@@ -6,6 +8,7 @@ pds.bib
 *.log
 *.make
 *.bbl
+*.blg
 *.aux
 *.fls
 *.d
