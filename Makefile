@@ -1,3 +1,5 @@
+# Note: in most cases it's easier to use latexmk
+
 PDFS =  \
 				Patrick_Sanan_CV.pdf \
 				Patrick_Sanan_Resume.pdf \
@@ -22,9 +24,8 @@ Patrick_Sanan_Resume.pdf : Patrick_Sanan_Resume.tex
 	$(PDFLATEX) $<
 	$(PDFLATEX) $<
 
-# Inclusion dependencies (ugly, would be better to automate somehow)
-# Broken??
-Patrick_Sanan_CV.tex : \
+# Inclusion dependencies
+Patrick_Sanan_CV.pdf : \
 	av.inc.tex \
 	computer.inc.tex \
 	education.inc.tex \
@@ -36,7 +37,7 @@ Patrick_Sanan_CV.tex : \
 	talks.inc.tex \
 	teaching.inc.tex
 
-Patrick_Sanan_Resume.tex : \
+Patrick_Sanan_Resume.pdf : \
 	education.inc.tex \
 	employment.inc.tex \
 	info.inc.tex \
