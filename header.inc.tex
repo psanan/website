@@ -23,3 +23,9 @@
 \renewcommand{\footrulewidth}{0.5pt}
 \setlength{\headsep}{0.2in}
 
+\newenvironment{tightitemize}
+{ \begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt} }
+{ \end{itemize} }
