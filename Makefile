@@ -9,6 +9,10 @@ LATEXMK = latexmk
 
 all : ${PDFS}
 
+bib/pds.bib :
+	git submodule init
+	git submodule update
+
 %.pdf : %.tex ${BIBFILES}
 	${LATEXMK} ${@:.pdf=}
 
