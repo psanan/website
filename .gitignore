@@ -2,19 +2,32 @@ Patrick_Sanan_CV.pdf
 Patrick_Sanan_Resume.pdf
 Patrick_Sanan_publications_list.pdf
 
-#bitbucket.org/psanan/pdsbib
-pds.bib
-
-*.log
-*.make
+# LaTeX / Beamer
+*.toc
 *.bbl
 *.blg
 *.aux
-*.fls
-*.d
+*.log
+*.nav
+*.snm
 *.out
-*.make.temp
+*.fls
+*.temp
+*.vrb
+*-blx.bib
+*.run.xml
+*.synctex.gz
+*.bcf
+
+# latexmk
 *.fdb_latexmk
 
-*.DS_Store
-.*.swp
+# Python
+*.pyc
+__pycache__
+
+# OS X
+.DS_Store
+
+# Vim
+.*.sw[omp]
