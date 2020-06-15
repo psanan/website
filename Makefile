@@ -1,5 +1,3 @@
-# Note: see latexmkrc, which specifies which files to compile
-
 LATEXMK = latexmk
 
 all : bib/pds.bib
