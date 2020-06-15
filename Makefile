@@ -1,9 +1,9 @@
+# Note: see latexmkrc, which specifies which files to compile
+
 LATEXMK = latexmk
 
 all : bib/pds.bib
-	${LATEXMK} Patrick_Sanan_CV
-	${LATEXMK} Patrick_Sanan_Resume
-	${LATEXMK} Patrick_Sanan_publications_list
+	${LATEXMK}
 
 bib/pds.bib :
 	git submodule init

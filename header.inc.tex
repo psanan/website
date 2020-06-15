@@ -29,3 +29,9 @@
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt} }
 { \end{itemize} }
+
+\newcommand{\headerline}[3]{%
+  \par\medskip\noindent
+  \makebox[0pt][l]{#1}%
+  \makebox[\textwidth][c]{#2}%
+  \makebox[0pt][r]{\texttt{#3}}\par\medskip}
