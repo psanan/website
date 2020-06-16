@@ -1,13 +1,11 @@
-LATEXMK = latexmk
-
 all : bib/pds.bib
-	${LATEXMK}
+	latexmk
 
 bib/pds.bib :
 	git submodule init
 	git submodule update
 
 clean :
-	${LATEXMK} -C
+	 latexmk -C
 
 .PHONY : all clean

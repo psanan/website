@@ -54,7 +54,7 @@
 %                    \arabic{page}                               % -LP
                     \hfill \,}}
 
-\usepackage{color,hyperref}
+\usepackage{xcolor,hyperref}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.3}
 \hypersetup{colorlinks,breaklinks,
             linkcolor=darkblue,urlcolor=darkblue,
@@ -101,15 +101,14 @@
     \fixendlist{loneinnerlist}
     \fixinnerlist{loneinnerlist}
 
-\newcommand{\blankline}{\quad\pagebreak[3]}
-\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
 
 \usepackage{doi}
 \usepackage{url}
 
 \urlstyle{same}
-\providecommand*\emaillink[1]{\nolinkurl{#1}}
-\providecommand*\email[1]{\href{mailto:#1}{\emaillink{#1}}}
+
+\definecolor{dimmedgrey}{rgb}{0.5,0.5,0.5}
+\newcommand{\dimmed}[1]{\textcolor{dimmedgrey}{#1}}
 
 \begin{document}
 
@@ -120,19 +119,19 @@
 \rule{\columnwidth}{1.2pt}
 \end{minipage}}
 
-
+\begin{minipage}{0.75\textwidth}
 \section{Contact}
-\begin{minipage}{0.4\textwidth}
-Institute of  Geophysics\\ Sonneggstrasse 5\\ ETH Zurich, NO H 23\\ 8092 Zurich, Switzerland
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.49\textwidth}
 \href{mailto:patrick.sanan@gmail.com}{patrick.sanan@gmail.com} \\
 \href{https://patricksanan.com}{patricksanan.com}\\
-+41 44 632 02 44 (office)\\
-+41 77 485 17 96 (mobile)\\
++41 77 485 17 96 \dimmed{(mobile)}\\
++41 44 632 02 44 \dimmed{(office)}
 \end{minipage}
-\begin{minipage}{0.14\textwidth}
-  \includegraphics[width=\textwidth]{portrait.jpg}
+\begin{minipage}{0.5\textwidth}
+Institute of  Geophysics\\
+Sonneggstrasse 5\\
+ETH Zurich, NO H 23\\
+8092 Zurich, Switzerland
 \end{minipage}
 
 \section{Citizenship}
@@ -140,7 +139,13 @@ Ireland, United States
 \vspace{-0.6cm}
 
 \section{Languages}
-English (native), German (B2)
+English \dimmed{(native)}, German \dimmed{(B2)}
+
+\end{minipage}
+\begin{minipage}{0.25\textwidth}
+  \includegraphics[width=\textwidth]{portrait.jpg}
+\end{minipage}
+
 
  {\hspace*{-\marginparsep minus \marginparwidth}%
 \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
@@ -155,7 +160,7 @@ English (native), German (B2)
 \vspace{0.2cm}
 
 \section{Technical Skills}
-\textbf{Very experienced}: C, C++, Python, Fortran, Git, \LaTeX, Unix shell scripting, OS X, MPI, MATLAB, Mathematica
+\textbf{Very experienced}: C, C++, Python, Fortran, Git, \LaTeX, Unix shell scripting, MPI, MATLAB, Mathematica
 \textbf{Significant exposure}: HPC systems, CUDA, OpenMP, Julia
 %\textbf{HPC Systems}: Cray \\
 %\textbf{Animation/FX Software} : Houdini \\
@@ -166,9 +171,7 @@ English (native), German (B2)
 
 \section{Professional Experience}
 
-\textbf{Postdoctoral Researcher},
-\href{https://ethz.ch}{ETH Zurich}
-\hfill {November 2017--Present}\\
+\textbf{Postdoctoral Researcher}, ETH Zurich \hfill {November 2017--Present}\\
 PASC \textsc{StagBL} Software Development Project \\
 Geophysical Fluid Dynamics Group, Institute of Geophysics, Department of Earth Sciences, ETH Zurich \\
 PI: Paul J. Tackley \\
@@ -177,12 +180,17 @@ PI: Paul J. Tackley \\
 \item
 \end{innerlist}
 
-\noindent October 2017 : \textbf{Postdoctoral Researcher}\\
+\textbf{Postdoctoral Researcher},
+ETH Zurich
+\hfill {October 2017}\\
 \textsc{SALVUS} Project\\
 Computational Seismology Group, Institute of Geophysics, Department of Earth Sciences, ETH Zurich, Zurich, Switzerland \\
 PI: Andreas Fichtner \\
 
-\noindent June 2014-September 2017 : \textbf{Postdoctoral Researcher} \\
+
+\textbf{Postdoctoral Researcher},
+Universit\'{a} della Svizzera italiana (USI)
+\hfill {June 2014--September 2017} \\
 \href{http://www.pasc-ch.org/projects/projects/geopc/}{PASC GeoPC Co-Design Project} \\
 Universit\`{a} della Svizzera italiana (USI), Lugano, Switzerland \\
 ETH Zurich, Zurich, Switzerland \\
@@ -191,69 +199,73 @@ Advisors: Olaf Schenk (USI), Dave A. May (ETH Zurich) \\
 % Description:
 % Research and implement large-scale, parallel, communication-avoiding and GPU-accelerated operators and multigrid smoothers for large-scale Stokes flow.
 
-\noindent Summer 2013 : \textbf{Givens Scholar} (PhD Detached Study) \\
-\href{http://www.mcs.anl.gov}{MCS Division, Argonne National Laboratory}, Lemont, IL, United States \\
+\textbf{Givens Scholar} %(PhD Detached Study),
+\href{http://www.mcs.anl.gov}{MCS Division, Argonne National Laboratory}, Lemont, IL, United States
+\hfill {Summer 2013}\\
 Supervisor: Jed Brown \\
 % Description:
 % Summer research position in the MCS division, investigating multiscale integrators in PETSc.
 
-\noindent Summer 2012 : \textbf{Software Engineering Intern} (PhD Detached Study)\\
-\href{http://www.rhythm.com}{Rhythm and Hues Studios},
+\textbf{Software Engineering Intern} %(PhD Detached Study),
+\href{http://www.rhythm.com}{Rhythm and Hues Studios}
+\hfill {Summer 2012}\\
 El Segundo, CA, United States \\
 % Description:
 % Worked with the software engineering team at an award-winning (Babe, Life of Pi, etc.) graphics studio. Researched and implemented surface parameterization algorithms.
 
-\noindent Fall-Spring 2008-2013 : \textbf{Teaching Assistant and Instructor}\\
-Applied and Computational Mathematics, Caltech\\
+\textbf{Teaching Assistant and Instructor},
+Caltech
+\hfill {Fall-Spring 2008-2013\\
+Applied and Computational Mathematics, Caltech
 % Served as instructor for a course on MATLAB/Mathematica, and served as Teaching Assistant for many courses.
 
-\noindent Summer 2005 : \textbf{Grader}\\
+\textbf{Grader}
+\hfill {Summer 2005}\\
  MAE 101B: Advanced Fluid Dynamics, UCSD\\
 
-\noindent Fall 2004 : \textbf{Tutor}\\
+\textbf{Tutor}
+\hfill {Fall 2004}\\
  MAE 3: Introduction to Design and Graphics, UCSD\\
 
-\noindent Summer 2004 : \textbf{Mechanical Engineering Intern}\\
-General Atomics Lynx Systems, San Diego, CA, United States\\
+\textbf{Mechanical Engineering Intern},
+General Atomics Lynx Systems
+ \hfill {Summer 2004}\\
+San Diego, CA, United States
 % Description:
 % CAD design and analysis for synthetic aperture radar.
 
-\noindent Part time 2000-2001 : \textbf{Sales Clerk}\\
+\textbf{Sales Clerk} (part time) \hfill {2000-2001}\\
 Longs Drugs, Walnut Creek, CA, United States
 % Cashier, stocking, customer service, ice cream scooping.
 
 \section{Education}
 
 \textbf{Ph.D. Applied and Computational Mathematics},
-\href{https://caltech.edu}{California Institute of Technology}
+\href{https://caltech.edu}{California Institute of Technology (Caltech)}
 \hfill {2013}
 
-\vspace{0.1cm}
-
-\textbf{MusM. Electroacoustic Music Composition},
+\vspace{0.2cm}
+\textbf{MusM Electroacoustic Music Composition},
 \href{https://www.manchester.ac.uk/}{University of Manchester}
 \hfill {2007}\\
 With Distinction
 
-\vspace{0.1cm}
-
+\vspace{0.2cm}
 \textbf{B.S. Aerospace Engineering}\\
 \textbf{B.A. Math-Applied Science}
-\href{https://ucsd.edu}{University of California, San Diego (UCSD)}
-\hfill {2006}
+\href{https://ucsd.edu}{University of California, San Diego (UCSD)} \hfill {2006}\\
 Minor: Music \\
 %La Jolla, California, United States\\
 Summa Cum Laude\\
 %GPA: 3.95, 3.98 Major
 %GPA: 3.95 Cum., 3.98 Major, 3.99 last two years, 3.98 upper div\\
 
-\vspace{0.1cm}
-
-\textbf{Diploma}
-\href{https://www.acalanes.k12.ca.us/laslomas}{Las Lomas High School}
-\hfill{2002}
-%Walnut Creek, California, United States
-%GPA: 4.5, Graduation with Honors
+%\vspace{0.1cm}
+%\textbf{Diploma}
+%\href{https://www.acalanes.k12.ca.us/laslomas}{Las Lomas High School}
+%\hfill{2002}
+%%Walnut Creek, California, United States
+%%GPA: 4.5, Graduation with Honors
 
 \section{Software}
 \begin{innerlist}
@@ -405,29 +417,29 @@ Regents Scholar, UCSD
 %Provost's Honors List  - Revelle College, UCSD (all terms)
 %2001 Eagle Scout, Boy Scouts of America
 
-\section{Posters}
-\begin{innerlist}
-  \item Patrick Sanan, ``StagBL: A Modern Discretization and Solver Library for Geodynamics'', Ada Lovelace Workshop, Siena, Italy, August 25-30, 2019.
-  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', SIAM Conference on Parallel Processing for Scientific Computing, Tokyo, Japan, March 7-10, 2018.
-  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', Swiss Geocomputing Center Kickoff Meeting, Lausanne, Switzerland, October 15-17, 2018.
-  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', GeoMod 2018, Barcelona, Spain, October 1-4, 2018.
-  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', PASC 18, Basel, Switzerland, July 2-4, 2018.
-  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May, ``\textsc{StagBL}: A Parallel Solver and Discretization Library for Geodynamic Simulation on Staggered Grids'', EGU General Assembly, Vienna, Austria, April 23-28, 2018.
-\item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``StagBL: A Scalable, Portable, High-Performance Discretization and Solver Layer for Geodynamic Simulation'', AGU Fall Meeting, December 11-15, 2017, New Orleans, United States.
-\item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``StagBL: A Scalable, Portable, High-Performance Discretization and Solver Layer for Geodynamic Simulation'', Swiss Geoscience Meeting, November 17-18, 2017, Davos, Switzerland.
-\item Patrick Sanan, Dave A. May, Olaf Schenk, Matthias Bollh\"{o}fer, ``Techniques and Software for Monolithic Preconditioning of Moderately-sized Geodynamic Stokes Flow Problems'', EGU General Assembly, April 23-28, 2017, Vienna, Austria.
-\item Patrick Sanan, Olaf Schenk, Dave May, Matthias Bollh\"{o}fer, Karl Rupp, ``Advancing Parallel Multigrid Solvers for Highly Heterogeneous Viscosity Stokes Flow Structure through Localized Incomplete $LDL^T$ Smoothers'' , SIAM Conference on Parallel Processing 2016, April 12-15, Paris, France.
-\item Patrick Sanan, ``Pipelined, Flexible Krylov Methods''[poster, lightning talk], PETSc-20 Conference, June 15-18, Argonne National Laboratory, United States.
-\item Patrick Sanan, Dave A. May, Olaf Schenk, Karl Rupp, ``Aggressive Local Smoothing on Accelerators for Stokes Flow'', PASC 2015, June 1-3, Zurich, Switzerland.
-\item Sascha M. Schnepp, Patrick Sanan, Dave A. May, ``Pipelined Flexible Krylov Subspace Methods for Large-Scale Computing'', PASC 2015, Zurich, Switzerland.
-\item Patrick Sanan, ``Aggressive Accelerator-enabled Local Smoothing via Incomplete Factorization, with Applications'', HPCSE 2015, May 25-28, Ostrava, Czech Republic.
-\item Patrick Sanan, Sascha M. Schnepp, Dave A. May, ``Pipelined, Flexible Krylov Subspace Methods'', EGU General Assembly, April 13-17, 2015, Vienna, Austria
-\item Patrick Sanan, ``Fine-Grained ILU Methods for Aggressive Smoothing in Stokes Preconditioners'', Sparse Solvers for Exascale Workshop, March 23-25, 2015, Greifswald, Germany
-\item Patrick Sanan, Sascha M. Schnepp, Dave A. May, Olaf Schenk, ``Exploring Solver Space for Stokes Flow with Highly Heterogeneous Viscosity Structure'', AGU Fall Meeting 2014, December 15-19, San Francisco, California, United States
-\item Patrick Sanan, ``Exploring Solver Space for Stokes Flow with Highly Heterogeneous Viscosity Structure'', International Symposium on Post-Petascale System Software (ISP2S2), December 2-4, 2014, Kobe, Japan
-\item Patrick Sanan, ``Geometric Elasticity with Applications to Surface Parameterization'', Google LAX PhD Summit 2013 (best poster)
-\item Patrick Sanan, ``Sound Synthesis with Nonlinear Elastodynamics and Fully Variational Integrators", International Computer Music Conference 2011 .
-\end{innerlist}
+%\section{Posters}
+%\begin{innerlist}
+%  \item Patrick Sanan, ``StagBL: A Modern Discretization and Solver Library for Geodynamics'', Ada Lovelace Workshop, Siena, Italy, August 25-30, 2019.
+%  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', SIAM Conference on Parallel Processing for Scientific Computing, Tokyo, Japan, March 7-10, 2018.
+%  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', Swiss Geocomputing Center Kickoff Meeting, Lausanne, Switzerland, October 15-17, 2018.
+%  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', GeoMod 2018, Barcelona, Spain, October 1-4, 2018.
+%  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', PASC 18, Basel, Switzerland, July 2-4, 2018.
+%  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May, ``\textsc{StagBL}: A Parallel Solver and Discretization Library for Geodynamic Simulation on Staggered Grids'', EGU General Assembly, Vienna, Austria, April 23-28, 2018.
+%\item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``StagBL: A Scalable, Portable, High-Performance Discretization and Solver Layer for Geodynamic Simulation'', AGU Fall Meeting, December 11-15, 2017, New Orleans, United States.
+%\item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``StagBL: A Scalable, Portable, High-Performance Discretization and Solver Layer for Geodynamic Simulation'', Swiss Geoscience Meeting, November 17-18, 2017, Davos, Switzerland.
+%\item Patrick Sanan, Dave A. May, Olaf Schenk, Matthias Bollh\"{o}fer, ``Techniques and Software for Monolithic Preconditioning of Moderately-sized Geodynamic Stokes Flow Problems'', EGU General Assembly, April 23-28, 2017, Vienna, Austria.
+%\item Patrick Sanan, Olaf Schenk, Dave May, Matthias Bollh\"{o}fer, Karl Rupp, ``Advancing Parallel Multigrid Solvers for Highly Heterogeneous Viscosity Stokes Flow Structure through Localized Incomplete $LDL^T$ Smoothers'' , SIAM Conference on Parallel Processing 2016, April 12-15, Paris, France.
+%\item Patrick Sanan, ``Pipelined, Flexible Krylov Methods''[poster, lightning talk], PETSc-20 Conference, June 15-18, Argonne National Laboratory, United States.
+%\item Patrick Sanan, Dave A. May, Olaf Schenk, Karl Rupp, ``Aggressive Local Smoothing on Accelerators for Stokes Flow'', PASC 2015, June 1-3, Zurich, Switzerland.
+%\item Sascha M. Schnepp, Patrick Sanan, Dave A. May, ``Pipelined Flexible Krylov Subspace Methods for Large-Scale Computing'', PASC 2015, Zurich, Switzerland.
+%\item Patrick Sanan, ``Aggressive Accelerator-enabled Local Smoothing via Incomplete Factorization, with Applications'', HPCSE 2015, May 25-28, Ostrava, Czech Republic.
+%\item Patrick Sanan, Sascha M. Schnepp, Dave A. May, ``Pipelined, Flexible Krylov Subspace Methods'', EGU General Assembly, April 13-17, 2015, Vienna, Austria
+%\item Patrick Sanan, ``Fine-Grained ILU Methods for Aggressive Smoothing in Stokes Preconditioners'', Sparse Solvers for Exascale Workshop, March 23-25, 2015, Greifswald, Germany
+%\item Patrick Sanan, Sascha M. Schnepp, Dave A. May, Olaf Schenk, ``Exploring Solver Space for Stokes Flow with Highly Heterogeneous Viscosity Structure'', AGU Fall Meeting 2014, December 15-19, San Francisco, California, United States
+%\item Patrick Sanan, ``Exploring Solver Space for Stokes Flow with Highly Heterogeneous Viscosity Structure'', International Symposium on Post-Petascale System Software (ISP2S2), December 2-4, 2014, Kobe, Japan
+%\item Patrick Sanan, ``Geometric Elasticity with Applications to Surface Parameterization'', Google LAX PhD Summit 2013 (best poster)
+%\item Patrick Sanan, ``Sound Synthesis with Nonlinear Elastodynamics and Fully Variational Integrators", International Computer Music Conference 2011 .
+%\end{innerlist}
 
 
 \section{Publications}
