@@ -6,6 +6,11 @@
 \usepackage[shortcuts]{extdash}
 \usepackage{graphicx}
 
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{doi}
+\usepackage{bibentry}
+
 \reversemarginpar
 
 \usepackage[paper=letterpaper,
@@ -18,27 +23,6 @@
 \setlength{\parindent}{0in}
 
 \usepackage[shortlabels]{enumitem}
-
-%\makeatletter
-%\newlength{\bibhang}
-%\setlength{\bibhang}{0em}
-%\newlength{\bibsep}
-% {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
-%\newlist{bibsection}{itemize}{3}
-%\setlist[bibsection]{label=,leftmargin=\bibhang,%
-%        itemindent=-\bibhang,
-%        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
-%        topsep=0pt}
-%\newlist{bibenum}{enumerate}{3}
-%\setlist[bibenum]{label=[\arabic*],resume,leftmargin={\bibhang+\widthof{[999]}},%
-%        itemindent=-\bibhang,
-%        itemsep=0.05in,parsep=\z@,partopsep=0pt,
-%        topsep=0pt}
-%\let\oldendbibenum\endbibenum
-%\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
-%\let\oldendbibsection\endbibsection
-%\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
-%\makeatother
 
 \usepackage{fancyhdr,lastpage}
 \pagestyle{fancy}
@@ -54,7 +38,7 @@
 %                    \arabic{page}                               % -LP
                     \hfill \,}}
 
-\usepackage{xcolor,hyperref}
+\usepackage{xcolor}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.3}
 \hypersetup{colorlinks,breaklinks,
             linkcolor=darkblue,urlcolor=darkblue,
@@ -102,7 +86,6 @@
     \fixinnerlist{loneinnerlist}
 
 
-\usepackage{doi}
 \usepackage{url}
 
 \urlstyle{same}
@@ -157,11 +140,14 @@ English \dimmed{(native)}, German \dimmed{(B2)}
 
 \section{Profile}
 
+Applied mathematician, computational scientist, and software developer. Scientific software, scalable algorithms, high performance computing, linear algebra, numerical PDEs, computational earth science, sound and music generation.
+
+
 \vspace{0.2cm}
 
 \section{Technical Skills}
-\textbf{Very experienced}: C, C++, Python, Fortran, Git, \LaTeX, Unix shell scripting, MPI, MATLAB, Mathematica
-\textbf{Significant exposure}: HPC systems, CUDA, OpenMP, Julia
+\textbf{Very experienced}: C, C++, Python, Fortran, Git, \LaTeX, Unix shell scripting, MPI, MATLAB, Mathematica\\
+\textbf{Significant exposure}: CUDA, Cray systems, OpenMP, Julia
 %\textbf{HPC Systems}: Cray \\
 %\textbf{Animation/FX Software} : Houdini \\
 %\textbf{CAD Software}: Pro/Engineer, AutoCAD, Inventor\\
@@ -171,61 +157,57 @@ English \dimmed{(native)}, German \dimmed{(B2)}
 
 \section{Professional Experience}
 
-\textbf{Postdoctoral Researcher}, ETH Zurich \hfill {November 2017--Present}\\
+\textbf{Postdoctoral Researcher},
+ETH Zurich
+\hfill {November 2017--Present}\\
 PASC \textsc{StagBL} Software Development Project \\
-Geophysical Fluid Dynamics Group, Institute of Geophysics, Department of Earth Sciences, ETH Zurich \\
+\href{https://gfd.ethz.ch/}{Geophysical Fluid Dynamics Group},
 PI: Paul J. Tackley \\
-\begin{innerlist}
-\item
-\item
-\end{innerlist}
 
 \textbf{Postdoctoral Researcher},
 ETH Zurich
 \hfill {October 2017}\\
 \textsc{SALVUS} Project\\
-Computational Seismology Group, Institute of Geophysics, Department of Earth Sciences, ETH Zurich, Zurich, Switzerland \\
+\href{https://geophysics.ethz.ch/research/groups/swp.html}{Seismology and Wave Physics Group},
 PI: Andreas Fichtner \\
-
+% 1-month interstitial appointment, performing initial investigations into accelerating use of \PETc{}'s \texttt{DMPlex} within \textsc{SALVUS}.
 
 \textbf{Postdoctoral Researcher},
 Universit\'{a} della Svizzera italiana (USI)
 \hfill {June 2014--September 2017} \\
 \href{http://www.pasc-ch.org/projects/projects/geopc/}{PASC GeoPC Co-Design Project} \\
-Universit\`{a} della Svizzera italiana (USI), Lugano, Switzerland \\
-ETH Zurich, Zurich, Switzerland \\
 PI: Paul J. Tackley (ETH Zurich) \\
 Advisors: Olaf Schenk (USI), Dave A. May (ETH Zurich) \\
-% Description:
 % Research and implement large-scale, parallel, communication-avoiding and GPU-accelerated operators and multigrid smoothers for large-scale Stokes flow.
 
-\textbf{Givens Scholar} %(PhD Detached Study),
+\textbf{Givens Scholar}
 \href{http://www.mcs.anl.gov}{MCS Division, Argonne National Laboratory}, Lemont, IL, United States
 \hfill {Summer 2013}\\
 Supervisor: Jed Brown \\
-% Description:
 % Summer research position in the MCS division, investigating multiscale integrators in PETSc.
 
-\textbf{Software Engineering Intern} %(PhD Detached Study),
+\textbf{Software Engineering Intern}
 \href{http://www.rhythm.com}{Rhythm and Hues Studios}
 \hfill {Summer 2012}\\
 El Segundo, CA, United States \\
-% Description:
 % Worked with the software engineering team at an award-winning (Babe, Life of Pi, etc.) graphics studio. Researched and implemented surface parameterization algorithms.
 
 \textbf{Teaching Assistant and Instructor},
 Caltech
 \hfill {Fall-Spring 2008-2013\\
-Applied and Computational Mathematics, Caltech
+Applied and Computational Mathematics, Caltech \\
 % Served as instructor for a course on MATLAB/Mathematica, and served as Teaching Assistant for many courses.
 
-\textbf{Grader}
-\hfill {Summer 2005}\\
- MAE 101B: Advanced Fluid Dynamics, UCSD\\
-
-\textbf{Tutor}
-\hfill {Fall 2004}\\
- MAE 3: Introduction to Design and Graphics, UCSD\\
+\textbf{Grader and Tutor},
+UCSD
+\hfill{Fall 2004, Summer 2005}\\
+%\textbf{Grader}
+%\hfill {Summer 2005}\\
+% MAE 101B: Advanced Fluid Dynamics, UCSD\\
+%
+%\textbf{Tutor}
+%\hfill {Fall 2004}\\
+% MAE 3: Introduction to Design and Graphics, UCSD\\
 
 \textbf{Mechanical Engineering Intern},
 General Atomics Lynx Systems
@@ -234,8 +216,8 @@ San Diego, CA, United States
 % Description:
 % CAD design and analysis for synthetic aperture radar.
 
-\textbf{Sales Clerk} (part time) \hfill {2000-2001}\\
-Longs Drugs, Walnut Creek, CA, United States
+\textbf{Sales Clerk}, Long Drugs \hfill {part time 2000-2001}\\
+Walnut Creek, CA, United States
 % Cashier, stocking, customer service, ice cream scooping.
 
 \section{Education}
@@ -278,13 +260,13 @@ Summa Cum Laude\\
 \item \textsc{SciATH}..
 \item \textsc{StagBL} \href{https://github.com/stagbl/stagbl}{github.com/stagbl/stagbl}
 \item \textsc{pTatin3D} \href{https://bitbucket.org/ptatin/ptatin3d}{bitbucket.org/ptatin/ptatin3d}
-\item \textsc{StagYY}  maintainer \cite{JainEtAl2019,BolraoEtAl2020}
-\item \textsc{SPIDER} \cite{BowerSananWolf2018,BolraoEtAl2020}
+\item \textsc{StagYY}  maintainer %\cite{JainEtAl2019,BolraoEtAl2020}
+\item \textsc{SPIDER} %\cite{BowerSananWolf2018,BolraoEtAl2020}
 \end{innerlist}
 
 
 \section{Selected Talks}
-\begin{innerlist}
+\begin{outerlist}
     %\item ``\textsc{StagBL}: A Scalable, Portable, High-Performance Discretization and Solver Layer for Geodynamic Simulation'', with Paul J. Tackley, PASC Review, January 15, Universit\`{a} della Svizzera italiana, Lugano, Switzerland
   \item  ``Staggered Grid Abstractions for Scalable Solvers'', FOALAB Group Meeting, University of Oxford, October 18, 2019.
 \item ``\textsc{StagYY} and \textsc{StagBL}: Developing Tools for Large-Scale Geodynamic Simulations Using Staggered-Grid Discretisation on Hybrid Architectures'', PASC 19 Conference, ETH Zurich, Zurich, Switzerland, June 12-14, 2019.
@@ -313,7 +295,7 @@ Summa Cum Laude\\
 \item ``Towards Aggressive, Accelerated Multigrid Smoothing''[invited talk], ASE Seminar, University of Tokyo, Tokyo, Japan, October 16, 2015.
 \item ``Pipelined, Flexible Krylov Subspace Methods''[invited talk], IWACOM-III, Tokyo, Japan, October 12-14, 2015.
 \item ``Using Julia on a Cray Supercomputer''[lightning talk], Juliacon 2015, MIT, Boston, Massachusetts, USA, June 24-27, 2015. [\href{https://www.youtube.com/watch?v=NwyKz2KLdtY}{video online}]
-\end{innerlist}
+\end{outerlist}
 
 \section{Audiovisual Installations}
 2010 - Pondlife III (S.LOW Projekt, Berlin. With Sam Salem) {\href{http://vimeo.com/14878086}{[video online]}}\\
@@ -418,7 +400,7 @@ Regents Scholar, UCSD
 %2001 Eagle Scout, Boy Scouts of America
 
 %\section{Posters}
-%\begin{innerlist}
+%\begin{outerlist}
 %  \item Patrick Sanan, ``StagBL: A Modern Discretization and Solver Library for Geodynamics'', Ada Lovelace Workshop, Siena, Italy, August 25-30, 2019.
 %  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', SIAM Conference on Parallel Processing for Scientific Computing, Tokyo, Japan, March 7-10, 2018.
 %  \item Patrick Sanan, Paul J. Tackley, Taras Gerya, Boris J.P. Kaus, Dave A. May,``\textsc{StagBL}: A scalable, portable, high-performance discretization and solver layer for geodynamic simulation'', Swiss Geocomputing Center Kickoff Meeting, Lausanne, Switzerland, October 15-17, 2018.
@@ -439,36 +421,37 @@ Regents Scholar, UCSD
 %\item Patrick Sanan, ``Exploring Solver Space for Stokes Flow with Highly Heterogeneous Viscosity Structure'', International Symposium on Post-Petascale System Software (ISP2S2), December 2-4, 2014, Kobe, Japan
 %\item Patrick Sanan, ``Geometric Elasticity with Applications to Surface Parameterization'', Google LAX PhD Summit 2013 (best poster)
 %\item Patrick Sanan, ``Sound Synthesis with Nonlinear Elastodynamics and Fully Variational Integrators", International Computer Music Conference 2011 .
-%\end{innerlist}
+%\end{outerlist}
 
 
 \section{Publications}
+\bibliographystyle{plainnat}
+\nobibliography{pds/bib}
+\begin{outerlist}
 % Want SananMay2020 SciATH preprint here!!
 % Want SananEtAl DMStag preprint here!!
 % SananTurner2019 resub ?
 % RibeEtAl Nature Geoscience submitted?
 % RibeSananTackley2020 submitted
-\nocite{BolraoEtAl2020} % preprint
-\nocite{SananMayBollhoeferSchenk2020} % preprint
-\nocite{MorganSananKnepleyMills2020} % As of 2020.06, to appear
-\nocite{BowerEtAl2019}
-\nocite{JainEtAl2019}
-\nocite{KrugerSananSmith2018}
-\nocite{DonfackEtAl2018}
-\nocite{BowerSananWolf2018}
-\nocite{BalayEtAl2017b}
-\nocite{MayEtAl2016}
-\nocite{SananSchneppMay2016}
-\nocite{MorganKnepleySananScott2016}
-\nocite{Sanan2014}
+\item\bibentry{BolraoEtAl2020} % preprint
+\item\bibentry{SananMayBollhoeferSchenk2020} % preprint
+\item\bibentry{MorganSananKnepleyMills2020} % As of 2020.06, to appear
+\item\bibentry{BowerEtAl2019}
+\item\bibentry{JainEtAl2019}
+\item\bibentry{KrugerSananSmith2018}
+\item\bibentry{DonfackEtAl2018}
+\item\bibentry{BowerSananWolf2018}
+\item\bibentry{BalayEtAl2017b}
+\item\bibentry{MayEtAl2016}
+\item\bibentry{SananSchneppMay2016}
+\item\bibentry{MorganKnepleySananScott2016}
+\item\bibentry{Sanan2014}
 % Include link to goofy video from UCSD?
 %\item Patrick Sanan and Nathan Litke, ``Bounded-distortion Surface Parameterization with Seam Constraints'', 2013 [preprint, included in thesis]
 %\item Patrick Sanan and Peter Schr\"{o}der, ``Logarithmic Strain Measures for Elasticity Simulation and Geometry Processing'', 2012 [preprint, included in thesis]
-\nocite{ChaoPinkallSananSchroeder2010}
+\bibentry{ChaoPinkallSananSchroeder2010}
 %\item Wang-Juh Chen, Hoi Tin Kong, Minah Oh, Patrick Sanan, Ying Wang and Brendt Wohlberg.``Visual Words: Text Analysis Concepts for Computer Vision'', 2009 [preprint; Part of an IMA team workshop]. %https://www.ima.umn.edu/Visual-words-text-analysis-concepts-computer-vision
+\end{outerlist}
 
-%\bibliographystyle{unsrtnat}
-\bibliographystyle{plain}
-\bibliography{bib/pds}
 
 \end{document}
