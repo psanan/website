@@ -22,8 +22,6 @@
 
 \setlength{\parindent}{0in}
 
-\usepackage[shortlabels]{enumitem}
-
 \usepackage{fancyhdr,lastpage}
 \pagestyle{fancy}
 %\pagestyle{empty}      % Uncomment this to get rid of page numbers
@@ -50,48 +48,20 @@
     \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\hyphenpenalty=10000\raggedright #1}}}%
     \vspace{-\baselineskip}\par}
 
-\newcommand*\fixendlist[1]{%
-    \expandafter\let\csname preFixEndListend#1\expandafter\endcsname\csname end#1\endcsname
-    \expandafter\def\csname end#1\endcsname{\csname preFixEndListend#1\endcsname\vspace{-0.6\baselineskip}}}
-
-\let\originalItem\item
-\newcommand*\fixouterlist[1]{%
-    \expandafter\let\csname preFixOuterList#1\expandafter\endcsname\csname #1\endcsname
-    \expandafter\def\csname #1\endcsname{\let\oldItem\item\def\item{\pagebreak[2]\oldItem}\csname preFixOuterList#1\endcsname}
-    \expandafter\let\csname preFixOuterListend#1\expandafter\endcsname\csname end#1\endcsname
-    \expandafter\def\csname end#1\endcsname{\let\item\oldItem\csname preFixOuterListend#1\endcsname}}
-\newcommand*\fixinnerlist[1]{%
-    \expandafter\let\csname preFixInnerList#1\expandafter\endcsname\csname #1\endcsname
-    \expandafter\def\csname #1\endcsname{\let\oldItem\item\let\item\originalItem\csname preFixInnerList#1\endcsname}
-    \expandafter\let\csname preFixInnerListend#1\expandafter\endcsname\csname end#1\endcsname
-    \expandafter\def\csname end#1\endcsname{\csname preFixInnerListend#1\endcsname\let\item\oldItem}}
-
-\newlist{outerlist}{itemize}{3}
-    \setlist[outerlist]{label=\enskip\textbullet,leftmargin=*}
-    \fixendlist{outerlist}
-    \fixouterlist{outerlist}
-
-\newlist{lonelist}{itemize}{3}
-    \setlist[lonelist]{label=\enskip\textbullet,leftmargin=*,partopsep=0pt,topsep=0pt}
-    \fixendlist{lonelist}
-    \fixouterlist{lonelist}
-
-\newlist{innerlist}{itemize}{3}
-    \setlist[innerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
-    \fixinnerlist{innerlist}
-
-\newlist{loneinnerlist}{itemize}{3}
-    \setlist[loneinnerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
-    \fixendlist{loneinnerlist}
-    \fixinnerlist{loneinnerlist}
-
-
 \usepackage{url}
 
 \urlstyle{same}
 
 \definecolor{dimmedgrey}{rgb}{0.5,0.5,0.5}
 \newcommand{\dimmed}[1]{\textcolor{dimmedgrey}{#1}}
+
+\newenvironment{tightitemize}
+{ \begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+    \vspace{-0.7cm}}
+{ \end{itemize} }
 
 \begin{document}
 
@@ -187,17 +157,23 @@ Summa Cum Laude\\
 \textbf{Postdoctoral Researcher}, \textbf{Lecturer},
 ETH Zurich
 \hfill {November 2017--Present}\\
-PASC \textsc{StagBL} Software Development Project \\
+\href{https://www.pasc-ch.org/projects/2017-2020/stagbl/}{PASC \textsc{StagBL} Software Development Project} \\
 \href{https://gfd.ethz.ch/}{Geophysical Fluid Dynamics Group},
 PI: Paul J. Tackley \\
+\begin{tightitemize}
+\item Led development on \textsc{StagBL}, \texttt{DMStag} within \textsc{PETSc}, and \textsc{SciATH}
+\item Collaborated on several publications on Earth and Planetary science, as well as on solvers.
+\end{tightitemize}
 
 \textbf{Postdoctoral Researcher},
 ETH Zurich
 \hfill {October 2017}\\
-\textsc{SALVUS} PASC Co-Design Project\\
+\textsc{SALVUS} Project\\
 \href{https://geophysics.ethz.ch/research/groups/swp.html}{Seismology and Wave Physics Group},
 PI: Andreas Fichtner \\
-% 1-month interstitial appointment, performing initial investigations into accelerating use of \PETc{}'s \texttt{DMPlex} within \textsc{SALVUS}.
+\begin{tightitemize}
+  \item Performed initial investigations into accelerating use of \textsc{PETSc}'s DMPlex within \textsc{SALVUS}.
+\end{tightitemize}
 
 \textbf{Postdoctoral Researcher},
 Universit\'{a} della Svizzera italiana (USI)
@@ -205,20 +181,27 @@ Universit\'{a} della Svizzera italiana (USI)
 \href{http://www.pasc-ch.org/projects/projects/geopc/}{PASC GeoPC Co-Design Project} \\
 PI: Paul J. Tackley (ETH Zurich) \\
 Advisors: Olaf Schenk (USI), Dave A. May (ETH Zurich) \\
-% Research and implement large-scale, parallel, communication-avoiding and GPU-accelerated operators and multigrid smoothers for large-scale Stokes flow.
+\begin{tightitemize}
+\item Researched and implement large-scale, parallel, communication-avoiding and GPU-accelerated operators and multigrid smoothers for large-scale Stokes flow.
+\end{tightitemize}
 
 \textbf{Givens Scholar},
 \href{http://www.mcs.anl.gov}{MCS Division, Argonne National Laboratory}
 \hfill {Summer 2013}\\
 Supervisor: \href{https://jedbrown.org/}{Jed Brown} \\
 %Lemont, IL, United States
-% Summer research position in the MCS division, investigating multiscale integrators in PETSc.
+\begin{tightitemize}
+\item Investigated multiscale integrators in \textsc{PETSc}
+\end{tightitemize}
 
 \textbf{Software Engineering Intern},
 \href{http://www.rhythm.com}{Rhythm and Hues Studios}
 \hfill {Summer 2012}\\
 El Segundo, CA, United States \\
-% Worked with the software engineering team at an award-winning (Babe, Life of Pi, etc.) graphics studio. Researched and implemented surface parameterization algorithms.
+\begin{tightitemize}
+\item Worked with the software engineering team at an award-winning (Babe, Life of Pi, etc.) graphics studio.
+\item Researched and implemented a surface parameterization algorithm minimizing an elastic energy under inversion constraints.
+\end{tightitemize}
 
 \textbf{Teaching Assistant and Instructor},
 Caltech
@@ -242,12 +225,13 @@ General Atomics Lynx Systems
  \hfill {Summer 2004}\\
 San Diego, CA, United States \\
 % Description:
-% CAD design and analysis for synthetic aperture radar.
+\begin{tightitemize}
+\item CAD design and analysis for synthetic aperture radar.
+\end{tightitemize}
 
 \textbf{Sales Clerk}, Long Drugs \hfill {part time 2000-2001}\\
 Walnut Creek, CA, United States
 % Cashier, stocking, customer service, ice cream scooping.
-
 
 %\section{Software}
 %\begin{innerlist}
@@ -324,8 +308,7 @@ Walnut Creek, CA, United States
 \textbf{Tutor}
 \hfill {Fall 2004}\\
 
-\textbf{Additional Short Tutorials}\\
-See \href{https://patricksanan.com/pages/teaching.html}{patricksanan.com}.
+\textbf{Additional Short Tutorials} [See \href{https://patricksanan.com/pages/teaching.html}{patricksanan.com}]
 
 \section{Publications}
 \bibliographystyle{plainnat}
