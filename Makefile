@@ -1,9 +1,8 @@
-all : bib/pds.bib
+all : pds.bib
 	latexmk
 
-bib/pds.bib :
-	git submodule init
-	git submodule update
+pds.bib :
+	ln -s ${HOME}/work/bib/pds.bib $@
 
 clean :
 	 latexmk -C
