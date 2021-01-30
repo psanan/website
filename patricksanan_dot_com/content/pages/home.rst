@@ -9,10 +9,6 @@ Patrick Sanan
     :height: 150px
     :alt: portrait
 
-I am a postdoctoral researcher in the `Geophysical Fluid Dynamics group`_ at ETH Zurich.
-
-I am interested in applied mathematics, computational geometry, scalable solvers, and scientific software.
-
 My last name rhymes with "cannon".
 
 Email: `patrick.sanan at erdw.ethz.ch`_ .

@@ -1,7 +1,8 @@
 # Bio
 
-Whenever you need a bio blurb, modify one from here!
-(Consider making this an auto part of your website..)
+For the current bio, see bio.rst in the website source!
+
+Below, we paste some previously-used bios, as sometims they need to be modified.
 
 ## 2021-01-29 PRiSM
 
