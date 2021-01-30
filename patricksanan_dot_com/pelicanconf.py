@@ -32,6 +32,7 @@ SOCIAL = (
          ('GitLab','https://gitlab.com/psanan'),
          ('GitHub','https://github.com/psanan'),
          ('Bitbucket','https://bitbucket.org/psanan'),
+         ('twitter', 'http://twitter.com/patricksanan')
          )
 
 # Menu
