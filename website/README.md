@@ -1,3 +1,8 @@
+## TODO
+
+Consolidate from windfarmmusic.wordpress.com. It's possible to export from the WordPress admin interface and [import into Pelican](https://docs.getpelican.com/en/4.2.0/importer.html>).
+
+## Patrick Sanan's Website(s)
 My website is split into two largely-independent sections.
 These are distinguished in terms of who might want to read the content and/or
 subscribe to the feeds.
@@ -6,7 +11,7 @@ subscribe to the feeds.
 It's intended for a wide audience, including people who have never met me
 or people who might want to employ me in the future.
 
-"Personal" : This is my "blog," for people who know me personally or share
+"Personal" : This is my blog, for people who know me personally or share
 one of my non-job interests like trailrunning or making music (for the pure
 art of it - I hope to have some audio stuff on the professional site at
 some point in my life!)
@@ -44,7 +49,4 @@ Note that you have to somehow enable https, or a web browser will mark as "not s
 Blindly following instructions from Bluehost, it works to copy the file `htaccess` here
 to `public_html/.htaccess` on the server.
 
-## Desired Improvements
-
-Finish consolidating my old "personal" websites (thenoblesunfish.wordpress.com and windfarmmusic.wordpress.com). It's possible to export from the WordPress admin interface and [import into Pelican](https://docs.getpelican.com/en/4.2.0/importer.html>).
-(Getting the text seems totally fine - the images may need more effort, as the links still point to wordprss (which actually works))
+See $HOME/work/notes/tech/2019.07.02.md as well.
