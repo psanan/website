@@ -46,7 +46,7 @@ To push to server:
 ## SSL / HTTPS / .htaccess
 
 Note that you have to somehow enable https, or a web browser will mark as "not secure".
-Blindly following instructions from Bluehost, it works to copy the file `htaccess` here
+It seems to work to copy the file `htaccess` here
 to `public_html/.htaccess` on the server.
 
 See $HOME/work/notes/tech/2019.07.02.md as well.
