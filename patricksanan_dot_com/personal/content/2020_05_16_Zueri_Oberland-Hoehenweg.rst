@@ -2,7 +2,7 @@
 Züri Oberland-Höhenweg
 ======================
 :date: 2020-05-16
-:category: trip reports
+:category: Trip Reports
 
 
 I was poking around the `Fastest Known Time website <https://fastestknowntime.com/>`__ and noticed that there

@@ -2,9 +2,10 @@ Adventures in Keyboarding, part II
 ##################################
 :date: 2016-03-11 10:58
 :status: published
+:category: Misc.
 
-`Part I <https://patricksanan.com/adventures-in-keyboarding/>`__
-`Part III <https://patricksanan.com/adventures-in-keyboarding-part-iii/>`__
+`Part I <https://patricksanan.com/personal/adventures-in-keyboarding/>`__
+`Part III <https://patricksanan.com/personal/adventures-in-keyboarding-part-iii/>`__
 
 Some further observations from my attempts to become a better typist.
 

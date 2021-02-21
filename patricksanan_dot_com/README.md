@@ -1,6 +1,19 @@
-# Patrick Sanan's Website
+My website is split into two largely-independent sections.
+These are distinguished in terms of who might want to read the content and/or
+subscribe to the feeds.
 
-A simple, low-maintenance, static website.
+"Professional" : This is the website you'd provide for professional purposes.
+It's intended for a wide audience, including people who have never met me
+or people who might want to employ me in the future.
+
+"Personal" : This is my "blog," for people who know me personally or share
+one of my non-job interests like trailrunning or making music (for the pure
+art of it - I hope to have some audio stuff on the professional site at
+some point in my life!)
+
+The top-level domain should just be the professional site.
+
+# For each sub-site 
 
 Uses pelican: see https://docs.getpelican.com/en/stable/quickstart.html
 
@@ -33,16 +46,5 @@ to `public_html/.htaccess` on the server.
 
 ## Desired Improvements
 
-I would like to consolidate my old "personal" websites (thenoblesunfish.wordpress.com and windfarmmusic.wordpress.com). Maybe it's possible to export from the WordPress admin interface and [import into Pelican](https://docs.getpelican.com/en/4.2.0/importer.html>).
+Finish consolidating my old "personal" websites (thenoblesunfish.wordpress.com and windfarmmusic.wordpress.com). It's possible to export from the WordPress admin interface and [import into Pelican](https://docs.getpelican.com/en/4.2.0/importer.html>).
 (Getting the text seems totally fine - the images may need more effort, as the links still point to wordprss (which actually works))
-
-The main idea is to keep things very simple, but one feature I would like is slightly
-better figures, which can
-
-1. Have a caption inside a border
-2. Have text flow around them
-
-Both  of these seem to be possible as in this blog post: http://duncanlock.net/blog/2013/05/29/better-figures-images-plugin-for-pelican/
-(Note that the post is about improving the figures, but I'd be happy with the
-base state as presented there!)
-

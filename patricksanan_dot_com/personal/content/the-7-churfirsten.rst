@@ -3,7 +3,7 @@ The 7 Churfirsten
 =================
 
 :date: 2018-08-11 20:55
-:category: trip reports
+:category: Trip Reports
 
 |
 

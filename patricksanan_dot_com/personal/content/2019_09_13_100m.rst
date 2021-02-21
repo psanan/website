@@ -2,7 +2,7 @@
 100 Miles
 =========
 :date: 2019-09-13
-:category: trip reports
+:category: Trip Reports
 
 
 Last December I wrote down the goal to cover 100 miles, on foot, "in a push" (basically, without sleeping). Why? It's a nice round number,

@@ -2,9 +2,10 @@ Adventures in Keyboarding, Part III
 ###################################
 :date: 2016-12-12 17:47
 :status: published
+:category: Misc.
 
-`Part I <https://patricksanan.com/adventures-in-keyboarding-part/>`__
-`Part II <https://patricksanan.com/adventures-in-keyboarding-part-ii/>`__
+`Part I <https://patricksanan.com/personal/adventures-in-keyboarding-part/>`__
+`Part II <https://patricksanan.com/personal/adventures-in-keyboarding-part-ii/>`__
 
 I am back to Qwerty.
 

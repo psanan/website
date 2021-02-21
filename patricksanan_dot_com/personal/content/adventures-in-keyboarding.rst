@@ -2,9 +2,10 @@ Adventures in Keyboarding
 #########################
 :date: 2015-07-24 13:56
 :status: published
+:category: Misc.
 
-`Part II <https://patricksanan.com/adventures-in-keyboarding-part-ii/>`__
-`Part III <https://patricksanan.com/adventures-in-keyboarding-part-iii/>`__
+`Part II <https://patricksanan.com/personal/adventures-in-keyboarding-part-ii/>`__
+`Part III <https://patricksanan.com/personal/adventures-in-keyboarding-part-iii/>`__
 
 I never learned to touch type.
 

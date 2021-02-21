@@ -3,7 +3,7 @@ Swiss Alps 100k
 ===============
 
 :date: 2019-08-17
-:category: trip reports
+:category: Trip Reports
 
 
 My second official ultra, and a different experience from `the first <https://patricksanan.com/swiss-canyon-trail-105k-2019>`__.

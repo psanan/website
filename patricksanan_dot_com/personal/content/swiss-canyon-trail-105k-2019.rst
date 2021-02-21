@@ -1,7 +1,7 @@
 Swiss Canyon Trail 105K, 2019
 #############################
 :date: 2019-06-10 18:18
-:category: trip reports
+:category: Trip Reports
 :status: published
 
 | My first official ultra! `112 kilometers, 5500m of elevation gain <https://swisscanyontrail.com/ultra-trail-105k/>`__.

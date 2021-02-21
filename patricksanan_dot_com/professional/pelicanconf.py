@@ -24,8 +24,9 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Links
-#LINKS = (
-#        )
+LINKS = (
+        ('Personal Blog', 'https://patricksanan.com/personal'),
+        )
 
 # Social widgets
 SOCIAL = (

@@ -2,7 +2,7 @@
 Obwaldner Höhenweg Loop
 =======================
 :date: 2020-09-13
-:category: trip reports
+:category: Trip Reports
 
 Since many races were cancelled, this summer has seen a surge in popularity chasing `Fastest Known Times (FKTs) <www.fastestknowntime.org>`__.
 One decides on some hiking, scrambling, and/or running route and attempts to do it in the fastest known time. The routes vary to include completions of long trails (e.g. `the Pacific Crest Trail <https://fastestknowntime.com/route/pacific-crest-trail-ca-or-wa>`__ or the `Via Alpina <https://fastestknowntime.com/route/alpina-red-trail-slovenia-italy-austria-germany-liechtenstein-switzerland-france-monaco>`__), speed runs up mountains (e.g. `Mt. Whitney <https://fastestknowntime.com/route/mt-whitney-ca>`__ or `the Matterhorn <https://fastestknowntime.com/route/matterhorn-switzerland-italy>`__ ), and completing sets of summits (e.g. `The California 14ers <https://fastestknowntime.com/route/california-fourteeners-ca>`__ or the `big UK fell running rounds <https://www.gofar.org.uk/uk-big-3-records>`__).
