@@ -50,9 +50,9 @@ INDEX_SAVE_AS = 'blog_index.html'
 THEME = 'theme'
 
 # Other Settings
-DEFAULT_PAGINATION = False
+DEFAULT_PAGINATION = 3
 
-SUMMARY_MAX_LENGTH = 150  # in words, None = inf
+SUMMARY_MAX_LENGTH = None
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
