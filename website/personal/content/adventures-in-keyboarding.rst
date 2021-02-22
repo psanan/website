@@ -4,8 +4,8 @@ Adventures in Keyboarding
 :status: published
 :category: Misc.
 
-`Part II <https://patricksanan.com/personal/adventures-in-keyboarding-part-ii/>`__
-`Part III <https://patricksanan.com/personal/adventures-in-keyboarding-part-iii/>`__
+`Part II <{filename}adventures-in-keyboarding-part-ii.rst/>`__
+`Part III <{filename}adventures-in-keyboarding-part-iii.rst/>`__
 
 I never learned to touch type.
 

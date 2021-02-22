@@ -4,8 +4,8 @@ Adventures in Keyboarding, Part III
 :status: published
 :category: Misc.
 
-`Part I <https://patricksanan.com/personal/adventures-in-keyboarding-part/>`__
-`Part II <https://patricksanan.com/personal/adventures-in-keyboarding-part-ii/>`__
+`Part I <{filename}adventures-in-keyboarding.rst/>`__
+`Part II <{filename}adventures-in-keyboarding-part-ii.rst/>`__
 
 I am back to Qwerty.
 

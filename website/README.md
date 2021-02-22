@@ -3,22 +3,26 @@
 Consolidate from windfarmmusic.wordpress.com. It's possible to export from the WordPress admin interface and [import into Pelican](https://docs.getpelican.com/en/4.2.0/importer.html>).
 
 ## Patrick Sanan's Website(s)
-My website is split into two largely-independent sections.
-These are distinguished in terms of who might want to read the content and/or
+My website is split into two largely-independent sections,
+distinguished by who might want to read the content and/or
 subscribe to the feeds.
 
-"Professional" : This is the website you'd provide for professional purposes.
+"professional" : This is the website you'd provide for professional purposes.
 It's intended for a wide audience, including people who have never met me
 or people who might want to employ me in the future.
 
-"Personal" : This is my blog, for people who know me personally or share
-one of my non-job interests like trailrunning or making music (for the pure
-art of it - I hope to have some audio stuff on the professional site at
-some point in my life!)
+"personal" : This is my blog, for people who know me personally or share
+one of my non-job interests.
 
-The top-level domain should just be the professional site.
+The top-level domain holds the professional site, and the personal site
+is in a sub-directory.
 
-# For each sub-site 
+Note: if changing the names of the subdirectories, be careful, because the two sites
+refer to each other. In particular, there is customization in the upload
+command in the Makefile for the professional site to avoid deleting
+the personal site.
+
+# For each sub-site
 
 Uses pelican: see https://docs.getpelican.com/en/stable/quickstart.html
 

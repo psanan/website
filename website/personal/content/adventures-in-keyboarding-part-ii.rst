@@ -4,8 +4,8 @@ Adventures in Keyboarding, part II
 :status: published
 :category: Misc.
 
-`Part I <https://patricksanan.com/personal/adventures-in-keyboarding/>`__
-`Part III <https://patricksanan.com/personal/adventures-in-keyboarding-part-iii/>`__
+`Part I <{filename}adventures-in-keyboarding.rst/>`__
+`Part III <{filename}adventures-in-keyboarding-part-iii.rst/>`__
 
 Some further observations from my attempts to become a better typist.
 

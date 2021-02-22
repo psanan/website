@@ -6,7 +6,7 @@ Swiss Alps 100k
 :category: Trip Reports
 
 
-My second official ultra, and a different experience from `the first <https://patricksanan.com/swiss-canyon-trail-105k-2019>`__.
+My second official ultra, and a different experience from `the first <{filename}swiss-canyon-trail-105k-2019.rst>`__.
 
 This was the `Swiss Alps 100k <https://swissalp.ps>`_ - the route is just over 100km, with about
 5400m of elevation gain, starting in the Valais at ~1300m and reaching a high point
@@ -183,7 +183,7 @@ Lessons Learned
 1a. Do your homework to know the route
 --------------------------------------
 
-On the `Swiss Canyon Trail <https://patricksanan.com/swiss-canyon-trail-105k-2019/>`_, and even more so on the Jungrau Marathon, the
+On the `Swiss Canyon Trail <{filename}swiss-canyon-trail-105k-2019.rst>`_, and even more so on the Jungrau Marathon, the
 route was very clearly marked (almost) everywhere, and there was essentially no
 route-finding required.  Those are the only two long, organized races I've
 done, and they instilled a false sense of security.

@@ -6,7 +6,7 @@ import os
 
 AUTHOR = 'Patrick Sanan'
 SITENAME = 'Patrick Sanan'
-SITEURL = 'https://patricksanan.com'
+SITEURL = 'https://patricksanan.org'
 
 PATH = 'content'
 
@@ -25,7 +25,7 @@ AUTHOR_FEED_RSS = None
 
 # Links
 LINKS = (
-        ('Personal Blog', 'https://patricksanan.com/personal'),
+        ('Personal Blog', 'https://patricksanan.org/personal'),
         )
 
 # Social widgets
@@ -39,8 +39,8 @@ SOCIAL = (
 # Menu
 DISPLAY_CATEGORIES_ON_MENU = False
 MENUITEMS = (
-            ('Blog','https://patricksanan.com/blog_index.html'), # hack
-            ('CV','https://patricksanan.com/data/Sanan_CV.pdf'), # hack
+            ('Blog', SITEURL + '/blog_index.html'), # hack
+            ('CV', SITEURL + '/data/Sanan_CV.pdf'), # hack
             )
 
 # Blog page

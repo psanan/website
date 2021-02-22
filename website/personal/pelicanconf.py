@@ -6,7 +6,7 @@ import os
 
 AUTHOR = 'Patrick Sanan'
 SITENAME = "Patrick Sanan's Blog"
-SITEURL = 'https://patricksanan.com/personal'
+SITEURL = 'https://patricksanan.org/personal'
 
 PATH = 'content'
 
@@ -24,7 +24,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 LINKS = (
-        ('Professional Site','https://patricksanan.com'),
+        ('Professional Site','https://patricksanan.org'),
         )
 
 SOCIAL = (
