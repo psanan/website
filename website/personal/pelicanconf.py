@@ -34,7 +34,7 @@ SOCIAL = (
 DISPLAY_CATEGORIES_ON_MENU = True
 
 # Theme
-THEME = 'theme'
+THEME = '../theme'
 
 # Other Settings
 DEFAULT_PAGINATION = 1

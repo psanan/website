@@ -47,7 +47,7 @@ MENUITEMS = (
 INDEX_SAVE_AS = 'posts_index.html'
 
 # Theme
-THEME = 'theme'
+THEME = '../theme'
 
 # Other Settings
 DEFAULT_PAGINATION = 3

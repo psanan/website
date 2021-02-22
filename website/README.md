@@ -22,6 +22,9 @@ refer to each other. In particular, there is customization in the upload
 command in the Makefile for the professional site to avoid deleting
 the personal site.
 
+Note: ATTOTW, the two sites share a theme, but that could changed at the cost of
+code duplication.
+
 # For each sub-site
 
 Uses pelican: see https://docs.getpelican.com/en/stable/quickstart.html
