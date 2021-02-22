@@ -39,12 +39,12 @@ SOCIAL = (
 # Menu
 DISPLAY_CATEGORIES_ON_MENU = False
 MENUITEMS = (
-            ('Blog', SITEURL + '/blog_index.html'), # hack
+            ('Posts', SITEURL + '/posts_index.html'), # hack
             ('CV', SITEURL + '/data/Sanan_CV.pdf'), # hack
             )
 
-# Blog page
-INDEX_SAVE_AS = 'blog_index.html'
+# Posts (blog) page
+INDEX_SAVE_AS = 'posts_index.html'
 
 # Theme
 THEME = 'theme'
