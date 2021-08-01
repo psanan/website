@@ -1,0 +1,494 @@
+===
+VDA
+===
+:date: 2021-07-09
+:category: Trip Reports
+
+The 2021 VDA, my first 100-mile race.
+
+I've long wanted to run the `Ultra-trail du Mont Blanc (UTMB) <https://en.wikipedia.org/wiki/Ultra-Trail_du_Mont-Blanc>`__, a foot race,
+run since 2003, that follows the classic `Tour du Mont Blanc <https://en.wikipedia.org/wiki/Tour_du_Mont_Blanc>`__
+trekking route, and which has grown (in ways both good and bad) to become essentially
+"the" trail ultramarathon in Europe (as `Western States <https://www.wser.org/>`__ or perhaps `Hardrock <https://hardrock100.com/>`__ are in the U.S.). Due to its popularity, there is a lottery to register.
+The policy used to be that if one had two sufficiently-long, sufficiently-recent qualifying races and entered the lottery each year, entry was guaranteed by the third attempt.
+I'd already entered once, so the plan was to repeat
+that twice. COVID-19 delayed this plan, along with many things less trivial,
+but more crucially the rules changed for 2020: to qualify automatically
+one needed to earn enough "running stones", tokens earned
+by running (now-defunct) Ultra-Trail World Tour races or "by UTMB" races around the world.
+Annoyingly IronMan-y, yes.
+
+Fortunately, there was a new "by UTMB" race in Europe, the `"Val D'Aran by UTMB" <https://www.aranbyutmb.com/en/>`__,
+and I was excited to run it - the `longest route, the Torn dera Val D'Aran (VDA) <https://www.aranbyutmb.com/en/vda-en/>`__ was of a comparable profile
+to the UTMB itself, on the order of 100 miles and 10000m of climbing, topping out at over 2500m. It was in the Pyrenees,
+which I'd always wanted to visit, and handily enough, a finish earned one precisely the 18 mystical
+stones needed for UTMB. Great! (Note:
+the rules have changed *again*, and the stones now get you additional lottery
+draws, not direct access. The 2021 VDA was `granted an exception <https://utmbmontblanc.com/en/page/745/exceptionVDA.html>`__ to use the previous rules)
+
+ |route|
+
+ The 100-mile VDA route, with Vielha (start/finish) and 3 large "life base" aid stations marked.
+
+|
+
+ |profile_2x|
+
+ The VDA course profile.
+
+Preparation
+-----------
+
+Our little son was born at the end of 2020, so finishing this race without injury was my only real running objective of the year.
+
+Thanks to the support of my partner, I was able plan a reasonable amount of training,
+and started ramping up the mileage in the early spring, hoping to get a least a few of those
+100 kilometer weeks  (if not 100 mile weeks) that essentially every training plan recommends. This wasn't to be, though,
+as at the end of my first 80k week, the morning after a 30k with a lot of hills, my right foot felt really, really bad. Walking was painful, and running,
+especially uphill, was out of the question. I guess that it was tendonitis, maybe fasciatis,
+but there's no clear diagnosis. After about a month of
+no running and only minor improvement, I went the doctor and got an x-ray to rule out
+a stress fracture. Nothing showed up and the doctor's guesses were as good
+as my mine or those from my mom, a doctor, from afar. Posterior tibial tendonitis seems probable,
+and I suspect there is also some damage to the fascia or other soft tissue around the heel.
+
+In retrospect, the obvious error was using old shoes,
+with well over 1000 km on them (I know, I know..).
+I had been putting off buying new ones to avoid stores during the pandemic, and also
+I think I had some pride about getting a lot of use out of the existing shoes.
+I also wasn't modulating my training enough - I had steadily (though slowly) increased
+my mileage by a few km/week, from nothing after the baby was born up to 80 km/week, over about 3 months. The combination of all this,
+I think, is that the lack of arch support in the old shoes let my posterior tibial tendon
+take too much of a beating.
+
+Very thankfully, my foot did slowly improve. I wore shoes all the time and tried to do a lot of stretching and yoga. As long as I was wearing my
+squooshiest shoes (I know own three pairs of Hoka Speedgoat 4s..) the pain in the foot
+didn't correlate very much with anything except how much I stretched. Not, crucially,
+how much I walked or ran, even the next day.
+
+Armed with this and the impending race, now about three months away, I cautiously started
+running again. There was pain, which was indeed more on bigger weeks early on,
+but I still saw steady, slow improvement and was able to start adding in more steepness. I soon realized that even trying as hard as could on my local trails, I couldn't quite simulate the steepness of the VDA course (which *averages* 13% grade over 100 miles - yikes!).
+
+I only managed to get back up to about 80km a week at my peak, but during our visit
+to family in France I did get the chance to at least do some steep, technical trails,
+on two iconic mountains in Provence: St. Victoire and Mont Ventoux.
+
+
+  |st_victoire|
+
+  Training on St. Victoire (rockier on the ridge than expected), with my sister on her biggest trail route yet!
+
+|
+
+  |ventoux|
+
+  Mont Ventoux is famous for being a massive climb during many Tour de France stages. It also hosts a trail marathon. I (somewhat-intentionally..) came up the ridge in the background here (slow, but good training!) and descended the race route.
+
+Those outings went fine, and I felt tired (and hot, so hot) at the end of each,
+but not obliterated.
+
+However, going into the race, I have to say that my training was worrisome. I had
+done essentially no running for 5-6 weeks, 3 months out. Since the `Obwaldner Höhenweg Loop`
+in November, the most distance I'd done in a week was about 80km, the most climbing
+about 3500 m, and due to race cancellations and not wanting to travel during the pandemic
+(vaccinations in Switzerland were delayed relative to the U.S. and U.K.),
+I hadn't done any single push longer than a marathon.
+
+The section I was thinking of as the "hell bowl", before the Colomers aid station, was what I predicted as the crux, and where I thought I'd succeed or fail - it was late in the race (but not late enough to be "almost there"), it was the highest altitude on the course, reaching about 2600m, it was very rocky terrain, and it would come during the second night.
+
+Still, somehow, I thought I could do it. I have gone for 100 miles in a 28.5-hour push (starting at midnight) once before, during my `self-supported 100-miler`.
+I think this did wonders as far as mental preparation, which is maybe the most
+important thing if one is trying to just finish that distance. I knew I could
+go for that long (and face that level of sleep deprivation, though I was planning
+on taking a short nap at some point, unless things were going extremely well).
+
+I was feeling well-rested, and I assumed that the course would be very well marked
+and the aid stations well-stocked (which was 100% true), which would allow
+me to focus on the essentials.
+
+I made a spreadsheet with my predicted splits for a 40 hour finish. I thought that if everything went very well, 36 hours was possible, but if I had to bet on myself, dispassionately, 40 seemed like a good number, as this is the average time for the UTMB, and is around what I'd expect from seeing posts on Strava from somwaht comparable runners in similar races like Oman by UTMB or the Swiss Peaks 170k.
+
+I also made what in retrospect was a very useful effort to boil down
+all the advice to myself into something so simple I couldn't forget it,
+regardless of how addled I became with sleep deprivation and exhaustion.
+I decide to remember that I had to remember 3 things. The three things were
+
+1. Efficiency
+2. Eat a lot
+3. Reset
+
+Each can of course be expanded.
+
+"Efficiency" means that the main thing my mind should rest on is the idea
+of getting to the end with the minimal usage of resources. That means run efficiently
+and with consistent effort, pick good lines, and above all try not to waste time
+doing things like stopping, sitting, and messing with my pack. For slow people like
+me (especially when undertrained like this), this is really the best way to go faster:
+just try to never stop. It works for through hikers for a reason.
+
+"Eat a lot" means to take advantage of the revelation from the `Swiss Canyon 100k <{filename}swiss-canyon-trail-105k-2019.rst>`__
+where I felt like complete garbage, finding it painful to walk, then ate some pasta, and was then running again,
+happily. Thus, I intended to eat "real food" every single time I could find it at an aid stage,
+especially including the hot foot provided at the three big "life base" aid stations.
+This also included the usual trying to eat something every hour or less and
+drink enough water to support all this. I think I'm above average in terms
+of being able to shovel food into my face, which is a talent I should take
+full advantage of.
+
+"Reset" is the hardest one. It means to take advantage of experience, which
+is known to many by many slogans like "it doesn't always get worse" or "you'll get your third and fourth and fifth wind"
+that recognize that there will be lows, and to actively seek opportunities
+to emerge from lows. In minor cases, this means simply always looking ahead,
+leaving each aid station, each climb, etc. thinking like it's the start of a
+new race. In more extreme cases, this means recognizing when you need a harder reset -
+a break at an aid station, a change of clothes, extra food, or a nap. These
+things cost time, so knowing when to employ them is tricky.
+
+
+The race fell within my mom's visit to Europe, so we made plans for the whole
+family to travel to the Val D'Aran for the race.
+
+The Val D'Aran is a gorgeous UNESCO world heritage zone. It's part of Catalonia (Spain)
+and sits on the northern side of the Pyrenees, accessible most easily from France.
+It has a couple of large ski resorts and clusters of ski chalets. The people
+are very friendly and it seems acceptable to start conversations in either
+Spanish or French. The place was very Spanish, though - friendly people
+and a strong emphasis on ham (the grocery store featured no less than 4 people simultaneously
+carving legs of ham!).
+
+We drove from Provence the day before the race. I had spent a lot of time
+and money trying to get a relatively light version of the required gear
+for the race, in particular getting some stupidly light-weight waterproof
+pants, and finding the lightest 3/4-length tights at Decathlon. Thus, I was
+somehow disappointed when they checked absolutely nothing at the bib collection.
+Oh well. I actually did use almost all of the gear I carried, and I was happy
+to have a lighter pack than I would have had otherwise.
+
+The race, like the UTMB, starts at 6 pm on a Friday. This seems a bit sadistic,
+from a sleep deprivation standpoint, as the average finishing time is 40 hours or more.
+However, there are at least two good reasons for this start time. First, it maximimizes time at night,
+which in the summer is nice for running because it's cooler. Also, no one ever
+mentions this but I assume that a large motivation for the start time is that the
+race relies on a large number of volunteers, and otherwise wouldn't fit nicely into a weekend.
+
+I spent the morning picking up my bib, running around Vielha with my mom, who eventually
+found us some safety pins, and being grumpy due to my lack of morning coffee and nerves
+about the race. My family provided me with some excellent meals leading up to the race,
+and very fortunately I managed to eat a nice big lunch and then sleep for about 2.5 hours
+on Friday afternoon before the race.
+
+We made our way down the town, parked quite a way outside, and wandered to the town center.
+We hung out at an outside bar for a bit, and I made my way to the start at about 5:30pm.
+I picked a shady spot in one of the starting corrals and sat down (I think there was supposed
+to be some sort of group system because of COVID-19, but no one seemed to be
+enforcing or respecting it).
+
+
+
+The Race
+--------
+
+
+Friday
+~~~~~~
+
+ |start|
+
+ The start of the 2021 VDA
+
+
+After some enthusiastic yelling over the PA from the announcer and some rousing `Vangelis <https://en.wikipedia.org/wiki/Conquest_of_Paradise_(song)>`__, it was time to go!
+|
+
+ |start2|
+
+ The season it's all about colorful shoes and smooth calves.
+
+The race started at 1800 on Friday. This seems cruel, from a sleep deprivation point of view, but the cooler temperatures at night are welcome, and otherwise you couldn't staff the race within a weekend.
+
+As always, I thought I was going out easy but I was not.
+
+I was probably somewhere about 30% of the way back in the crowd, but it was hard to tell. The course snaked its way through Vielha a bit, with lots of cheering spectators. Here, the yellings of choice were "venga!" and (I think) `"ánimo!" <https://en.wiktionary.org/wiki/%C3%A1nimo>`__. This second one confused me for a while - due to the large French presence, I heard this as "animaux!", that is "animals!". This seemed to almost make sense to me since I recall Italians yelling "l'animale!!" at each other when I lived in Lugano. However, I think it means something like "courage!" (though I suppose it could mean "I encourage!" if that accent isn't there..).
+
+We all pulled out hiking poles, which made passing difficult as we headed up a gently climbing, paved road up the river in the mountains. There were a couple of kilometers of this wide path until we hit the first expected conga line, a steep single-track section up to a traversing road. These bunchups are to be expected in this kind of race, at least for the first couple of hours. I found them mostly helpful, in the sense that they provide someone to brainlessly follow (though I tried to pass when I noticed a gap opening in front of the next person, indicating that they are slowing down).
+
+Up and up and up we went, through forests and then bursting out into gorgeous, steep, grass-covered ridgelines. The first aid station was an anomaly, in that I think it's the only one without obvious car access, and it was the only one featuring only water (and maybe some coke).
+
+Up and up we went, being treated to magnificent sunset vistas as we gained an undulating ridge.
+
+ |pano_friday|
+
+ Friday evening on the ridge.
+
+
+We raced down steep dirt trails towards the first deep valley. By the time I reached the bottom I realized I was pushing too hard, and backed it off for the next section. Darkness fell as the snake of people becamea line of glowing headlamps climbing up and up and up again. One man slept by the side of the trail, even though we were less than 6 hours into the race (maybe a big week at work!).
+
+ |widowmaker|
+
+ Watch out for this loose stone!!
+
+ |
+
+
+ |bridge_pro|
+
+ Professional photo, I think from Friday night, but actually not sure!
+A steep rocky section led to an exposed ridge and more undulating up and down. I ran out of water and energy near the end of the ridge and was painfully slow descending steep grass towards the Coth de Baretja aid station. Thankfully there was a fountain, so I could drink and eat, and then a very welcome campfire at the aid station where I refueled a bit and warmed up. The descent to Bossost was relatively fast, and soon I arrived at the first "life base", a school gym. I made sure to eat a good amount of pasta and didn't spend too much time, I hope.
+
+
+Saturday
+~~~~~~~~
+
+It was still dark when I left Bossost, but I figured I might as well transition to day mode, replacing headlamp with sun hat, backup lamp with sunscreen. It was still totally dark, though, and I had to do some tagging along with other runners in a couple of darker sections.
+
+What was a "flat" section going along the river had its share of climbs and descents, but soon enough we started the climb to Canejan, on a steep old road. This was the first time I saw a pair I dubbed the bee-men, decked out in black and yellow and hiking very aggressively on the steep uphills. I guess they must have been spending a lot of time in aid stations, though, because they flew past me on uphills no less than three times over the course of the race.
+
+
+ |ruin_saturday|
+
+ Ruin below the climb to Canejan.
+
+|
+
+The Canejan aid station was nice, with the trail going up through the very steep town, into a school, and out the other side. A steep climb up and then back down took us to the St. Joan aid station, and then we faced the bulk of the big climb of the course, up to Pas Estret. This seemed pretty endless, as we switchbacked up and up past impressive gorges. I kept looking out for the lakes I knew were coming, but of course these sorts of things never appear as soon as you'd like. By this point the crowd had really thinned, and there were usually 3 or 4 people in sight.
+
+  |pano_pass_saturday|
+
+
+  The top of the big climb, Pas Estret.
+
+
+Things gradually flattened until a descent to the Pas Estret aid station, at about noon. It was getting hot and I was starting to feel tired. They had some very nice sticky buns to eat. The next climb, to the high point of the day, wasn't as bad as I'd feared, though the traversing section afterwards was longer than I'd imagined. This was one of the more scenic parts of the course, even going through an old mining tunnel at one point. (After the race we got an email which strongly implied that people had gotten sick from drinking water from natural sources around this area, so beware - luckily for me I didn't drink out of any streams here, though I did in other places on the course.).
+
+
+ |pano_top_saturday|
+
+ Panorama from near the Urets Mine, Saturday's high point at over 2500m. Note a runner emerging from the tunnel on the right.
+
+On the descent, I slowed significantly as the day got hotter. I was mostly unable to run by the time I neared the Montgarri aid station, and starting to lose morale. I walked it in to that aid station, where I'd been imaginging taking a nap, but the aid station was in the cobblestone courtyard of some sort of novely castle, and from taking a look at my printout of estimated times, I realized that Beret, the nex tlife base, was actually very close, so I figured I'd spend the 90 minutes or so getting there and then sleep.
+
+My mom and sister were there to greet me at Beret, which was a huge boost! We chatted a bit and then I went to get my drop bag and try to reset a bit. I was too tired to be thinking very straight and somehow couldn't find anywhere to change (there was a labelled bathroom..) nor manage to recharge my watch  - the battery pack I carried was dead and the backup in my drop bag somehow defeated me as well. I forgot to replenish my food from the rop bag as well. Then I figured I'd take a nap in the advertised sleeping areas, but it was actually just the second level of the ski lodge, full of people, where you could sleep on the floor next to people scraping chair around. I did sleep for about 5 minutes.
+
+Despite what I thought was mainly time wasted at Beret,
+I did feel okay leaving. I didn't really try to run, and met up with
+another power-walker, a Spanish guy whose name I've now forgotten,
+and who was unfortunately the only person with which I had an extended
+conversation on the trip. He soon out-walked me, and then we came
+to probably the most demoralizing part of the route for me, which
+was the descent back down to the main valley to Salardú. This was
+supposed to be one of the few parts of the course that was easy,
+a long section of gently-descending dirt road. My legs felt shot enough
+that I wasn't even able to jog, so down and down I walked as it got hotter and hotter
+and I got more and more miserable and less and less sure of myself.
+
+I was going to lose my mind up there in the Colomers Hell Bowl. I remembered
+the devastatingly powerful urge to sleep during my 100-mile solo route,
+which had only been staved off by a larger dose of caffeine than I had available.
+I was going to lose my sense of judgement and do something stupid,
+like fall asleep on the side of the trail, in a T-shirt and shorts,
+get sick, and have this whole thing be a colossal waste of time and money.
+I was going to continue to slow down and not make the cutoff, as the course got harder
+and harder and I got weaker and weaker. I should quit, do the safe thing,
+get back to safety in the valley instead of climbing back out of it again for the
+hardest section of the course, over the second night. I was an idiot
+for thinking I could finish this route without enough training.
+
+This was, looking back, the crux of the thing. The inevitable low point, the inevitable despair,
+the time when, you ask yourself "why am I doing this?" (plus expletives) and come up with no
+satisfying answer. I almost invariably had similar thoughts on each significant mountaineering outing (i.e. one where I had some uncertainty about whether we'd complete the route),
+usually before sunrise, plodding up some frozen slope towards invisible threats above.
+
+I've had the independent thought, which I have also heard from others,
+that one of the things that is so interesting and appealing about
+routes/races like this is that they are microcosms of life. Ups and downs,
+successes and failures, joy and suffering, people appearing and disappearing.
+And while these are, by sporting standards, very slow events, as microcosms
+of life they proceed at warp speed.
+
+Getting through these low points (preferably without losing too much time) is
+a key skill. I'd like to think I've improved, but the experience always seems
+unique, somehow.
+
+I felt myself floundering. I think I did a little bit of jogging on the way down,
+but lost all this time to ineffectively trying to find a place to go the the bathroom.
+Things improved once I finally settled on a plan I could wrap my scared brain around:
+I would get to the Banh de Tredos aid station, where I would almost certainly sleep
+for an hour or so. I reasoned that to try to complete the race without any sleep
+would be unsafe, and perhaps also inefficient. Breaking things up after the
+first big climb seemed appealing, and I hoped that by sleeping before absolutely forced
+to, I could do so in warmer conditions (earlier and at the aid station) than
+if I had to crash next to the trail.
+
+
+Saturday Night
+~~~~~~~~~~~~~~
+
+The nap worked wonders. I woke up very cold, but drank a bowl of soup and set off, still wearing all my clothes. I was now *psyched*. I was eager to get into the scrambling. What had seemed like the worst part of the route now seemed like it would be the best - it would certainly be the most interesting.
+
+This section was surreal - the terrain was very convoluted as we climbed past small lakes and through twisted granite rock piles. In the pitch black, one could sometimes see the reflectors and headlamps marking the trail ahead. A strange red apparition above never seemed to get much closer, until finally I passed a man with a space blanket and a red lamp strapped to his back. I passed an Eastern European man speaking English into his phone: "I'm tired and it's very dark". Every so often I'd pass the shape of a slumbering runner in the grass next to the trail. Up and up I went, wondering if every little ramp of lights was the final climb. We navigated several short scrambling sections - the trail was immaculately marked, so one was never more than a few meters off course. At the end of one steep section, we were suddently greeted by a man with a scanner, who scanned our bibs and did the usual cruel aid-station worker thing: "It's 5 km to the aid station". Haha. It took me 2 hours to get to the aid station, picking through rocks - the route was well-marked, as usual, but the fine details of how to get between markers wasn't totally clear in the dark.
+As I passed a large lake, thinking I must be almost at the aid station (no), I enjoyed running across a perfectly flat bridge - I could see only the bridge, nothing else around. Eventually I shone my light below and realized I was crossing a dam. The trail continued below the dam, on the relatively worst-marked part of the route, which was the closest I ever came to wondering if I was off course.
+
+ |colomers_pro|
+
+ Professional photo of a lake on the climb into the Colomers bowl.
+
+I got through the aid station quickly, slamming some more tortilla.
+
+There followed a hike up a fire road, with a sudden turn off up a very steep grassy mountainside. I purposefully missed the turnoff to take care of business, and was annoyed when the people behind me started whistling and shining powerful headlamps to make sure I hadn't lost the trail.
+
+This steep part was the only section where I think the course layout should change - a very steep trail straight up the mountainside finished with traversing across fields of fist-to-melon-sized granite rocks, drictly above the runners below. An accident waiting to happen, and I hope this part can be re-routed (or maybe some nets installed below the critical section).
+
+It was a shame that the sun hadn't quite risen, as the views from this section of the course would have been phenomenal as the trail crested the ridge.
+
+
+Sunday
+~~~~~~
+
+The sun came up as I made the long, long descent down towards Ressec.
+Parts of this were steep dirt trails with roots and rocks protruding, which
+were very slow with my sore and tired legs.
+
+One of these outings wouldn't be complete without some minor hallucination.
+By now I'm used to the overzealous visual pattern-matching of the tired
+brain in low light - that the out-of-place thing I see
+in the woods is almost certainly going to morph back into a log.
+This time, as I made my way down past a stream, I thought to myself "oh I guess that's
+why they call it a 'babbling brook'", as I listened to deep, quasi-human
+voice babbling at me from a small waterfall. I heard many strange, unintelligible
+voices for a while afterwards, as I moved down down down the long descent.
+
+Near the bottom, I stopped to pee, and looked up to make direct eye contact with the upper half
+of a man standing about 20m away. There were many locals who'd come out just to watch the runners going by, and I hadn't noticed him standing at a road crossing just ahead. We both pretended like nothing had happend. I probably said "Buongiorno" to him instead of "Buenos Dias", because the whole weekend was a linguistic brain-scramble
+for me, as many of the other runners were in small groups speaking Spanish, French, and Italian - I know tiy bits of all three languages, so the pleasantries just came out in a random one.
+
+The last climb, while smaller than the second-to-last, was much harder, as
+the pizza rocket fuel was gone, and the heat of the day was setting in on
+the treeless ascent. I was very glad to have finished as "early" as I did,
+as it got over 30C in the valley that day, and I suspect the later finishers
+suffered in the sun.
+
+
+ |pano_sunday2|
+
+ The top of the last climb.
+
+
+ Some friendly people and a dog greeted me at the top of the climb, and then after a short traverse, it was all downhill.
+
+|
+
+ |pano_sunday|
+
+ The last pass, with a blown-out `Aneto <https://en.wikipedia.org/wiki/Aneto>`__ in the background. All downhill from here!
+
+
+ The descent started with a very steep road, with very large "gravel" which might actually make it possible to drive up. This leveled out to traverse for a while, allowing me to very slowly run a bit, and then turned into the typical straight-down of the course. I was passed by quite a few people who still had the legs to descend at more than a shuffle. Thankfully the direct route meant it was over soon, enough, and I rejoined the streets that we'd started on in Vielha. Lots of cheering people as I jogged it in. I was very happy to see my family had made it (barely) to see me finish. I crossed the line, was instructed to ring a bell, and was presented with a classy-looking bottle of water.
+
+
+Afterwards
+----------
+
+
+475 finished, out of just under a thousand who started - that's a high DNF rate even for a race like this. (I believe UTMB is about 30% DNF on typical years). I suspect the rate is higher for the first year of any race, as people don't know what to expect, and I'd further surmise that not everyone had tempered their expectations about the Colomers "Death Bowl" as I had.If you had only been looking at the section in terms of the course profile, you would have been very surprised at how long and difficult it was.
+
+I came in 238th, and would have been about 50 places higher if I'd hit my 40 hour goal.
+
+`Results of the race <https://aranbyutmb.livetrail.run/classement.php?course=vda&cat=scratch>`__.
+
+What's next? Well, assuming I have read all the rules correctly, I can run UTMB next summer! Between now and then I'd like to run a couple of similarly-steep races, like the TDS or the Scenic Trail, get in some self-supported mountain routes, maybe do a little more speedwork over the winter. Generally, I hope that my legs will last a little longer than they did in this race. That's probably just a question of more hours training, but deliberately working on long downhills might be beneficial.
+
+Lessons Learned
+---------------
+
+Eating as much real food as possible, along with the usual sugary stuff on the hour, definitely worked. I wish I'd eaten more of that pizza!
+
+The big reset of sleeping worked shockingly well (on the second try). I feel like that marked a dividing point not only within the race, but beyond - before that I had generally not been feeling good for quite a while. Since then, I have generally been feeling good.
+
+Finally, I think I learned a lesson about why I feel a little uncomfortable about the growing commercialization of this sport. It's because the thing that made this race truly special was the community that supported it - both the community of runners, and the local community who volunteered by the hundreds, if not thousands, and gave us such support. I'm fine if people get paid (well) to organize and promote races, but I am uncomfortable with the idea of `companies like this <https://en.wikipedia.org/wiki/World_Triathlon_Corporation>`__ coldly extracting value from communities to enrich outside investors and sell merchandise to the masses.
+
+Gear
+~~~~
+
+ |gear|
+
+ Gear (minus phone). I used  everything here except the space blanket, the bandage, the waterproof gloves, the waterproof pants, and the money (no emergencies or rain). I also had a drop bag including extra clothes, food, a USB battery pack, tape, and bandages for my foot.
+
+
+Worked well:
+
+* Two new headlamps. The Silva Crosstrail 6 was powerful and though the separate battery pack (in the side of my pack) is a bit awkward when you need to take the pack off, I think the very low weight on my head was worth it. I also like the modular design a lot - you can swap out a rechargeable battery pack, and you can guarantee the light will not drain the battery in your pack by compltely disconnecting the battery pack. (Plus it'll work perfectly for biking or mountaineering, if I ever do those things again). The Petzl eLite, kept easily acessible (where my sunscreen would be during the day), was essential to provide light to change batteries in the main lamp.
+* Two pairs of glasses. I opted to carry my normal prescription glasses, along with my prescription sunglasses.  The normal glasses were very helpful at the night, and didn't slide around once I locked them down with my headlamp strap. The sunglasses have thicker stems which fit into a keeper strap from which they hang, underneath my chest strap, when not in use during the day.
+* Disposable soup container. Very light and held up for the whole race - I even drank soup out of it!
+
+Worked less well:
+
+* Water bladder. Not helpful on this route - annoying flapping hose, impossible to fill with full pack.  I might still take it for future races, but only as a contingency for stretches were I need to carry for that 1L of water, and keep the irritating hose stored inside the pack.
+* Drop bag. It was a mixed one. It was absolutely essential to have the extra set of headlamp batteries in there and, though I forgot to use them, the restock of favored trail snacks would have been nice. The change of clothes was a waste of time. I didn't feel particularly refreshed, and worse the second set of clothes was inferior - I missed the compression socks and the T-shirt wasn't as breathable. The extra battery pack would have been nice to recharge my watch, if I'd managed to get it to work. I feel I wasted a lot of time messing with the drop bag that wasn't worth it, so in the future I might return to treating the bag as something to hold gear for contingencies (this time, the extra batteries), not something that I would need under ideal conditions.
+
+
+
+.. |profile_2x| image:: images/2021_07_09_VDA/profile_2x.jpg
+   :width: 800px
+   :target: images/2021_07_09_VDA/profile_2x.jpg
+
+.. |route| image:: images/2021_07_09_VDA/route.png
+   :width: 800px
+   :target: images/2021_07_09_VDA/route.png
+
+.. |st_victoire| image:: images/2021_07_09_VDA/small/st_victoire.jpg
+   :width: 300px
+   :target: images/2021_07_09_VDA/st_victoire.jpg
+
+.. |ventoux| image:: images/2021_07_09_VDA/small/ventoux.jpg
+   :width: 300px
+   :target: images/2021_07_09_VDA/ventoux.jpg
+
+.. |gear| image:: images/2021_07_09_VDA/small/gear.jpg
+   :width: 300px
+   :target: images/2021_07_09_VDA/gear.jpg
+
+.. |start| image:: images/2021_07_09_VDA/small/start.jpg
+   :width: 300px
+   :target: images/2021_07_09_VDA/start.jpg
+
+.. |start2| image:: images/2021_07_09_VDA/small/start2.jpg
+   :width: 300px
+   :target: images/2021_07_09_VDA/start2.jpg
+
+.. |pano_friday| image:: images/2021_07_09_VDA/small/pano_friday.jpg
+   :width: 800px
+   :target: images/2021_07_09_VDA/pano_friday.jpg
+
+.. |widowmaker| image:: images/2021_07_09_VDA/small/widowmaker.jpg
+   :width: 300px
+   :target: images/2021_07_09_VDA/widowmaker.jpg
+
+.. |bridge_pro| image:: images/2021_07_09_VDA/small/bridge_pro.jpg
+   :width: 300px
+   :target: images/2021_07_09_VDA/bridge_pro.jpg
+
+.. |ruin_saturday| image:: images/2021_07_09_VDA/small/ruin_saturday.jpg
+   :width: 300px
+   :target: images/2021_07_09_VDA/ruin_saturday.jpg
+
+.. |pano_pass_saturday| image:: images/2021_07_09_VDA/small/pano_pass_saturday.jpg
+   :width: 800px
+   :target: images/2021_07_09_VDA/pano_pass_saturday.jpg
+
+.. |pano_top_saturday| image:: images/2021_07_09_VDA/small/pano_top_saturday.jpg
+   :width: 800px
+   :target: images/2021_07_09_VDA/pano_top_saturday.jpg
+
+.. |colomers_pro| image:: images/2021_07_09_VDA/small/colomers_pro.jpg
+   :width: 300px
+   :target: images/2021_07_09_VDA/colomers_pro.jpg
+
+.. |pano_sunday| image:: images/2021_07_09_VDA/small/pano_sunday.jpg
+   :width: 800px
+   :target: images/2021_07_09_VDA/pano_sunday.jpg
+
+.. |pano_sunday2| image:: images/2021_07_09_VDA/small/pano_sunday2.jpg
+   :width: 800px
+   :target: images/2021_07_09_VDA/pano_sunday2.jpg
+

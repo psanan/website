@@ -17,8 +17,6 @@ Postdoctoral researcher in the `Geophysical Fluid Dynamics group`_ in the Instit
 
 My last name rhymes with "cannon". 
 
-He/him.
-
 .. _`Geophysical Fluid Dynamics group`: https://www.gfd.ethz.ch
 .. _`patrick.sanan@erdw.ethz.ch`: mailto:patrick.sanan@erdw.ethz.ch"
 .. _`ORCID`: https://orcid.org/0000-0003-3968-8482

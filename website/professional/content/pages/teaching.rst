@@ -5,9 +5,11 @@ Introduction to Finite Element Modelling in Geosciences
 -------------------------------------------------------
 Block course at ETH Zurich.
 
-`2020 Website <http://jupiter.ethz.ch/~gfdteaching/femblockcourse/2020/>`__
+`2021 Website <http://jupiter.ethz.ch/~gfdteaching/femblockcourse/2021/>`__
 
-Previous years: `2019 <http://jupiter.ethz.ch/~gfdteaching/femblockcourse/2019/>`__
+Previous years: 
+`2020 <http://jupiter.ethz.ch/~gfdteaching/femblockcourse/2020/>`__
+`2019 <http://jupiter.ethz.ch/~gfdteaching/femblockcourse/2019/>`__
 `2018 <http://jupiter.ethz.ch/~gfdteaching/femblockcourse/2018>`__
 `2017 <https://jupiter2.ethz.ch/~gfdteaching/femblockcourse/2017>`__
 `2016 <http://jupiter.ethz.ch/~gfdteaching/femblockcourse/2016>`__
