@@ -97,7 +97,7 @@ Temperatures stayed cool and conditions partly cloudy as I slowly ascended, with
 
 I took another small detour, up and over a bump on the ridge, instead of around it, as the trail was completely covered with felled trees.
 
-Almost all of the elevation I'd slowly gained so far was lost ins single steep downhill section, which deposited me close to lake level, but still quite a long way from Rapperswil.
+Almost all of the elevation I'd slowly gained so far was lost in a single steep downhill section, which deposited me close to lake level, but still quite a long way from Rapperswil.
 While not unbearable, the temperature increased for the last segment, which took me quite a long time.
 The trail heads straight through the town and ends with a contrived loop past the castle, along the dock, and back across the street to the train station.
 I stopped my watch, having cleared the 10 hour mark by 59 seconds!
