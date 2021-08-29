@@ -37,9 +37,7 @@ DISPLAY_CATEGORIES_ON_MENU = True
 THEME = '../theme'
 
 # Other Settings
-DEFAULT_PAGINATION = 1
-
-SUMMARY_MAX_LENGTH = None
+SUMMARY_MAX_LENGTH = 0
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
