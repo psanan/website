@@ -32,8 +32,6 @@ LINKS = (
 SOCIAL = (
          ('GitLab','https://gitlab.com/psanan'),
          ('GitHub','https://github.com/psanan'),
-         ('Bitbucket','https://bitbucket.org/psanan'),
-         ('Twitter', 'http://twitter.com/patricksanan'),
          ('Mastodon', 'https://mastodon.social/web/accounts/106781853607029982'),
          )
 
