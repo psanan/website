@@ -32,7 +32,6 @@ LINKS = (
 SOCIAL = (
          ('GitLab','https://gitlab.com/psanan'),
          ('GitHub','https://github.com/psanan'),
-         ('Mastodon', 'https://mastodon.social/web/accounts/106781853607029982'),
          )
 
 # Menu
