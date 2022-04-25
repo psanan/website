@@ -1,6 +1,12 @@
 Teaching
 ========
 
+Using PETSc with GPUs
+---------------------
+
+Very short introduction for the CIG Developer's workshop, February 2022.
+`Slides and examples <https://gitlab.com/psanan/petsc-gpu-cig-2022-02-28`__.
+
 Introduction to Finite Element Modelling in Geosciences
 -------------------------------------------------------
 Block course at ETH Zurich.
