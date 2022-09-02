@@ -9,7 +9,7 @@ Patrick Sanan
     :height: 150px
     :alt: portrait
 
-Postdoctoral researcher in the `Geophysical Fluid Dynamics group`_ in the Institute of Geophysics at ETH Zurich.
+Until recently, a postdoctoral researcher in the `Geophysical Fluid Dynamics group`_ in the Institute of Geophysics at ETH Zurich.
 
 `patrick.sanan@erdw.ethz.ch`_
 
