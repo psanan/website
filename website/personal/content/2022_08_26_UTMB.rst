@@ -4,7 +4,7 @@ UTMB
 :date: 2022-08-26
 :category: Trip Reports
 
-The Ultra Trail du Mont Blanc (UTMB) is a 172 kilometer (106 mile) trail race with 10000m (33000 feet) of climbing, mostly following the gorgeous `Tour du Mont Blanc <https://en.wikipedia.org/wiki/Tour_du_Mont_Blanc>`__ trekking route. It starts in Chamonix-Mont-Blanc, France, and circle Mont Blanc, passing through Italy and Switzerland before returning. I'd wanted to run it for years, eventually qualifying by finishing the 2021 `VDA <{filename}2021_07_09_VDA.rst>`__.
+The Ultra Trail du Mont Blanc (UTMB) is a 172 kilometer (106 mile) trail race with 10000m (33000 feet) of climbing, mostly following the gorgeous `Tour du Mont Blanc <https://en.wikipedia.org/wiki/Tour_du_Mont_Blanc>`__ trekking route. It starts in Chamonix-Mont-Blanc, France and circles Mont Blanc, passing through Italy and Switzerland before returning. I'd wanted to run it for years, eventually qualifying by finishing the 2021 `VDA <{filename}2021_07_09_VDA.rst>`__.
 
 Part of the experience of ultrarunning is moving though
 the inevitable mental and physical highs and lows. This race,
@@ -15,7 +15,7 @@ you're excited and your legs are coiled springs after a couple
 of weeks of tapering. The problem is usually to try to contain your excitement
 and not go out too fast.
 
-The weather was perfect - 10-20C everywhere with very scattered rain. My training peak race (the SwissAlps 50k) two weeks before had gone well. I was rested, and I was at the start of a race I'd wanted to run for a long time, minutes before the Friday 6pm starting gun. I should have been at a near-record high.
+The weather was perfect - 10-20 C everywhere with very scattered rain. My training peak race (the SwissAlps 50k) two weeks before had gone well. I was rested, and I was at the start of a race I'd wanted to run for a long time, minutes before the Friday 6pm starting gun. I should have been at a near-record high.
 
 But no. About three days previously, on Tuesday night, I had
 come home after a long day at work and quickly grabbed dinner
