@@ -3,7 +3,7 @@ all : pds.bib
 	latexmk -c
 
 pds.bib :
-	ln -s ${HOME}/work/bib/pds.bib $@
+	ln -s ${HOME}/academic/bib/pds.bib $@
 
 clean :
 	 latexmk -C
