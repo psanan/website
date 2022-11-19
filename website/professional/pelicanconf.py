@@ -32,6 +32,7 @@ LINKS = (
 SOCIAL = (
          ('GitLab','https://gitlab.com/psanan'),
          ('GitHub','https://github.com/psanan'),
+         ('LinkedIn','https://www.linkedin.com/in/patrick-sanan-80055157/'),
          )
 
 # Menu
