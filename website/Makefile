@@ -13,9 +13,6 @@ SSH_PORT=22
 SSH_USER=patriet2
 SSH_TARGET_DIR=public_html
 
-# A path to ignore when synchronizing, because I separately sync my personal site there
-PERSONAL_SITE_DIR=personal
-
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -80,7 +77,7 @@ publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 rsync_upload: publish
-	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --cvs-exclude --exclude $(PERSONAL_SITE_DIR) --delete $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
+	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --cvs-exclude --delete $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
 
 
 .PHONY: html help clean regenerate serve serve-global devserver stopserver publish ssh_upload rsync_upload

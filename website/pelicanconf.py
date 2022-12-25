@@ -5,12 +5,12 @@ from __future__ import unicode_literals
 import os
 
 AUTHOR = 'Patrick Sanan'
-SITENAME = "Patrick Sanan's Blog"
-SITEURL = 'https://patricksanan.org/personal'
+SITENAME = "patricksanan.org"
+SITEURL = 'https://patricksanan.org'
 
 PATH = 'content'
 
-STATIC_PATHS = ['images','data']
+STATIC_PATHS = ['images', 'data']
 
 TIMEZONE = 'Europe/Paris'
 
@@ -24,17 +24,19 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 LINKS = (
-        ('Professional Site','https://patricksanan.org'),
         )
 
 SOCIAL = (
-         )
+        ('GitLab','https://gitlab.com/psanan'),
+        ('GitHub','https://github.com/psanan'),
+        ('LinkedIn','https://www.linkedin.com/in/patrick-sanan-80055157/'),
+        )
 
 # Menu
 DISPLAY_CATEGORIES_ON_MENU = True
 
 # Theme
-THEME = '../theme'
+THEME = 'theme'
 
 # Other Settings
 SUMMARY_MAX_LENGTH = 0
