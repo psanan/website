@@ -2,7 +2,7 @@ Adventures in Keyboarding, part II
 ##################################
 :date: 2016-03-11 10:58
 :status: published
-:category: Misc.
+:category: Computing
 
 `Part I <{filename}adventures-in-keyboarding.rst/>`__
 `Part III <{filename}adventures-in-keyboarding-part-iii.rst/>`__

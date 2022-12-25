@@ -2,7 +2,7 @@ It Doesn't Work!
 ================
 
 :date: 2019-07-05
-:category: scientific computing
+:category: Computing
 
 I wrote `a blog post for the EGU Geodynamics blog <https://blogs.egu.eu/divisions/gd/2019/07/03/it-doesnt-work-asking-questions-about-scientific-software/>`__.
 

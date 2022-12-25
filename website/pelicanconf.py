@@ -27,13 +27,22 @@ LINKS = (
         )
 
 SOCIAL = (
+        ('CV', SITEURL + '/data/Sanan_CV.pdf'),
         ('GitLab','https://gitlab.com/psanan'),
         ('GitHub','https://github.com/psanan'),
         ('LinkedIn','https://www.linkedin.com/in/patrick-sanan-80055157/'),
+        ('Some Music', 'https://windfarmmusic.wordpress.com/'),
         )
 
 # Menu
 DISPLAY_CATEGORIES_ON_MENU = True
+MENUITEMS = (
+        ('Posts', SITEURL + '/posts_index.html'), # hack
+        ('CV', SITEURL + '/data/Sanan_CV.pdf'), # hack
+        )
+
+# Posts (blog) page
+INDEX_SAVE_AS = 'posts_index.html'
 
 # Theme
 THEME = 'theme'
