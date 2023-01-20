@@ -16,7 +16,11 @@ A long time ago, in college, I learned about a binge drinking "game" known as "C
 
 To serve as a timer for this game, it was common practice to compile a playlist consisting of 1-minute snippets of various songs. Every time the music changes, one is free to enjoy another 1-2 ounces of the finest beer that as little money as possible can buy.
 
-These playlists usually consisted of contemporary hits, but in about 2007 I had the idea to compile something more ambitious. What if each song in the playlist was *about* a different number from 1 to 100? My interest in drinking beer has faded, but my interest in music has not. Fortunately, such a playlist has healthier applications: you can listen while running or use it to time circuit exercises.
+These playlists usually consisted of contemporary hits, but in about 2007 I had
+the idea to compile something more ambitious. What if each song in the playlist
+was *about* a different number from 1 to 100? My interest in drinking beer has
+faded, but fortunately, such a playlist has healthier applications: you can
+listen while running or time exercises with it.
 
 The general rules were established as I compiled a first version:
 
