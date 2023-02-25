@@ -1,13 +1,3 @@
-## Ideas
-
-* Move to markdown (possibly first staying with Pelican) and Hugo
-* Consolidate from windfarmmusic.wordpress.com. It's possible to export from the WordPress admin interface and [import into Pelican](https://docs.getpelican.com/en/4.2.0/importer.html>).
-* Collect favorite earlier trip reports (see summitpost records, too)
-* TIME post
-* PRiSM post (when done)
-* See other blog post ideas
-
-
 ## About
 I used `pelican-quickstart`, using rsync/ssh to send to the `public_html` dir
 on the server.
