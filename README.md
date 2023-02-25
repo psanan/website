@@ -1,6 +1,9 @@
 This is one repository because the website and CV are the same
 in that they are how I present myself, publicly/professionally.
 
-## Ideas
+For that reason, other things I used to present myself publicly
+could also go here (but best to avoid things which aren't on the CV
+or the website!)
 
-* Split the website into two separate Pelican sites, one professional, one personal.
+I go back and forth on whether it's good to do this, but it seems simple
+and life seems short, now.
