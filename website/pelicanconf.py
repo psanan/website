@@ -28,8 +28,8 @@ LINKS = (
 
 SOCIAL = (
         ('CV', SITEURL + '/data/Sanan_CV.pdf'),
-        ('GitLab','https://gitlab.com/psanan'),
-        ('GitHub','https://github.com/psanan'),
+#        ('GitLab','https://gitlab.com/psanan'),
+#        ('GitHub','https://github.com/psanan'),
         ('LinkedIn','https://www.linkedin.com/in/patrick-sanan-80055157/'),
         ('Some Music', 'https://windfarmmusic.wordpress.com/'),
         )
