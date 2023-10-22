@@ -37,7 +37,7 @@ figcaption {
 .grid-container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 1500px;
+    max-width: 1000px;
 }
 
 .grid-item {

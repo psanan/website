@@ -49,6 +49,7 @@ def update_header_and_footer(path, header_lines, footer_lines):
     with open(path, "w") as f:
         f.writelines(lines_out)
 
+
 def _is_grid_item_div_open(line):
     return line.lstrip().startswith("<div") and "grid-item" in line
 
@@ -57,6 +58,7 @@ def _is_grid_item_div_open(line):
 def _is_grid_item_div_close(line):
     return line.lstrip().startswith("</div") and "grid-item" in line
 
+
 def _process_grid_item_div_lines(lines):
     # TODO instead, go through the lines looking for
     # alt text
@@ -64,21 +66,25 @@ def _process_grid_item_div_lines(lines):
     # caption
     # and pass to  figure_grid_html in image_utils
     # probably requires regex
-    alt=""
-    href=""
-    caption=""
+    alt = ""
+    href = ""
+    caption = ""
     for line in lines:
         m = re.search('alt\w*=\w*"([^"]*)"', line)
         if m:
             if alt:
-                print("WARNING - two alt strings found in grid item! Not processing")
+                print(
+                    "WARNING - two alt strings found in grid item! Not processing"
+                )
                 return lines
             alt = m.group(1).strip()
         if "<figcaption>" in line:
             if caption:
-                print("WARNING - two captions found in grid item! Not processing")
+                print(
+                    "WARNING - two captions found in grid item! Not processing")
                 return lines
-            caption = line.replace("<figcaption>","").replace("</figcaption>","").strip()
+            caption = line.replace("<figcaption>",
+                                   "").replace("</figcaption>", "").strip()
         m = re.search('href\w*=\w*"([^"]*)"', line)
         if m:
             if href:
@@ -89,15 +95,10 @@ def _process_grid_item_div_lines(lines):
         print("WARNING. href not found in grid item - not processing!", lines)
         return lines
 
-    # Use caption as alt text if none provided
-    if not alt:
-        alt = caption
-
-    return image_utils.figure_grid_html(
-        input_path = href,
-        base_directory_prefix = "",
-        alt = alt,
-        caption = caption)
+    return image_utils.figure_grid_html(input_path=href,
+                                        base_directory_prefix="",
+                                        alt=alt,
+                                        caption=caption)
 
 
 def update_figures(path):
@@ -112,7 +113,9 @@ def update_figures(path):
             new_grid_item_div_open = _is_grid_item_div_open(line)
             if new_grid_item_div_open:
                 if grid_item_div_open:
-                    print(f"grid-item div opened when one already open in {path}. Aborting")
+                    print(
+                        f"grid-item div opened when one already open in {path}. Aborting"
+                    )
                     return
                 grid_item_div_open = True
 
@@ -124,10 +127,13 @@ def update_figures(path):
             new_grid_item_div_close = _is_grid_item_div_close(line)
             if new_grid_item_div_close:
                 if not grid_item_div_open:
-                    print(f"grid-item closed when one not already open in {path}. Aborting")
+                    print(
+                        f"grid-item closed when one not already open in {path}. Aborting"
+                    )
                     return
                 grid_item_div_open = False
-                lines_out.extend(_process_grid_item_div_lines(grid_item_div_lines))
+                lines_out.extend(
+                    _process_grid_item_div_lines(grid_item_div_lines))
                 lines_out.append("\n")
                 grid_item_div_lines = []
         if grid_item_div_open:
@@ -136,10 +142,6 @@ def update_figures(path):
     # write to a different path!
     with open(path + ".new", "w") as f:
         f.writelines(lines_out)
-
-
-
-
 
 
 def _update_directory(directory):
@@ -154,7 +156,8 @@ def _update_directory(directory):
         if not filename.endswith(".html"):
             continue
         print(f"Attempting to update {filename}")
-        update_header_and_footer(os.path.join(directory, filename), header_lines, footer_lines)
+        update_header_and_footer(os.path.join(directory, filename),
+                                 header_lines, footer_lines)
 
         # For now, an out-of-place process!
         update_figures(os.path.join(directory, filename))
