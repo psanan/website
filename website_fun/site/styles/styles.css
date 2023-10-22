@@ -31,10 +31,6 @@ figcaption {
   font: italic sans-serif;
 }
 
-.text-width {
-  max-width: 700px
-}
-
 .grid-container {
     display: flex;
     flex-wrap: wrap;
