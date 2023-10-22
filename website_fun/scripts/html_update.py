@@ -61,6 +61,15 @@ def _process_grid_item_div_lines(lines):
     # caption
     # and pass to  figure_grid_html in image_utils
     # probably requires regex
+    alt=""
+    path=""
+    caption=""
+    for line in lines:
+        m = re.search('alt\w*=\w*"([^"]*)"', line)
+        if m:
+            alt = m.group(1)
+
+    print("DEBUG found alt", alt)
 
     lines_out = []
     lines_out.append('<div class="grid-item">\n')

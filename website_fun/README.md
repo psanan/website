@@ -1,32 +1,22 @@
-This is a "fun" website.
+# Source for patricksanan.org
 
-Fun in the web 1.0 sense.
+This is a "fun" website, in the web 1.0 sense.
+It's intended to be non-scalable, but in return, fun to work on with low-level tools because there are few levels of abstraction. (And it's just static HTML and CSS, so it won't be slowed down by the usual things that bloat websites).
 
-Fun because it's so limited in ambition
-that it doesn't require more than low-level tools.
+All HTML files live directly in `site/`. A single CSS stylesheet and other
+resources are in subdirectories of `site/`.
 
-It's just HTML and a single CSS file and a couple of simple Python scripts.
+`scripts/` contains a couple of Python scripts to automate some tedious
+operations on the HTML files, like updating the headers and footers and
+creating or updating HTML for images.
 
-You should not have to "build" anything or run a local HTTP server.
-Just edit the files and look at them in your local web browser.
+You don't have to build, run, or install anything beyond a web browser and a
+text editor. Just `site/index.html` with your web browser. Edit the files in a
+text editor and reload the current page in your browser.
 
+To deploy, upload the contents of `site/` to the appropriate destination
+(probably `public_html`) on your web server.
 
-It could just be
-* A single CSS file
-* A "site" directory, which can be copied directly to deploy
-    * Totally flat for HTML files!
-
-The initial impl could just have that, but the HTML pages will have duplicated boilerplate for headers, footers, inline images, and image galleries. I'll want to be able to easily bulk update those, or have them filled in from comments in new posts.
-So we'll also need
-
-* A reference HTML header
-* A reference HTML footer
-* A script which generates the feed - it will complain if it can't find a publication date in the HTML file
-* A script which updates the headers and footers
-* An image update script.
-    * Looks for figures assigned to a particular class (or a div surrounding an image, perhaps)
-    * finds probably-won't-change information within (probably just the path to the full-size image as href="xx") and replaces everything else
-    * Has an option to (re)generate small images (and warns and has an option to delete now-unused small images)
-* A script to generate the feed by looking for pages with a comment for a feed date (?)
-* A deploy script which updates headers and footers, generates the feed, and deploys with rsync to a particular place (put the actual address in my personal config so I can still publish the website source)
-
+Working with this site should only require the basic information you can find
+about CSS and HTML from https://developer.mozilla.org, along with some Python
+scripting.
