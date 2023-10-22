@@ -46,6 +46,8 @@ def update_header_and_footer(path, header_lines, footer_lines):
             print(
                 f"WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
             )
+
+    # It would be nice to only do this if anything changed, so unchanged files aren't rewritten
     with open(path, "w") as f:
         f.writelines(lines_out)
 
@@ -60,12 +62,6 @@ def _is_grid_item_div_close(line):
 
 
 def _process_grid_item_div_lines(lines):
-    # TODO instead, go through the lines looking for
-    # alt text
-    # image location
-    # caption
-    # and pass to  figure_grid_html in image_utils
-    # probably requires regex
     alt = ""
     href = ""
     caption = ""
