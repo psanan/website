@@ -2,6 +2,20 @@ Category: Trip Reports
 Date: 2022-08-26
 Title: Swiss Cantonal Highpoints
 
+TODO play with flexbox..
+<head>
+<style>
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-figure {
+	flex: 1 100px
+}
+</style>
+</head>
+
 <b>5/26 Cantons</b>
 
 After a recent perusal of [my favorite website](http://countryhighpoints.com/),
@@ -76,8 +90,9 @@ July 10, 2016
 
 Joel, Josh, and I climbed to the highest point in Switzerland.
 
+<div class="grid-container">
 
-<figure>
+<figure class="grid-figure">
 <a href="images/swiss-cantonal-highpoints/dufourspitze-7.jpg">
 <img src="images/swiss-cantonal-highpoints/small/dufourspitze-7.jpg"
 width="300"
@@ -86,7 +101,7 @@ alt="Crossing the glacier." /> </a>
 </em></figcaption>
 </figure>
 
-<figure>
+<figure class="grid-figure">
 <a href="images/swiss-cantonal-highpoints/dufourspitze-13.jpg">
 <img src="images/swiss-cantonal-highpoints/small/dufourspitze-13.jpg"
 width="300"
@@ -95,7 +110,7 @@ alt="Cramponing up snow in the morning, roped up." /> </a>
 </em></figcaption>
 </figure>
 
-<figure>
+<figure class="grid-figure">
 <a href="images/swiss-cantonal-highpoints/dufourspitze-17.jpg">
 <img src="images/swiss-cantonal-highpoints/small/dufourspitze-17.jpg"
 width="300"
@@ -104,7 +119,7 @@ alt="Climbing the ridge." /> </a>
 </em></figcaption>
 </figure>
 
-<figure>
+<figure class="grid-figure">
 <a href="images/swiss-cantonal-highpoints/dufourspitze-20.jpg">
 <img src="images/swiss-cantonal-highpoints/small/dufourspitze-20.jpg"
 width="300"
@@ -113,7 +128,7 @@ alt="alt text" /> </a>
 </em></figcaption>
 </figure>
 
-<figure>
+<figure class="grid-figure">
 <a href="images/swiss-cantonal-highpoints/dufourspitze-25.jpg">
 <img src="images/swiss-cantonal-highpoints/small/dufourspitze-25.jpg"
 width="300"
@@ -122,7 +137,7 @@ alt="alt text" /> </a>
 </em></figcaption>
 </figure>
 
-<figure>
+<figure class="grid-figure">
 <a href="images/swiss-cantonal-highpoints/dufourspitze-27.jpg">
 <img src="images/swiss-cantonal-highpoints/small/dufourspitze-27.jpg"
 width="300"
@@ -131,7 +146,7 @@ alt="alt text" /> </a>
 </em></figcaption>
 </figure>
 
-<figure>
+<figure class="grid-figure">
 <a href="images/swiss-cantonal-highpoints/dufourspitze-28.jpg">
 <img src="images/swiss-cantonal-highpoints/small/dufourspitze-28.jpg"
 width="300"
@@ -140,7 +155,7 @@ alt="alt text" /> </a>
 </em></figcaption>
 </figure>
 
-<figure>
+<figure class="grid-figure">
 <a href="images/swiss-cantonal-highpoints/dufourspitze-30.jpg">
 <img src="images/swiss-cantonal-highpoints/small/dufourspitze-30.jpg"
 width="300"
@@ -149,7 +164,7 @@ alt="alt text" /> </a>
 </em></figcaption>
 </figure>
 
-<figure>
+<figure class="grid-figure">
 <a href="images/swiss-cantonal-highpoints/dufourspitze-35.jpg">
 <img src="images/swiss-cantonal-highpoints/small/dufourspitze-35.jpg"
 width="300"
@@ -157,6 +172,8 @@ alt="Cat at the Monte Rosa hut." /> </a>
 <figcaption><em>Cat back at the Monte Rosa hut
 </em></figcaption>
 </figure>
+
+</div>
 
 ## 2. Schwyz - Bös Fulen
 

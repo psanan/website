@@ -11,9 +11,10 @@ IGNORE_FILES = [".DS_Store"]
 def filename_to_figure(path, small_path):
     """Produce an html figure snippet for a given paths to an image and thumbnail"""
     lines = []
-    lines.append('<figure>')
+    lines.append('<figure class="grid-figure">')
     lines.append(f'<a href="{path}">')
-    lines.append(f'<img src="{small_path}" width="300" />')
+    #lines.append(f'<img src="{small_path}" width="300" />')
+    lines.append(f'<img src="{small_path}" />')
     lines.append('</a>')
     lines.append(f'<figcaption><em>{path}</em></figcaption>')
     lines.append('</figure>')
@@ -32,8 +33,10 @@ def _shrink(directory, filename):
     small_path = os.path.join(small_dir, filename)
     _mkdir_p(small_dir)
     # Requires Imagemagick's "convert" to work
+    # Want to resize the largest dimension to 300px
     subprocess.run([
-        "convert", "-auto-orient", "-thumbnail", "350x",
+        #"convert", "-auto-orient", "-thumbnail", "300x300>",
+        "convert", "-resize", "300x300>",
         os.path.join(directory, filename), small_path
     ])
     return small_path
@@ -42,6 +45,7 @@ def _shrink(directory, filename):
 def _process_directory(directory):
     if not os.path.isdir(directory):
         raise Exception(f"{directory} is not a directory")
+    print('<div class="grid-container">')
     for filename in sorted(os.listdir(directory)):
         path = os.path.join(directory, filename)
         if os.path.isdir(path):
@@ -50,6 +54,7 @@ def _process_directory(directory):
             continue
         small_path = _shrink(directory, filename)
         print(filename_to_figure(path, small_path))
+    print('</div>')
 
 
 def _main():
