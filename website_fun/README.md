@@ -1,7 +1,9 @@
 # Source for patricksanan.org
 
-This is a "fun" website, in the web 1.0 sense.
-It's intended to be non-scalable, but in return, fun to work on with low-level tools because there are few levels of abstraction. (And it's just static HTML and CSS, so it won't be slowed down by the usual things that bloat websites).
+This is a "fun" website, in the learning-to-code, web 1.0 sense.
+It's non-scalable, to be sure, but in return, it's fun to work on with low-level. There aren't any levels of abstractioon top of HTML and CSS.
+
+(And it's so simple, I have to believe it'll load quickly and work anywhere).
 
 All HTML files live directly in `site/`. A single CSS stylesheet and other
 resources are in subdirectories of `site/`.
