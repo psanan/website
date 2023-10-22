@@ -1,0 +1,13 @@
+# Try and force all patricksanan.com variants to go to the new site
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^patricksanan\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.patricksanan\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^http\:\/\/patricksanan\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^http\:\/\/www\.patricksanan\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^https\:\/\/patricksanan\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^https\:\/\/www\.patricksanan\.com$
+RewriteRule ^/?$ "https\:\/\/patricksanan\.org\/" [R=301,L]
+
+# https://my.bluehost.com/hosting/help/force-ssl-all-pages
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
