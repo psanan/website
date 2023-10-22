@@ -1,5 +1,0 @@
-baseURL = 'http://patricksanan.org/'
-languageCode = 'en-us'
-title = 'patricksanan.org'
-theme = 'ananke'
-sectionPagesMenu = "main"

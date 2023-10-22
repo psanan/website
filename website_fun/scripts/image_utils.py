@@ -55,7 +55,7 @@ def create_small_images(directory):
     return small_directory
 
 
-def figure_grid_html(input_path, base_directory_prefix):
+def figure_grid_html(input_path, base_directory_prefix, alt="", caption=""):
     """Produce an html figure snippet for a given image within a grid.
 
     Includes paths relative to the provided base_directory prefix."""
@@ -70,9 +70,9 @@ def figure_grid_html(input_path, base_directory_prefix):
     lines.append(f'<div class="grid-item">')
     lines.append(f'<figure>')
     lines.append(f'<a href="{path}">')
-    lines.append(f'<img src="{small_path}" alt=""/>')
+    lines.append(f'<img src="{small_path}" alt="{alt}"/>')
     lines.append(f'</a>')
-    lines.append(f'<figcaption></figcaption>')
+    lines.append(f'<figcaption>{caption}</figcaption>')
     lines.append(f'</figure>')
     lines.append(f'</div>')
     return '\n'.join(lines)

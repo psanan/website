@@ -14,7 +14,7 @@ Just edit the files and look at them in your local web browser.
 It could just be
 * A single CSS file
 * A "site" directory, which can be copied directly to deploy
-    * Keep as flat as possible and use relative links
+    * Totally flat for HTML files!
 
 The initial impl could just have that, but the HTML pages will have duplicated boilerplate for headers, footers, inline images, and image galleries. I'll want to be able to easily bulk update those, or have them filled in from comments in new posts.
 So we'll also need
