@@ -62,12 +62,12 @@ def update_header_and_footer(path, header_lines, footer_lines):
 
 
 def _is_grid_item_div_open(line):
-    return line.lstrip().startswith("<div") and "grid-item" in line
+    return "<div" in line and "grid-item" in line
 
 
 # This requires a class in the closing tag, which is ugly - properly, use a stack to deal with nested item divs
 def _is_grid_item_div_close(line):
-    return line.lstrip().startswith("</div") and "grid-item" in line
+    return "</div" in line and "grid-item" in line
 
 
 def _process_grid_item_div_lines(lines):
@@ -83,6 +83,7 @@ def _process_grid_item_div_lines(lines):
                 )
                 return lines
             alt = m.group(1).strip()
+        # Bug! This only works for single-line captions. It should search util the closing tag.
         if "<figcaption>" in line:
             if caption:
                 print(
@@ -116,12 +117,14 @@ def update_figures(path):
         grid_item_div_open = False
         grid_item_div_lines = []
         item_div_open = False
+        line_number = 0
         for line in f:
+            line_number += 1
             new_grid_item_div_open = _is_grid_item_div_open(line)
             if new_grid_item_div_open:
                 if grid_item_div_open:
                     print(
-                        f"grid-item div opened when one already open in {path}. Aborting"
+                            f"grid-item div opened when one already open in {path}:{line_number}. Aborting"
                     )
                     return
                 grid_item_div_open = True
