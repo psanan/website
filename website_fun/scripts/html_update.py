@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 """Utilities to automatically update HTML source"""
 
-import os
 import argparse
+import os
+import re
+
+import image_utils
 
 HEADER_TAG_PREFIX = "<!--END HEADER"
 FOOTER_TAG_PREFIX = "<!--START FOOTER"
@@ -62,20 +65,39 @@ def _process_grid_item_div_lines(lines):
     # and pass to  figure_grid_html in image_utils
     # probably requires regex
     alt=""
-    path=""
+    href=""
     caption=""
     for line in lines:
         m = re.search('alt\w*=\w*"([^"]*)"', line)
         if m:
-            alt = m.group(1)
+            if alt:
+                print("WARNING - two alt strings found in grid item! Not processing")
+                return lines
+            alt = m.group(1).strip()
+        if "<figcaption>" in line:
+            if caption:
+                print("WARNING - two captions found in grid item! Not processing")
+                return lines
+            caption = line.replace("<figcaption>","").replace("</figcaption>","").strip()
+        m = re.search('href\w*=\w*"([^"]*)"', line)
+        if m:
+            if href:
+                print("WARNING - two hrefs found in grid item! Not processing")
+                return lines
+            href = m.group(1).strip()
+    if not href:
+        print("WARNING. href not found in grid item - not processing!", lines)
+        return lines
 
-    print("DEBUG found alt", alt)
+    # Use caption as alt text if none provided
+    if not alt:
+        alt = caption
 
-    lines_out = []
-    lines_out.append('<div class="grid-item">\n')
-    lines_out.append('Uh dunno?\n')
-    lines_out.append('</div> <!--grid-item-->\n')
-    return lines_out
+    return image_utils.figure_grid_html(
+        input_path = href,
+        base_directory_prefix = "",
+        alt = alt,
+        caption = caption)
 
 
 def update_figures(path):
@@ -106,6 +128,7 @@ def update_figures(path):
                     return
                 grid_item_div_open = False
                 lines_out.extend(_process_grid_item_div_lines(grid_item_div_lines))
+                lines_out.append("\n")
                 grid_item_div_lines = []
         if grid_item_div_open:
             print(f"grid-item div never closed in {path}. Aborting")
