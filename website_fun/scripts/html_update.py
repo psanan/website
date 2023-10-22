@@ -9,6 +9,7 @@ import image_utils
 
 HEADER_TAG_PREFIX = "<!--END HEADER"
 FOOTER_TAG_PREFIX = "<!--START FOOTER"
+CUSTOM_HEADER_TAG_PREFIX = "<!--CUSTOM HEADER"
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 HEADER_TEMPLATE_PATH = os.path.join(THIS_DIR, "..", "templates", "header.html")
@@ -24,15 +25,22 @@ def update_header_and_footer(path, header_lines, footer_lines):
         header_comment_found = False
         footer_comment_found = False
         for line in f:
+            # Do not update if a custom header comment is found
+            if CUSTOM_HEADER_TAG_PREFIX in line:
+                print(
+                    f"Custom header marker found for {path}. Not modifying file."
+                )
+                return
+
             if not header_comment_found:
                 header_comment_found = line.lstrip().startswith(
-                    "<!--END HEADER")
+                    HEADER_TAG_PREFIX)
                 if header_comment_found:
                     lines_out.extend(header_lines)
                     continue
             if header_comment_found and not footer_comment_found:
                 footer_comment_found = line.lstrip().startswith(
-                    "<!--START FOOTER")
+                    FOOTER_TAG_PREFIX)
             if footer_comment_found:
                 lines_out.extend(footer_lines)
                 break
@@ -42,6 +50,7 @@ def update_header_and_footer(path, header_lines, footer_lines):
             print(
                 f"WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} will not be updated"
             )
+            return
         elif not footer_comment_found:
             print(
                 f"WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
@@ -79,8 +88,10 @@ def _process_grid_item_div_lines(lines):
                 print(
                     "WARNING - two captions found in grid item! Not processing")
                 return lines
-            caption = line.replace("<figcaption>",
-                                   "").replace("</figcaption>", "").strip()
+            # Strip out any figcaption or em tags
+            caption = line.replace("<figcaption>", "").replace(
+                "</figcaption>", "").replace("<em>", "").replace("</em>",
+                                                                 "").strip()
         m = re.search('href\w*=\w*"([^"]*)"', line)
         if m:
             if href:
