@@ -4,10 +4,11 @@ Move to my own plain HTML and CSS site (currently in website_fun), replace when 
 
 ## Ideas
 
+* UTMR DNF
 * TIME post
-* PRiSM post (when done)
 * Swiss cantonal highpoints
 * VLC as iTunes replacement
+* PRiSM post (when done)
 * See other blog post ideas
 * Consolidate from windfarmmusic.wordpress.com. It's possible to export from the WordPress admin interface and [import into Pelican](https://docs.getpelican.com/en/4.2.0/importer.html>).
 * Collect favorite earlier trip reports (see summitpost records, too)
