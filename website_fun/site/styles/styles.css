@@ -60,6 +60,7 @@ figcaption {
 
 .footer {
   color: /*base1*/#93a1a1;
+  font-size: smaller
 }
 
 .footer hr {
