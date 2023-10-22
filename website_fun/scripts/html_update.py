@@ -46,6 +46,69 @@ def update_header_and_footer(path, header_lines, footer_lines):
     with open(path, "w") as f:
         f.writelines(lines_out)
 
+def _is_grid_item_div_open(line):
+    return line.lstrip().startswith("<div") and "grid-item" in line
+
+
+# This requires a class in the closing tag, which is ugly - properly, use a stack to deal with nested item divs
+def _is_grid_item_div_close(line):
+    return line.lstrip().startswith("</div") and "grid-item" in line
+
+def _process_grid_item_div_lines(lines):
+    # TODO instead, go through the lines looking for
+    # alt text
+    # image location
+    # caption
+    # and pass to  figure_grid_html in image_utils
+    # probably requires regex
+
+    lines_out = []
+    lines_out.append('<div class="grid-item">\n')
+    lines_out.append('Uh dunno?\n')
+    lines_out.append('</div> <!--grid-item-->\n')
+    return lines_out
+
+
+def update_figures(path):
+    if not path.endswith(".html"):
+        raise Exception(f"{path} isn't an HTML file")
+    lines_out = []
+    with open(path, "r") as f:
+        grid_item_div_open = False
+        grid_item_div_lines = []
+        item_div_open = False
+        for line in f:
+            new_grid_item_div_open = _is_grid_item_div_open(line)
+            if new_grid_item_div_open:
+                if grid_item_div_open:
+                    print(f"grid-item div opened when one already open in {path}. Aborting")
+                    return
+                grid_item_div_open = True
+
+            if grid_item_div_open:
+                grid_item_div_lines.append(line)
+            else:
+                lines_out.append(line)
+
+            new_grid_item_div_close = _is_grid_item_div_close(line)
+            if new_grid_item_div_close:
+                if not grid_item_div_open:
+                    print(f"grid-item closed when one not already open in {path}. Aborting")
+                    return
+                grid_item_div_open = False
+                lines_out.extend(_process_grid_item_div_lines(grid_item_div_lines))
+                grid_item_div_lines = []
+        if grid_item_div_open:
+            print(f"grid-item div never closed in {path}. Aborting")
+            return
+    # write to a different path!
+    with open(path + ".new", "w") as f:
+        f.writelines(lines_out)
+
+
+
+
+
 
 def _update_directory(directory):
     """Update all HTML files in a directory"""
@@ -60,6 +123,9 @@ def _update_directory(directory):
             continue
         print(f"Attempting to update {filename}")
         update_header_and_footer(os.path.join(directory, filename), header_lines, footer_lines)
+
+        # For now, an out-of-place process!
+        update_figures(os.path.join(directory, filename))
 
 
 def update_main():

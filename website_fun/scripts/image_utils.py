@@ -74,7 +74,7 @@ def figure_grid_html(input_path, base_directory_prefix, alt="", caption=""):
     lines.append(f'</a>')
     lines.append(f'<figcaption>{caption}</figcaption>')
     lines.append(f'</figure>')
-    lines.append(f'</div>')
+    lines.append(f'</div> <!--grid-item-->')
     return '\n'.join(lines)
 
 
@@ -87,7 +87,7 @@ def grid_html(directory, base_directory_prefix):
         if os.path.isdir(path) or filename in IGNORE_FILES:
             continue
         print(figure_grid_html(path, base_directory_prefix))
-    print('</div>')
+    print('</div> <!--grid-container-->')
 
 
 def grid_main():
