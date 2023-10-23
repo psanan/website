@@ -15,6 +15,8 @@ THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 HEADER_TEMPLATE_PATH = os.path.join(THIS_DIR, "..", "templates", "header.html")
 FOOTER_TEMPLATE_PATH = os.path.join(THIS_DIR, "..", "templates", "footer.html")
 
+DEFAULT_SITE_PATH=os.path.join(THIS_DIR,"..", "site")
+
 
 def update_header_and_footer(path, header_lines, footer_lines):
     """Overwrite header and footer, if custom comments are found."""
@@ -175,7 +177,7 @@ def _update_directory(directory):
 
 def update_main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--directory', '-d', required=True)
+    parser.add_argument('--directory', '-d', default=DEFAULT_SITE_PATH)
     args = parser.parse_args()
 
     _update_directory(args.directory)

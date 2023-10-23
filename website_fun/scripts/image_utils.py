@@ -59,12 +59,18 @@ def figure_grid_html(input_path, base_directory_prefix, alt="", caption=""):
     """Produce an html figure snippet for a given image within a grid.
 
     Includes paths relative to the provided base_directory prefix."""
+
+
     if base_directory_prefix:
         path = input_path.removeprefix(base_directory_prefix).removeprefix(
             os.sep)
     else:
         path = input_path
     small_path = _get_small_path(path)
+
+    # default caption to make it easier to write real captions
+    if not caption:
+        caption = path
 
     lines = []
     lines.append(f'<div class="grid-item">')
