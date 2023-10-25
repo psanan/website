@@ -10,13 +10,18 @@ import subprocess
 SMALL_DIRNAME = "small"
 IGNORE_FILES = [".DS_Store", SMALL_DIRNAME]
 
+THIS_DIR = os.path.dirname(os.path.realpath(__file__))
+IMAGES_DIR_PREFIX = os.path.join(THIS_DIR, "..")
+IMAGES_DIR = os.path.join(IMAGES_DIR_PREFIX, "site", "images")
+
 
 def _get_small_path(path):
     """Returns the small-image path corresponding to a given image or directory."""
     if os.path.isdir(path):
         return os.path.join(path, SMALL_DIRNAME)
     else:
-        return os.path.join(os.path.dirname(path), SMALL_DIRNAME, os.path.basename(path))
+        return os.path.join(os.path.dirname(path), SMALL_DIRNAME,
+                            os.path.basename(path))
 
 
 def _eprint(*args, **kwargs):
@@ -60,7 +65,6 @@ def figure_grid_html(input_path, base_directory_prefix, alt="", caption=""):
 
     Includes paths relative to the provided base_directory prefix."""
 
-
     if base_directory_prefix:
         path = input_path.removeprefix(base_directory_prefix).removeprefix(
             os.sep)
@@ -100,15 +104,21 @@ def grid_main():
     """Prepares files and prints HTML to use an image dir in a post.
 
     Typical usage is e.g.
+       ./image_utils.py -q foo | pbcopy
        ./image_utils.py -d ../site/images/foo -p ../site | pbcopy
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('--directory', '-d', required=True)
+    parser.add_argument('--quick-directory', '-q')
+    parser.add_argument('--directory', '-d')
     parser.add_argument('--prefix-directory', '-p', default="")
     parser.add_argument('--generate', action='store_true')
     parser.add_argument('--no-generate', dest='generate', action='store_false')
     parser.set_defaults(generate=True)
     args = parser.parse_args()
+
+    if args.quick_directory:
+        args.directory = os.path.join(IMAGES_DIR, args.quick_directory)
+        args.prefix_directory = IMAGES_DIR_PREFIX
 
     if args.generate:
         create_small_images(args.directory)
