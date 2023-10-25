@@ -188,6 +188,10 @@ def _update_directory(directory):
 
 
 def update_main():
+    """Example usage:
+
+    ./html_update.py
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument('--directory', '-d', default=DEFAULT_SITE_PATH)
     args = parser.parse_args()
