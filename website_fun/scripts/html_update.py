@@ -15,8 +15,12 @@ THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 HEADER_TEMPLATE_PATH = os.path.join(THIS_DIR, "..", "templates", "header.html")
 FOOTER_TEMPLATE_PATH = os.path.join(THIS_DIR, "..", "templates", "footer.html")
 
-DEFAULT_SITE_PATH=os.path.join(THIS_DIR,"..", "site")
+DEFAULT_SITE_PATH = os.path.join(THIS_DIR, "..", "site")
 
+# BUG: this should try to extract an appropriate title from the first h1 tag after the end-of-header tag
+# instead of using the same title for each page
+# Instead of just the header, collect a buffer which starts with the header and goes to the h1 line.
+# Once both header *and* h1 are found, dump and then proceed as before.
 
 def update_header_and_footer(path, header_lines, footer_lines):
     """Overwrite header and footer, if custom comments are found."""
@@ -34,20 +38,28 @@ def update_header_and_footer(path, header_lines, footer_lines):
                 )
                 return
 
+            # Check for header comment, adding the header if found
             if not header_comment_found:
                 header_comment_found = line.lstrip().startswith(
                     HEADER_TAG_PREFIX)
                 if header_comment_found:
                     lines_out.extend(header_lines)
                     continue
+
+            # Check for the footer comment, once the header comment is found
             if header_comment_found and not footer_comment_found:
                 footer_comment_found = line.lstrip().startswith(
                     FOOTER_TAG_PREFIX)
+
+            # Once the footer comment is found, append the footer and finish
             if footer_comment_found:
                 lines_out.extend(footer_lines)
                 break
+
+            # For body lines after the header is complete, simply copy across
             if header_comment_found:
                 lines_out.append(line)
+
         if not header_comment_found:
             print(
                 f"WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} will not be updated"
@@ -126,7 +138,7 @@ def update_figures(path):
             if new_grid_item_div_open:
                 if grid_item_div_open:
                     print(
-                            f"grid-item div opened when one already open in {path}:{line_number}. Aborting"
+                        f"grid-item div opened when one already open in {path}:{line_number}. Aborting"
                     )
                     return
                 grid_item_div_open = True
