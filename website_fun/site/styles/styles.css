@@ -37,7 +37,10 @@ figcaption {
 .grid-item {
   padding: 0;
   margin: 10px;
-  max-width:300px;
+}
+
+.grid-item img {
+  max-width:100%;
 }
 
 .grid-item figure {
