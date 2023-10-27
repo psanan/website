@@ -17,20 +17,27 @@ FOOTER_TEMPLATE_PATH = os.path.join(THIS_DIR, "..", "templates", "footer.html")
 
 DEFAULT_SITE_PATH = os.path.join(THIS_DIR, "..", "site")
 
-# BUG: this should try to extract an appropriate title from the first h1 tag after the end-of-header tag
-# instead of using the same title for each page
-# Instead of just the header, collect a buffer which starts with the header and goes to the h1 line.
-# Once both header *and* h1 are found, dump and then proceed as before.
+# The header should *include* the first h1 tag and use that to populate the title, as well
+
+# Similarly, the footer should probably always put 2023-$CURRENT_YEAR for the copyright (not going to bother with individual page copyright dates)
 
 
-def update_header_and_footer(path, header_lines, footer_lines):
+def _process_header_lines(header_lines):
+    # TODO get find title and use it
+    with open(HEADER_TEMPLATE_PATH, "r") as f:
+        lines_out = f.readlines()
+    return header_lines
+
+
+def update_header_and_footer(path, footer_lines):
     """Overwrite header and footer, if custom comments are found."""
-    lines_out = []
     if not path.endswith(".html"):
         raise Exception(f"{path} isn't an HTML file")
+    lines_out = []
     with open(path, "r") as f:
         header_comment_found = False
         footer_comment_found = False
+        header_lines = []
         for line in f:
             # Do not update if a custom header comment is found
             if CUSTOM_HEADER_TAG_PREFIX in line:
@@ -43,8 +50,9 @@ def update_header_and_footer(path, header_lines, footer_lines):
             if not header_comment_found:
                 header_comment_found = line.lstrip().startswith(
                     HEADER_TAG_PREFIX)
+                header_lines.append(line)
                 if header_comment_found:
-                    lines_out.extend(header_lines)
+                    lines_out.extend(_process_header_lines(header_lines))
                     continue
 
             # Check for the footer comment, once the header comment is found
@@ -177,8 +185,6 @@ def _update_directory(directory):
     """Update all HTML files in a directory"""
     if not os.path.isdir(directory):
         raise Exception(f"{directory} is not a directory")
-    with open(HEADER_TEMPLATE_PATH, "r") as f:
-        header_lines = f.readlines()
     with open(FOOTER_TEMPLATE_PATH, "r") as f:
         footer_lines = f.readlines()
     for filename in os.listdir(directory):
@@ -186,7 +192,7 @@ def _update_directory(directory):
             continue
         print(f"Attempting to update {filename}")
         update_header_and_footer(os.path.join(directory, filename),
-                                 header_lines, footer_lines)
+                                 footer_lines)
 
         # For now, an out-of-place process!
         update_figures(os.path.join(directory, filename))
