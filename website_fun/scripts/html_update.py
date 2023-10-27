@@ -22,6 +22,7 @@ DEFAULT_SITE_PATH = os.path.join(THIS_DIR, "..", "site")
 # Instead of just the header, collect a buffer which starts with the header and goes to the h1 line.
 # Once both header *and* h1 are found, dump and then proceed as before.
 
+
 def update_header_and_footer(path, header_lines, footer_lines):
     """Overwrite header and footer, if custom comments are found."""
     lines_out = []
@@ -107,12 +108,16 @@ def _process_grid_item_div_lines(lines):
             caption = line.replace("<figcaption>", "").replace(
                 "</figcaption>", "").replace("<em>", "").replace("</em>",
                                                                  "").strip()
-        m = re.search('href\w*=\w*"([^"]*)"', line)
-        if m:
-            if href:
-                print("WARNING - two hrefs found in grid item! Not processing")
-                return lines
-            href = m.group(1).strip()
+        else:
+            # Look for href on non-caption lines (to allow links in captions)
+            m = re.search('href\w*=\w*"([^"]*)"', line)
+            if m:
+                if href:
+                    print(
+                        "WARNING - two hrefs found in grid item! Not processing"
+                    )
+                    return lines
+                href = m.group(1).strip()
     if not href:
         print("WARNING. href not found in grid item - not processing!", lines)
         return lines
@@ -152,7 +157,7 @@ def update_figures(path):
             if new_grid_item_div_close:
                 if not grid_item_div_open:
                     print(
-                        f"grid-item closed when one not already open in {path}. Aborting"
+                        f"grid-item closed when one not already open in {path}:{line_number}. Aborting"
                     )
                     return
                 grid_item_div_open = False
