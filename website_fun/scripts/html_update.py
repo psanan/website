@@ -2,6 +2,7 @@
 """Utilities to automatically update HTML source"""
 
 import argparse
+import datetime
 import os
 import re
 
@@ -12,74 +13,106 @@ FOOTER_TAG_PREFIX = "<!--START FOOTER"
 CUSTOM_HEADER_TAG_PREFIX = "<!--CUSTOM HEADER"
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
-HEADER_TEMPLATE_PATH = os.path.join(THIS_DIR, "..", "templates", "header.html")
-FOOTER_TEMPLATE_PATH = os.path.join(THIS_DIR, "..", "templates", "footer.html")
-
 DEFAULT_SITE_PATH = os.path.join(THIS_DIR, "..", "site")
-
-# The header should *include* the first h1 tag and use that to populate the title, as well
-
-# Similarly, the footer should probably always put 2023-$CURRENT_YEAR for the copyright (not going to bother with individual page copyright dates)
 
 
 def _process_header_lines(header_lines):
-    # TODO get find title and use it
-    with open(HEADER_TEMPLATE_PATH, "r") as f:
-        lines_out = f.readlines()
-    return header_lines
+    # Look for a title in an h1 tag
+    title = "patricksanan.org"
+    for line in header_lines:
+        if "<h1>" in line:
+            title = line.replace("<h1>","").replace("</h1>","").strip()
+            break
+    return f"""
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="Patrick Sanan" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+<body>
+<div>
+  <a href="index.html">patricksanan.org</a> | <a href="reports.html">trip reports</a> | <a href="music.html">music</a> | <a href="misc.html">misc.</a> | <a href="teaching.html">teaching</a> | <a href="links.html">links</a> | <a href="Sanan_CV.pdf">CV</a> | <a href="contact.html">contact</a> <span style="float:right;"><a href="feed">feed</a></span>
+</div>
+<h1>{title}</h1>
+<!--END HEADER -- This line and above can be automatically rewritten!-->
+"""
+
+def _footer_lines():
+    year_string = "2023"
+    year = datetime.date.today().year
+    if year > 2023:
+        year_string += f"-{year}"
+    return f"""
+<!--START FOOTER -- This line and below can be automatically rewritten!-->
+<div class="footer">
+<hr>
+&copy; Copyright {year_string} Patrick Sanan
+<span style="float:right;"> Made with 🤷 by editing <a href="https://github.com/psanan/patricksanan_dot_org">HTML and CSS</a></span>
+</div>
+</body>
+</html>
+"""
 
 
-def update_header_and_footer(path, footer_lines):
+def update_header_and_footer(path):
     """Overwrite header and footer, if custom comments are found."""
     if not path.endswith(".html"):
         raise Exception(f"{path} isn't an HTML file")
     lines_out = []
     with open(path, "r") as f:
-        header_comment_found = False
-        footer_comment_found = False
-        header_lines = []
-        for line in f:
-            # Do not update if a custom header comment is found
-            if CUSTOM_HEADER_TAG_PREFIX in line:
-                print(
-                    f"Custom header marker found for {path}. Not modifying file."
-                )
-                return
-
-            # Check for header comment, adding the header if found
-            if not header_comment_found:
-                header_comment_found = line.lstrip().startswith(
-                    HEADER_TAG_PREFIX)
-                header_lines.append(line)
-                if header_comment_found:
-                    lines_out.extend(_process_header_lines(header_lines))
-                    continue
-
-            # Check for the footer comment, once the header comment is found
-            if header_comment_found and not footer_comment_found:
-                footer_comment_found = line.lstrip().startswith(
-                    FOOTER_TAG_PREFIX)
-
-            # Once the footer comment is found, append the footer and finish
-            if footer_comment_found:
-                lines_out.extend(footer_lines)
-                break
-
-            # For body lines after the header is complete, simply copy across
-            if header_comment_found:
-                lines_out.append(line)
-
-        if not header_comment_found:
+        lines = f.readlines()
+    header_comment_found = False
+    footer_comment_found = False
+    header_lines = []
+    for line in lines:
+        # Do not update if a custom header comment is found
+        if CUSTOM_HEADER_TAG_PREFIX in line:
             print(
-                f"WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} will not be updated"
+                f"{os.path.basename(path)} (Custom header marker found)"
             )
             return
-        elif not footer_comment_found:
-            print(
-                f"WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
-            )
 
-    # It would be nice to only do this if anything changed, so unchanged files aren't rewritten
+        # Check for header comment, adding the header if found
+        if not header_comment_found:
+            header_comment_found = line.lstrip().startswith(
+                HEADER_TAG_PREFIX)
+            header_lines.append(line)
+            if header_comment_found:
+                lines_out.extend(_process_header_lines(header_lines))
+                continue
+
+        # Check for the footer comment, once the header comment is found
+        if header_comment_found and not footer_comment_found:
+            footer_comment_found = line.lstrip().startswith(
+                FOOTER_TAG_PREFIX)
+
+        # Once the footer comment is found, append the footer and finish
+        if footer_comment_found:
+            lines_out.extend(_footer_lines())
+            break
+
+        # For body lines after the header is complete, simply copy across
+        if header_comment_found:
+            lines_out.append(line)
+
+    if not header_comment_found:
+        print(
+            f"WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} will not be updated"
+        )
+        return
+    elif not footer_comment_found:
+        print(
+            f"WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
+        )
+
+    if lines == lines_out: # could be slow
+        print(f" Skipping - no change")
+        return
+
     with open(path, "w") as f:
         f.writelines(lines_out)
 
@@ -185,14 +218,11 @@ def _update_directory(directory):
     """Update all HTML files in a directory"""
     if not os.path.isdir(directory):
         raise Exception(f"{directory} is not a directory")
-    with open(FOOTER_TEMPLATE_PATH, "r") as f:
-        footer_lines = f.readlines()
     for filename in os.listdir(directory):
         if not filename.endswith(".html"):
             continue
         print(f"Attempting to update {filename}")
-        update_header_and_footer(os.path.join(directory, filename),
-                                 footer_lines)
+        update_header_and_footer(os.path.join(directory, filename))
 
         # For now, an out-of-place process!
         update_figures(os.path.join(directory, filename))
