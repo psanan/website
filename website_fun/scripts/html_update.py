@@ -6,6 +6,9 @@ import datetime
 import os
 import re
 
+# debug
+import sys
+
 import image_utils
 
 HEADER_TAG_PREFIX = "<!--END HEADER"
@@ -21,39 +24,43 @@ def _process_header_lines(header_lines):
     title = "patricksanan.org"
     for line in header_lines:
         if "<h1>" in line:
-            title = line.replace("<h1>","").replace("</h1>","").strip()
+            title = line.replace("<h1>", "").replace("</h1>", "").strip()
             break
-    return f"""<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="author" content="Patrick Sanan" />
-    <title>{title}</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-  </head>
-<body>
-<div>
-<a href="index.html">patricksanan.org</a> | <a href="reports.html">trip reports</a> | <a href="music.html">music</a> | <a href="misc.html">misc.</a> | <a href="teaching.html">teaching</a> | <a href="links.html">links</a> | <a href="Sanan_CV.pdf">CV</a> | <a href="contact.html">contact</a> <span style="float:right;"><a href="atom.xml" rel="alternate">feed <img src="images/feed-icon-14x14.png" /></a></span>
-</div>
-<h1>{title}</h1>
-<!--END HEADER -- This line and above can be automatically rewritten!-->
-"""
+    return [
+        '<!DOCTYPE html>\n',
+        '<html lang="en-US">\n',
+        '  <head>\n',
+        '    <meta charset="utf-8" />\n',
+        '    <meta name="viewport" content="width=device-width" />\n',
+        '    <meta name="author" content="Patrick Sanan" />\n',
+        f'    <title>{title}</title>\n',
+        '    <link rel="stylesheet" href="styles/styles.css" />\n',
+        '    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />\n',
+        '  </head>\n',
+        '<body>\n',
+        '<div>\n',
+        '<a href="index.html">patricksanan.org</a> | <a href="reports.html">trip reports</a> | <a href="music.html">music</a> | <a href="misc.html">misc.</a> | <a href="teaching.html">teaching</a> | <a href="links.html">links</a> | <a href="Sanan_CV.pdf">CV</a> | <a href="contact.html">contact</a> <span style="float:right;"><a href="atom.xml" rel="alternate">feed <img src="images/feed-icon-14x14.png" /></a></span>\n',
+        '</div>\n',
+        f'<h1>{title}</h1>\n',
+        '<!--END HEADER -- This line and above can be automatically rewritten!-->\n',
+    ]
+
 
 def _footer_lines():
     year_string = "2023"
     year = datetime.date.today().year
     if year > 2023:
         year_string += f"-{year}"
-    return f"""<!--START FOOTER -- This line and below can be automatically rewritten!-->
-<div class="footer">
-<hr>
-&copy; Copyright {year_string} Patrick Sanan
-<span style="float:right;"> Made with 🤷 by editing <a href="https://github.com/psanan/patricksanan_dot_org">HTML and CSS</a></span>
-</div>
-</body>
-</html>
-"""
+    return [
+        '<!--START FOOTER -- This line and below can be automatically rewritten!-->\n',
+        '<div class="footer">\n',
+        '<hr>\n',
+        f'&copy; Copyright {year_string} Patrick Sanan\n',
+        '<span style="float:right;"> Made with 🤷 by editing <a href="https://github.com/psanan/patricksanan_dot_org">HTML and CSS</a></span>\n',
+        '</div>\n',
+        '</body>\n',
+        '</html>\n',
+    ]
 
 
 def update_header_and_footer(path):
@@ -69,15 +76,12 @@ def update_header_and_footer(path):
     for line in lines:
         # Do not update if a custom header comment is found
         if CUSTOM_HEADER_TAG_PREFIX in line:
-            print(
-                f"{os.path.basename(path)} (Custom header marker found)"
-            )
+            print(f"{os.path.basename(path)} (Custom header marker found)")
             return
 
         # Check for header comment, adding the header if found
         if not header_comment_found:
-            header_comment_found = line.lstrip().startswith(
-                HEADER_TAG_PREFIX)
+            header_comment_found = line.lstrip().startswith(HEADER_TAG_PREFIX)
             header_lines.append(line)
             if header_comment_found:
                 lines_out.extend(_process_header_lines(header_lines))
@@ -85,8 +89,7 @@ def update_header_and_footer(path):
 
         # Check for the footer comment, once the header comment is found
         if header_comment_found and not footer_comment_found:
-            footer_comment_found = line.lstrip().startswith(
-                FOOTER_TAG_PREFIX)
+            footer_comment_found = line.lstrip().startswith(FOOTER_TAG_PREFIX)
 
         # Once the footer comment is found, append the footer and finish
         if footer_comment_found:
@@ -107,7 +110,7 @@ def update_header_and_footer(path):
             f"WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
         )
 
-    if lines == lines_out: # could be slow
+    if lines == lines_out:  # could be slow
         print(f" Skipping - no change")
         return
 
