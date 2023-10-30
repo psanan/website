@@ -164,10 +164,10 @@ def _process_grid_item_div_lines(lines):
         print("  WARNING. href not found in grid item - not processing!", lines)
         return lines
 
-    return image_utils.figure_grid_html(input_path=href,
-                                        base_directory_prefix="",
-                                        alt=alt,
-                                        caption=caption)
+    return image_utils.figure_grid_html_lines(input_path=href,
+                                              base_directory_prefix="",
+                                              alt=alt,
+                                              caption=caption)
 
 
 def update_figures(path):
@@ -206,7 +206,6 @@ def update_figures(path):
             grid_item_div_open = False
             lines_out.extend(
                 _process_grid_item_div_lines(grid_item_div_lines))
-            lines_out.append("\n")
             grid_item_div_lines = []
     if grid_item_div_open:
         print(f"grid-item div never closed in {path}. Aborting")
@@ -215,6 +214,13 @@ def update_figures(path):
     if lines == lines_out:  # could be slow
         # Silently return if no change
         return
+
+    #print("DEBUG")
+    #print(lines)
+    #print("--")
+    #print(lines_out)
+    #print(len(lines), len(lines_out))
+    #sys.exit(1)
 
     # write to a different path!
     with open(path + ".new", "w") as f:

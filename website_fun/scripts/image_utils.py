@@ -60,7 +60,7 @@ def create_small_images(directory):
     return small_directory
 
 
-def figure_grid_html(input_path, base_directory_prefix, alt="", caption=""):
+def figure_grid_html_lines(input_path, base_directory_prefix, alt="", caption=""):
     """Produce an html figure snippet for a given image within a grid.
 
     Includes paths relative to the provided base_directory prefix."""
@@ -77,15 +77,15 @@ def figure_grid_html(input_path, base_directory_prefix, alt="", caption=""):
         caption = path
 
     lines = []
-    lines.append(f'<div class="grid-item">')
-    lines.append(f'<figure>')
-    lines.append(f'<a href="{path}">')
-    lines.append(f'<img src="{small_path}" alt="{alt}"/>')
-    lines.append(f'</a>')
-    lines.append(f'<figcaption>{caption}</figcaption>')
-    lines.append(f'</figure>')
-    lines.append(f'</div> <!--grid-item-->')
-    return '\n'.join(lines)
+    lines.append(f'<div class="grid-item">\n')
+    lines.append(f'<figure>\n')
+    lines.append(f'<a href="{path}">\n')
+    lines.append(f'<img src="{small_path}" alt="{alt}"/>\n')
+    lines.append(f'</a>\n')
+    lines.append(f'<figcaption>{caption}</figcaption>\n')
+    lines.append(f'</figure>\n')
+    lines.append(f'</div> <!--grid-item-->\n')
+    return lines
 
 
 def grid_html(directory, base_directory_prefix):
@@ -96,7 +96,7 @@ def grid_html(directory, base_directory_prefix):
         path = os.path.join(directory, filename)
         if os.path.isdir(path) or filename in IGNORE_FILES:
             continue
-        print(figure_grid_html(path, base_directory_prefix))
+        print("".join(figure_grid_html_lines(path, base_directory_prefix)),end="")
     print('</div> <!--grid-container-->')
 
 
