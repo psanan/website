@@ -23,8 +23,7 @@ def _process_header_lines(header_lines):
         if "<h1>" in line:
             title = line.replace("<h1>","").replace("</h1>","").strip()
             break
-    return f"""
-<!DOCTYPE html>
+    return f"""<!DOCTYPE html>
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
@@ -35,7 +34,7 @@ def _process_header_lines(header_lines):
   </head>
 <body>
 <div>
-  <a href="index.html">patricksanan.org</a> | <a href="reports.html">trip reports</a> | <a href="music.html">music</a> | <a href="misc.html">misc.</a> | <a href="teaching.html">teaching</a> | <a href="links.html">links</a> | <a href="Sanan_CV.pdf">CV</a> | <a href="contact.html">contact</a> <span style="float:right;"><a href="feed">feed</a></span>
+<a href="index.html">patricksanan.org</a> | <a href="reports.html">trip reports</a> | <a href="music.html">music</a> | <a href="misc.html">misc.</a> | <a href="teaching.html">teaching</a> | <a href="links.html">links</a> | <a href="Sanan_CV.pdf">CV</a> | <a href="contact.html">contact</a> <span style="float:right;"><a href="atom.xml" rel="alternate">feed <img src="images/feed-icon-14x14.png" /></a></span>
 </div>
 <h1>{title}</h1>
 <!--END HEADER -- This line and above can be automatically rewritten!-->
@@ -46,8 +45,7 @@ def _footer_lines():
     year = datetime.date.today().year
     if year > 2023:
         year_string += f"-{year}"
-    return f"""
-<!--START FOOTER -- This line and below can be automatically rewritten!-->
+    return f"""<!--START FOOTER -- This line and below can be automatically rewritten!-->
 <div class="footer">
 <hr>
 &copy; Copyright {year_string} Patrick Sanan
