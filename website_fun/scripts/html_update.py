@@ -140,8 +140,11 @@ def _process_grid_item_div_lines(lines):
                 )
                 return lines
             alt = m.group(1).strip()
-        # Bug! This only works for single-line captions. It should search util the closing tag.
         if "<figcaption>" in line:
+            if "</figcaption>" not in line:
+                print(
+                    "  WARNING - Unclosed or multi-line figcaption found! Not processing")
+                return lines
             if caption:
                 print(
                     "  WARNING - two captions found in grid item! Not processing")
