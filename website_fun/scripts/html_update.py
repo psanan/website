@@ -76,7 +76,7 @@ def update_header_and_footer(path):
     for line in lines:
         # Do not update if a custom header comment is found
         if CUSTOM_HEADER_TAG_PREFIX in line:
-            print(f"{os.path.basename(path)} (Custom header marker found)")
+            print(f"  Not updating: Custom header marker found")
             return
 
         # Check for header comment, adding the header if found
@@ -102,16 +102,16 @@ def update_header_and_footer(path):
 
     if not header_comment_found:
         print(
-            f"WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} will not be updated"
+            f"  WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} will not be updated"
         )
         return
     elif not footer_comment_found:
         print(
-            f"WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
+            f"  WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
         )
 
     if lines == lines_out:  # could be slow
-        print(f" Skipping - no change")
+        # silently return if no change
         return
 
     with open(path, "w") as f:
@@ -136,7 +136,7 @@ def _process_grid_item_div_lines(lines):
         if m:
             if alt:
                 print(
-                    "WARNING - two alt strings found in grid item! Not processing"
+                    "  WARNING - two alt strings found in grid item! Not processing"
                 )
                 return lines
             alt = m.group(1).strip()
@@ -144,7 +144,7 @@ def _process_grid_item_div_lines(lines):
         if "<figcaption>" in line:
             if caption:
                 print(
-                    "WARNING - two captions found in grid item! Not processing")
+                    "  WARNING - two captions found in grid item! Not processing")
                 return lines
             # Strip out any figcaption or em tags
             caption = line.replace("<figcaption>", "").replace(
@@ -156,12 +156,12 @@ def _process_grid_item_div_lines(lines):
             if m:
                 if href:
                     print(
-                        "WARNING - two hrefs found in grid item! Not processing"
+                        "  WARNING - two hrefs found in grid item! Not processing"
                     )
                     return lines
                 href = m.group(1).strip()
     if not href:
-        print("WARNING. href not found in grid item - not processing!", lines)
+        print("  WARNING. href not found in grid item - not processing!", lines)
         return lines
 
     return image_utils.figure_grid_html(input_path=href,
@@ -175,41 +175,47 @@ def update_figures(path):
         raise Exception(f"{path} isn't an HTML file")
     lines_out = []
     with open(path, "r") as f:
-        grid_item_div_open = False
-        grid_item_div_lines = []
-        item_div_open = False
-        line_number = 0
-        for line in f:
-            line_number += 1
-            new_grid_item_div_open = _is_grid_item_div_open(line)
-            if new_grid_item_div_open:
-                if grid_item_div_open:
-                    print(
-                        f"grid-item div opened when one already open in {path}:{line_number}. Aborting"
-                    )
-                    return
-                grid_item_div_open = True
-
+        lines = f.readlines()
+    grid_item_div_open = False
+    grid_item_div_lines = []
+    item_div_open = False
+    line_number = 0
+    for line in lines:
+        line_number += 1
+        new_grid_item_div_open = _is_grid_item_div_open(line)
+        if new_grid_item_div_open:
             if grid_item_div_open:
-                grid_item_div_lines.append(line)
-            else:
-                lines_out.append(line)
+                print(
+                    f"grid-item div opened when one already open in {path}:{line_number}. Aborting"
+                )
+                return
+            grid_item_div_open = True
 
-            new_grid_item_div_close = _is_grid_item_div_close(line)
-            if new_grid_item_div_close:
-                if not grid_item_div_open:
-                    print(
-                        f"grid-item closed when one not already open in {path}:{line_number}. Aborting"
-                    )
-                    return
-                grid_item_div_open = False
-                lines_out.extend(
-                    _process_grid_item_div_lines(grid_item_div_lines))
-                lines_out.append("\n")
-                grid_item_div_lines = []
         if grid_item_div_open:
-            print(f"grid-item div never closed in {path}. Aborting")
-            return
+            grid_item_div_lines.append(line)
+        else:
+            lines_out.append(line)
+
+        new_grid_item_div_close = _is_grid_item_div_close(line)
+        if new_grid_item_div_close:
+            if not grid_item_div_open:
+                print(
+                    f"grid-item closed when one not already open in {path}:{line_number}. Aborting"
+                )
+                return
+            grid_item_div_open = False
+            lines_out.extend(
+                _process_grid_item_div_lines(grid_item_div_lines))
+            lines_out.append("\n")
+            grid_item_div_lines = []
+    if grid_item_div_open:
+        print(f"grid-item div never closed in {path}. Aborting")
+        return
+
+    if lines == lines_out:  # could be slow
+        # Silently return if no change
+        return
+
     # write to a different path!
     with open(path + ".new", "w") as f:
         f.writelines(lines_out)
@@ -222,7 +228,7 @@ def _update_directory(directory):
     for filename in os.listdir(directory):
         if not filename.endswith(".html"):
             continue
-        print(f"Attempting to update {filename}")
+        print(f"{filename}")
         update_header_and_footer(os.path.join(directory, filename))
 
         # For now, an out-of-place process!
