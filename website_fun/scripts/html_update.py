@@ -6,9 +6,6 @@ import datetime
 import os
 import re
 
-# debug
-import sys
-
 import image_utils
 
 HEADER_TAG_PREFIX = "<!--END HEADER"
@@ -143,11 +140,13 @@ def _process_grid_item_div_lines(lines):
         if "<figcaption>" in line:
             if "</figcaption>" not in line:
                 print(
-                    "  WARNING - Unclosed or multi-line figcaption found! Not processing")
+                    "  WARNING - Unclosed or multi-line figcaption found! Not processing"
+                )
                 return lines
             if caption:
                 print(
-                    "  WARNING - two captions found in grid item! Not processing")
+                    "  WARNING - two captions found in grid item! Not processing"
+                )
                 return lines
             # Strip out any figcaption or em tags
             caption = line.replace("<figcaption>", "").replace(
@@ -181,7 +180,6 @@ def update_figures(path):
         lines = f.readlines()
     grid_item_div_open = False
     grid_item_div_lines = []
-    item_div_open = False
     line_number = 0
     for line in lines:
         line_number += 1
@@ -207,8 +205,7 @@ def update_figures(path):
                 )
                 return
             grid_item_div_open = False
-            lines_out.extend(
-                _process_grid_item_div_lines(grid_item_div_lines))
+            lines_out.extend(_process_grid_item_div_lines(grid_item_div_lines))
             grid_item_div_lines = []
     if grid_item_div_open:
         print(f"grid-item div never closed in {path}. Aborting")
@@ -218,14 +215,7 @@ def update_figures(path):
         # Silently return if no change
         return
 
-    #print("DEBUG")
-    #print(lines)
-    #print("--")
-    #print(lines_out)
-    #print(len(lines), len(lines_out))
-    #sys.exit(1)
-
-    # write to a different path!
+    # write to a different path
     with open(path + ".new", "w") as f:
         f.writelines(lines_out)
 
