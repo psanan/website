@@ -61,9 +61,18 @@ figcaption {
 
 .footer {
   color: /*base1*/#93a1a1;
-  font-size: smaller;
+  font-size: smallest;
 }
 
 .footer hr {
   color: /*base01*/#586e75;
+}
+
+.publication-date {
+  font-style: bold;
+}
+
+.updated-date {
+  font-style: italic;
+  font-size: smaller;
 }

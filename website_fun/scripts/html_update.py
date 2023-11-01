@@ -2,11 +2,11 @@
 """Utilities to automatically update HTML source"""
 
 import argparse
-import datetime
 import os
 import re
 
 import image_utils
+import utils
 
 HEADER_TAG_PREFIX = "<!--END HEADER"
 FOOTER_TAG_PREFIX = "<!--START FOOTER"
@@ -44,15 +44,11 @@ def _process_header_lines(header_lines):
 
 
 def _footer_lines():
-    year_string = "2023"
-    year = datetime.date.today().year
-    if year > 2023:
-        year_string += f"-{year}"
     return [
         '<!--START FOOTER -- This line and below can be automatically rewritten!-->\n',
         '<div class="footer">\n',
         '<hr>\n',
-        f'&copy; Copyright {year_string} Patrick Sanan\n',
+        f'{utils.copyright_string()}\n',
         '<span style="float:right;"> Made with 🤷 by editing <a href="https://github.com/psanan/patricksanan_dot_org">HTML and CSS</a></span>\n',
         '</div>\n',
         '</body>\n',
@@ -102,7 +98,7 @@ def update_header_and_footer(path):
             f"  WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} will not be updated"
         )
         return
-    elif not footer_comment_found:
+    if not footer_comment_found:
         print(
             f"  WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
         )
@@ -129,7 +125,7 @@ def _process_grid_item_div_lines(lines):
     href = ""
     caption = ""
     for line in lines:
-        m = re.search('alt\w*=\w*"([^"]*)"', line)
+        m = re.search(r'alt\w*=\w*"([^"]*)"', line)
         if m:
             if alt:
                 print(
@@ -154,7 +150,7 @@ def _process_grid_item_div_lines(lines):
                                                                  "").strip()
         else:
             # Look for href on non-caption lines (to allow links in captions)
-            m = re.search('href\w*=\w*"([^"]*)"', line)
+            m = re.search(r'href\w*=\w*"([^"]*)"', line)
             if m:
                 if href:
                     print(
