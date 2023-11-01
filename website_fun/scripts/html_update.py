@@ -49,7 +49,6 @@ def _footer_lines():
         '<div class="footer">\n',
         '<hr>\n',
         f'{utils.copyright_string()}\n',
-        '<span style="float:right;"> Made with 🤷 by editing <a href="https://github.com/psanan/patricksanan_dot_org">HTML and CSS</a></span>\n',
         '</div>\n',
         '</body>\n',
         '</html>\n',
