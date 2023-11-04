@@ -1,29 +1,29 @@
-## About
-I used `pelican-quickstart`, using rsync/ssh to send to the `public_html` dir
-on the server.
+# Source for patricksanan.org
 
-Relies on submodules for the theme and plugins:
+This is a "fun" website, in the learning-to-code, web 1.0 sense.
 
-    git submodule update --init --recursive
+It tries to avoid layers of abstraction and complication beyond
+[basic HTML and CSS](https://developer.mozilla.org). It takes
+any available option to be simpler.
 
-To build the website:
+It's very non-scalable: it will only stay fun if it stays small and simple,
+and it uses my own conventions so will likely be much less fun for
+someone else.
 
-    make html
+All HTML files live directly in `site/`. A single CSS stylesheet and other
+resources are in subdirectories of `site/`.
 
-To see locally:
+Python scripts (with only standard modules) help with some tedious operations
+on the HTML files, like updating headers and footers and creating or
+updating HTML for images.
 
-    pelican --listen
-    # navigate to localhost:8000 in web browser
-    # But note that by defaults links will be the the web versions of the pages
+Other tools used include:
 
-To push to server:
+* rsync to upload
+* ImageMagick to shrink images
 
-    make rsync_upload
+There is no "build" - Open `site/index.html` with your web browser. Edit the
+files in a text editor and reload the browser page.
 
-## SSL / HTTPS / .htaccess
-
-Note that you have to somehow enable https, or a web browser will mark as "not secure".
-It seems to work to copy the file `htaccess` here
-to `public_html/.htaccess` on the server.
-
-See $HOME/work/notes/tech/2019.07.02.md as well.
+To deploy, upload the contents of `site/` (including hidden files) to the
+appropriate destination (probably `public_html`) on your web server.
