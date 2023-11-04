@@ -15,6 +15,8 @@ Also see the `ideas/` directory for blog post stubs.
 
 * Front page grid
 
+* Move info from Bitbucket to Century playlist page
+
 * Expand publications section to have pics of Thesis, PFKrylov, Work w/ Dan (or maybe just have this on the planned front page grid)
 
 * Lists!
