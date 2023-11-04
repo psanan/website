@@ -1,0 +1,50 @@
+I was reading this paper on a model to predict phase of sounds:
+
+This mentions instantaneous frequncy (IF) in terms of how the phase
+angle for a given STFT bin evolves.
+
+This leads to a well-cited survey on the topic:
+
+This was a fascinating read, and leads to something that, over and over again,
+has resovled intellectual roadblocks for me.
+
+That is: when you start getting confused about what something *is*,
+unask the question and instead as what something *does*.
+
+In this case, the idea of IF for multi-component signals gets muddy
+(reminds me of trying to read about strain measures while working on my thesis)
+because its not well-defined.
+
+I think that essentially, the idea is that if I give you one function,
+and ask you to express it as a combination of multiple functions, there
+are many ways to do it. E.g. if I give you an audio signal, there are a lot of ways to
+write it down as a sum of sinusoidal components with time-varying
+amplitudes and phases.
+
+The resolution is to ask what you're trying to do with this signal.
+
+I'm interested in one, in particular, which is how an audio signal
+would be perceived by a human, via a transducer, air, and an ear.
+
+In this arena, one really wants to know what the instantaenous frequency is,
+or something like a spectrum at any point in time.
+
+It's a mathematical fact, which I think is essentially the Uncertainty Principle,
+that a time-frequency decomposition only has a finite amount of certainty
+to spread between temporal and spectral resolution. THis is intuitive,
+as if you want to measure frequency, you need a time window to do it over (unless
+you have a very simple scenariou like an assumed mono-component signal, as in the intro of TODO).
+
+You might be interested in all of this for a couple of related reasons:
+<ul>
+  <li> You want to compress a signal by throwing away most of the time frequency data
+    <li> You want to understand the signal in a perceptually-relevant way, so you can make new signals
+</ul>
+
+These all seem to lead to the idea that what we really mean by instantaneous frequency
+is how a signal is exciting a bank of other things!
+
+You could think of those as the cells in your ear and the attached nerves.
+You could also think of those as projections onto various basis functions in decomposing a signal.
+
+
