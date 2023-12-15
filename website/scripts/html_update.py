@@ -74,7 +74,7 @@ def update_header_and_footer(path):
         # Do not update if a custom header comment is found
         if CUSTOM_HEADER_TAG_PREFIX in line:
             print("  Not updating: Custom header marker found")
-            return
+            return False
 
         # Check for header comment, adding the header if found
         if not header_comment_found:
@@ -99,9 +99,9 @@ def update_header_and_footer(path):
 
     if not header_comment_found:
         print(
-            f"  WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} will not be updated"
+            f"  WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} cannot be updated"
         )
-        return
+        return True
     if not footer_comment_found:
         print(
             f"  WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
@@ -176,7 +176,7 @@ def _process_grid_item_div_lines(lines):
 
 
 def _update_figures(path):
-    """Updates figures for a give html file. Returns whether anything changed."""
+    """Updates figures for a give html file. Returns whether anything changed (or should)."""
     if not path.endswith(".html"):
         raise Exception(f"{path} isn't an HTML file")
     lines_out = []
@@ -193,7 +193,7 @@ def _update_figures(path):
                 print(
                     f"grid-item div opened when one already open in {path}:{line_number}. Aborting"
                 )
-                return
+                return True
             grid_item_div_open = True
 
         if grid_item_div_open:
@@ -207,13 +207,13 @@ def _update_figures(path):
                 print(
                     f"grid-item closed when one not already open in {path}:{line_number}. Aborting"
                 )
-                return
+                return True
             grid_item_div_open = False
             lines_out.extend(_process_grid_item_div_lines(grid_item_div_lines))
             grid_item_div_lines = []
     if grid_item_div_open:
         print(f"grid-item div never closed in {path}. Aborting")
-        return
+        return True
 
     if lines == lines_out:  # could be slow
         # No change
@@ -260,6 +260,5 @@ def update_main():
 
 
 if __name__ == "__main__":
-    """Returns a non-zero exit code if anything changed."""
-    change = update_main()
-    sys.exit(1 if change else 0)
+    # Return a non-zero exit code if anything changed
+    sys.exit(1 if update_main() else 0)
