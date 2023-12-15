@@ -61,15 +61,15 @@ def update_header_and_footer(path):
     if not path.endswith(".html"):
         raise Exception(f"{path} isn't an HTML file")
     lines_out = []
-    with open(path, "r") as f:
-        lines = f.readlines()
+    with open(path, "r") as html_file:
+        lines = html_file.readlines()
     header_comment_found = False
     footer_comment_found = False
     header_lines = []
     for line in lines:
         # Do not update if a custom header comment is found
         if CUSTOM_HEADER_TAG_PREFIX in line:
-            print(f"  Not updating: Custom header marker found")
+            print("  Not updating: Custom header marker found")
             return
 
         # Check for header comment, adding the header if found
@@ -107,8 +107,8 @@ def update_header_and_footer(path):
         # silently return if no change
         return
 
-    with open(path, "w") as f:
-        f.writelines(lines_out)
+    with open(path, "w") as html_file:
+        html_file.writelines(lines_out)
 
 
 def _is_grid_item_div_open(line):
@@ -125,14 +125,14 @@ def _process_grid_item_div_lines(lines):
     href = ""
     caption = ""
     for line in lines:
-        m = re.search(r'alt\w*=\w*"([^"]*)"', line)
-        if m:
+        match = re.search(r'alt\w*=\w*"([^"]*)"', line)
+        if match:
             if alt:
                 print(
                     "  WARNING - two alt strings found in grid item! Not processing"
                 )
                 return lines
-            alt = m.group(1).strip()
+            alt = match.group(1).strip()
         if "<figcaption>" in line:
             if "</figcaption>" not in line:
                 print(
@@ -150,14 +150,14 @@ def _process_grid_item_div_lines(lines):
                                                                  "").strip()
         else:
             # Look for href on non-caption lines (to allow links in captions)
-            m = re.search(r'href\w*=\w*"([^"]*)"', line)
-            if m:
+            match = re.search(r'href\w*=\w*"([^"]*)"', line)
+            if match:
                 if href:
                     print(
                         "  WARNING - two hrefs found in grid item! Not processing"
                     )
                     return lines
-                href = m.group(1).strip()
+                href = match.group(1).strip()
     if not href:
         print("  WARNING. href not found in grid item - not processing!", lines)
         return lines
@@ -168,12 +168,12 @@ def _process_grid_item_div_lines(lines):
                                               caption=caption)
 
 
-def update_figures(path):
+def _update_figures(path):
     if not path.endswith(".html"):
         raise Exception(f"{path} isn't an HTML file")
     lines_out = []
-    with open(path, "r") as f:
-        lines = f.readlines()
+    with open(path, "r") as html_file:
+        lines = html_file.readlines()
     grid_item_div_open = False
     grid_item_div_lines = []
     line_number = 0
@@ -212,8 +212,8 @@ def update_figures(path):
         return
 
     # write to a different path
-    with open(path + ".new", "w") as f:
-        f.writelines(lines_out)
+    with open(path + ".new", "w") as html_file:
+        html_file.writelines(lines_out)
 
 
 def _update_directory(directory):
@@ -227,7 +227,7 @@ def _update_directory(directory):
         update_header_and_footer(os.path.join(directory, filename))
 
         # For now, an out-of-place process!
-        update_figures(os.path.join(directory, filename))
+        _update_figures(os.path.join(directory, filename))
 
 
 def update_main():

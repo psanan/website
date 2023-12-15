@@ -18,9 +18,8 @@ def _get_small_path(path):
     """Returns the small-image path corresponding to a given image or directory."""
     if os.path.isdir(path):
         return os.path.join(path, SMALL_DIRNAME)
-    else:
-        return os.path.join(os.path.dirname(path), SMALL_DIRNAME,
-                            os.path.basename(path))
+    return os.path.join(os.path.dirname(path), SMALL_DIRNAME,
+                        os.path.basename(path))
 
 
 def _eprint(*args, **kwargs):
@@ -41,7 +40,8 @@ def create_small_images(directory):
         # Use Imagemagick's "convert" to
         # resize the largest dimension to 300px
         _eprint(f"Info: Generating {small_path}")
-        subprocess.run(["convert", "-resize", "300x300>", path, small_path])
+        subprocess.run(["convert", "-resize", "300x300>", path, small_path],
+                       check=True)
         expected_filenames.add(filename)
     for filename in os.listdir(small_directory):
         if filename in IGNORE_FILES:
@@ -50,11 +50,11 @@ def create_small_images(directory):
             expected_filenames.remove(filename)
         else:
             _eprint(
-                f"Warning! Unexpected small file {filename} found in {small_directory} (perhaps you want to delete and regenerate small images manually)"
+                f"Warning! Unexpected small file {filename} found in {small_directory}"
             )
     if expected_filenames:
         _eprint(
-            f"ERROR! all expected small files not found in {small_directory}. Missing {expected_filenames}"
+            f"ERROR! {small_directory} is missing {expected_filenames}"
         )
     return small_directory
 
@@ -79,18 +79,18 @@ def figure_grid_html_lines(input_path,
         caption = path
 
     lines = []
-    lines.append(f'<div class="grid-item">\n')
-    lines.append(f'<figure>\n')
+    lines.append('<div class="grid-item">\n')
+    lines.append('<figure>\n')
     lines.append(f'<a href="{path}">\n')
     lines.append(f'<img src="{small_path}" alt="{alt}"/>\n')
-    lines.append(f'</a>\n')
+    lines.append('</a>\n')
     lines.append(f'<figcaption>{caption}</figcaption>\n')
-    lines.append(f'</figure>\n')
-    lines.append(f'</div> <!--grid-item-->\n')
+    lines.append('</figure>\n')
+    lines.append('</div> <!--grid-item-->\n')
     return lines
 
 
-def grid_html(directory, base_directory_prefix):
+def _grid_html(directory, base_directory_prefix):
     if not os.path.isdir(directory):
         raise Exception(f"{directory} is not a directory")
     print('<div class="grid-container">')
@@ -123,9 +123,12 @@ def grid_main():
         args.directory = os.path.join(IMAGES_DIR, args.quick_directory)
         args.prefix_directory = IMAGES_DIR_PREFIX
 
+    if not args.directory:
+        parser.error("Specify an argument for the directory")
+
     if args.generate:
         create_small_images(args.directory)
-    grid_html(args.directory, args.prefix_directory)
+    _grid_html(args.directory, args.prefix_directory)
 
 
 if __name__ == "__main__":

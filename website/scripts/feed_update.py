@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 """Utilities to generate a feed."""
 
-import argparse
 import datetime
 import os
 import re
@@ -14,20 +13,20 @@ FEED_PATH = os.path.join(THIS_DIR, "..", "site", "atom.xml")
 
 
 def _scrape_html(path):
-    with open(path, "r") as f:
+    with open(path, "r") as html_file:
         publication_date = None
         updated_date = None
-        for line in f:
+        for line in html_file:
             if "publication-date" in line:
                 # Very inflexible - just expects YYYY-MM-DD (with zeros)
-                m = re.search(r'[^\d]*(\d{4}-\d{2}-\d{2}).*', line)
-                if m:
-                    publication_date = m.group(1)
+                match = re.search(r'[^\d]*(\d{4}-\d{2}-\d{2}).*', line)
+                if match:
+                    publication_date = match.group(1)
             if "updated-date" in line:
                 # Very inflexible - just expects YYYY-MM-DD (with zeros)
-                m = re.search(r'[^\d]*(\d{4}-\d{2}-\d{2}).*', line)
-                if m:
-                    updated_date = m.group(1)
+                match = re.search(r'[^\d]*(\d{4}-\d{2}-\d{2}).*', line)
+                if match:
+                    updated_date = match.group(1)
             if publication_date is not None and updated_date is not None:
                 break
     return publication_date, updated_date
@@ -69,13 +68,13 @@ def _feed_entry(filename, publication_datetime, updated_datetime=None):
     lines.append(f'<link href="https://patricksanan.org/{filename}"/>\n')
     lines.append(
         f'<id>https://patricksanan.org/{filename}</id>\n')  # bad practice!
-    lines.append(f'<published>{updated_datetime}</published>\n')
+    lines.append(f'<published>{publication_datetime}</published>\n')
     if updated_datetime is not None:
         lines.append(f'<updated>{updated_datetime}</updated>\n')
     lines.append(f'<summary>https://patricksanan.org/{filename}</summary>\n')
     lines.append(f'<content>https://patricksanan.org/{filename}</content>\n'
                 )  # actual content would be better
-    lines.append(f'</entry>\n')
+    lines.append('</entry>\n')
     return lines
 
 
