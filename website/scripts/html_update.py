@@ -4,6 +4,7 @@
 import argparse
 import os
 import re
+import sys
 
 import image_utils
 import utils
@@ -49,7 +50,7 @@ def _footer_lines():
         '<div class="footer">\n',
         '<hr>\n',
         f'{utils.copyright_string()}\n',
-        '<span style="float:right;">Made with 🤷 by editing <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></span>\n'
+        '<span style="float:right;">Made with 🤷 by editing <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></span>\n',
         '</div>\n',
         '</body>\n',
         '</html>\n',
@@ -57,7 +58,10 @@ def _footer_lines():
 
 
 def update_header_and_footer(path):
-    """Overwrite header and footer, if custom comments are found."""
+    """Overwrite header and footer, if custom comments are found.
+
+    Returns whether anything changed.
+    """
     if not path.endswith(".html"):
         raise Exception(f"{path} isn't an HTML file")
     lines_out = []
@@ -104,11 +108,14 @@ def update_header_and_footer(path):
         )
 
     if lines == lines_out:  # could be slow
-        # silently return if no change
-        return
+        # No change
+        return False
 
     with open(path, "w") as html_file:
         html_file.writelines(lines_out)
+
+    # Changes
+    return True
 
 
 def _is_grid_item_div_open(line):
@@ -169,6 +176,7 @@ def _process_grid_item_div_lines(lines):
 
 
 def _update_figures(path):
+    """Updates figures for a give html file. Returns whether anything changed."""
     if not path.endswith(".html"):
         raise Exception(f"{path} isn't an HTML file")
     lines_out = []
@@ -208,39 +216,50 @@ def _update_figures(path):
         return
 
     if lines == lines_out:  # could be slow
-        # Silently return if no change
-        return
+        # No change
+        return False
 
     # write to a different path
     with open(path + ".new", "w") as html_file:
         html_file.writelines(lines_out)
 
+    # Something changed
+    return True
+
 
 def _update_directory(directory):
-    """Update all HTML files in a directory"""
+    """Updates all HTML files in a directory. Returns if anything changed."""
     if not os.path.isdir(directory):
         raise Exception(f"{directory} is not a directory")
+    change = False
     for filename in os.listdir(directory):
         if not filename.endswith(".html"):
             continue
         print(f"{filename}")
-        update_header_and_footer(os.path.join(directory, filename))
+        change = change or update_header_and_footer(
+            os.path.join(directory, filename))
 
         # For now, an out-of-place process!
-        _update_figures(os.path.join(directory, filename))
+        change = change or _update_figures(os.path.join(directory, filename))
+
+    return change
 
 
 def update_main():
     """Example usage:
 
     ./html_update.py
+
+    Returns True if anything changed
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('--directory', '-d', default=DEFAULT_SITE_PATH)
     args = parser.parse_args()
 
-    _update_directory(args.directory)
+    return _update_directory(args.directory)
 
 
 if __name__ == "__main__":
-    update_main()
+    """Returns a non-zero exit code if anything changed."""
+    change = update_main()
+    sys.exit(1 if change else 0)

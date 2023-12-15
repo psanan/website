@@ -1,5 +1,13 @@
 #!/usr/bin/env sh
 
+printf -- "Updating HTML\n"
+python scripts/html_update.py
+return_value=$?
+if [ $return_value -ne 0 ]; then
+  printf -- "HTML update had an effect! Confirm and re-run\n"
+  exit $return_value
+fi
+
 printf -- "Updating feed\n"
 python scripts/feed_update.py
 
