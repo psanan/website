@@ -29,4 +29,7 @@ Scripts use some command line tools:
 
 * rsync to upload
 * ImageMagick to shrink images
-* Shellcheck and Pylint to check style
+
+Recommended:
+* Git to track changes
+* Shellcheck and Pylint (or similar) to check style
