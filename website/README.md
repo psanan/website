@@ -33,3 +33,4 @@ Scripts use some command line tools:
 Recommended:
 * Git to track changes
 * Shellcheck and Pylint (or similar) to check style
+* Yapf to format Python
