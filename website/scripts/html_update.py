@@ -239,7 +239,7 @@ def _update_directory(directory):
         change = change or update_header_and_footer(
             os.path.join(directory, filename))
 
-        # For now, an out-of-place process!
+        # For now, an out-of-place process to update figures!
         change = change or _update_figures(os.path.join(directory, filename))
 
     return change
