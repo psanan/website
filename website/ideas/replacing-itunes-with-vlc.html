@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="Patrick Sanan" />
+    <title>VLC is My iTunes Replacement</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />
+  </head>
+<body>
+<div>
+<a href="index.html">patricksanan.org</a> | <a href="reports.html">trip reports</a> | <a href="music.html">music</a> | <a href="teaching-and-open-source-software.html">academic</a> | <a href="misc.html">misc.</a> | <a href="links.html">links</a> | <a href="Sanan_CV.pdf">CV</a> | <a href="contact.html">contact</a> <span style="float:right;"><a href="atom.xml" rel="alternate">feed</a> <a href="atom.xml" rel="alternate"><img src="images/feed-icon-14x14.png" style="vertical-align:middle" /></a></span>
+</div>
+<h1>VLC can replace iTunes</h1>
+<!--END HEADER -- This line and above can be automatically rewritten!-->
+
+<p>
+I really loved iTunes.
+But it became less fun over time. It got bloated and buggy and slow.
+I don't remember exactly when I decided it would be worth the effort
+to find something else, but key factors were that my library file became corrupted
+on several occasions, and syncing to my phone or ipod never seemed to work
+as quickly as it should. I would think "oh, I'll just sync some music before
+going running," and half an hour later I still wouldn't have the files,
+somehow.
+Once I ran Little Snitch and was shocked how much network activity was involved in opening a program to play the Mp3s on my hard drive.
+</p>
+
+<p> I love those files on my hard drives, and I'm not alone. People like me
+treasure these files, just like people with LP collections. </p>
+
+<p>
+This collection is so important to me that I feel like I have a <i>right</i> to it, because
+I believe music (and in general, art) is one of those "pursuit of happiness"
+(and "liberty") things that we hold to be self-evident rights. It's one of the things
+that makes life worth living, that connects me to my past, my friends, my soul.
+It's not such a stretch to call it a religous practice.
+</p>
+
+<p>
+To be clear,
+I don't think I have the right to violate copyright in anyway I choose,
+or to make it impossible for artists to have any control over who copies their music.
+I do think that I should have the right to completely control my own audio data,
+choosing where to store and play it. I also believe that artists have the right
+to a fair marketplace where they can sell me that audio data. Right now, Bandcamp
+more or less provides that in a veyr easy to use way (but we'll see, given their recent sale and antagonism towards their employees), and individual artists can relatively easily
+sell audio files directly.
+</p>
+
+<p>
+I really hate the idea that streaming somehow replaces a record (or audio file) collection.
+Something like this is too precious to rent from a company, for whom my right to my music not a fundamental concern. As I think most people of sufficient age to have seen cycles in the techn industry would agree, priorities can and will shift, and relying on a corporation to
+provide me with the multi-decade support I want is very unlikely. Whatever you're using
+will stop working, and the best you can hope is (as was mostly the case with iTunes),
+there is a viable way to get your data out.
+</p>
+
+<p>
+Streaming in general is useful as a discovery and sharing tool - as a consumer, it's very nice to be able to hear almost anything, almost any time, and very easily send a link to someone else to listen. The company I work for streams audio, so I'm aware of the legitimate value of these services - people are getting something for their money and I have paid for it with my own money, before.
+</p>
+
+<p>
+But it can't be the only thing. Streaming doesn't pay artists well enough to be considered more than a convenient way to advertise by letting people very conveniently listen for free. It's run by organizations with fundamental values (profit and/or growth)
+that may clash with my fundamental values (people being able to make, find, enjoy, and share good music).
+</p>
+
+
+<p>
+Okay, great. I've argued about how essential it is to have all these files,
+how are you going to play them?
+</p>
+
+<p>
+You can probably still use Apple's Music.app (which is what iTunes turned into).
+At the end of the day it keeps your music organized in normal files, and you can export your playlists with some Applescripting (I used this to get out).
+</p>
+
+<p>
+I have been looking for something a little more robust, in the sense that it doesn't rely on Apple continuing to support something that I'm not sure they have much interest in.
+</p>
+
+<p>
+My general desires were:
+- something simple enough for me to feel like I understand what it's doing
+- ideally something FOSS
+- Control my data. In particular, I want to be able to move it between players and interact with it as normal files, without being locked into a non portable or non standard data format.
+- I want to control when data is transferred. I  don't want anymore "why isn't it syncing?" questions which i can't resolve, as I hope that various opaque and constantly-updating apps might work.
+- A way to manage a large collection of playlists (in folders)
+- To play all common audio formats, mostly mp3 and FLAC files.
+- Some way to get music to my phone
+- Convenient UIs to play music using the convenience of the operating system
+</p>
+
+<p>
+I started out with mpd and ncmpcpp. This was quite fun, and these are nice tools,
+as they will work *anywhere* (e.g. I got them runnin on a Raspberry Pi once).
+</p>
+
+<p>
+However, as much as I love the no-mouse experience for almost everything, I want some point and click, here.
+I want to be able to do things one handed while a party is going on.
+</p>
+
+<p>
+I really liked the playlists in iTunes.
+I haven't found anything that has playlists like iTunes does, in the sense that you
+can have many of them, nested in directories, and you can be playing from any one of them,
+not just some master playlist which you load in and out of.
+</p>
+
+<p>
+I like a lot about Strawberry, but ultimately abanonded it for very similar reasons to ncmpcpp.
+Playlists are still annoying, there is still a big slow-to-update database, and perhaps most importantly
+it isn't well supported on Mac OS which I mostly use, day to day (e.g. I was very surprised there
+was no search bar on the library before checking to find that this is due to a Qt bug).
+</p>
+
+<p>
+I also like a lot about beets. This is just for organizing, though, and again, having
+to deal with an opaque database just seemed like more trouble than it was worth.
+</p>
+
+<p>
+When one is forced to get into scripting to do things like find and edit metadata,
+ffmpeg (even when one has to scan through entire audio files) is the most useful tool.
+</p>
+
+<p>
+I haven't looked heavily into full media system solutions like Plexamp or Jellyfin,
+as they seem likely to be very complex, and I'm not looking for portability to arbitrary
+devices, just being able to play some files and playlists on a couple.
+</p>
+
+
+<p>
+So what am I using now?
+</p>
+
+<h2>Local Player - VLC</h2>
+
+<p>
+Locally (on my Apple laptop), the answer was in front of me the whole time: VLC.
+</p>
+
+<p>
+This is built for videos, but (like ffmpeg) to have robust video support you need
+robust audio support, and VLC can play anything. It's maintained by a veritable
+army of French people, it's FOSS, it's available everywhere, and it's used
+by huge numbers of people.
+</p>
+
+<p>
+While VLC does have some sort of integrated media library, I am not using it.
+</p>
+
+<p>
+There is no special database! It is really just this:
+- My music directory, organized by (album) artist, then album.
+- A directory of playlists, m3u files with lists of absolute paths into the music directory
+
+Unlike iTunes or the  Music app, I am pretty darn sure Apple is going to continuing supporting the Finder and Textedit. These haven't really changed since before iTunes even came out.
+</p>
+
+<p>
+This is enough for me. Even with iTunes, the overwhelming majority of the time
+I navigated to music by artist, then album, or through playlists.
+</p>
+
+<p>
+This is really nice in a lot of ways. My data is not specific to the player (VLC).
+I already know how to do a lot with a file
+system and text files. I can search, navigate, track (with git), back up, and
+write scripts if it comes to that.
+VLC plays with those - you can drag things into the playlist, you can type command-O and
+load a playlist or a directory for a whole album.
+</p>
+
+<p>
+It's so simple that it's very portable: the music files are standard music files,
+and m3u files are just text files with lists of music files. There is specialized
+database to get corrupted or have to figure out how to export.
+(If you are trapped in iTunes, like I was, I manged to get my playlists out with this AppleScript (TODO link))
+</p>
+
+<p>
+I can organize my library and playlists with standard tools I already know.
+The music library is just directories and files. I can edit the playlists
+with any text editor.
+</p>
+
+<p>
+A very useful feature of Mac OS: open up TextEdit, add a newline if needbe, and drag a file or collection of files into it. The full file paths appear!
+You can build playlists from files this way. To build playlists from other playlists, you
+can copy from text files. To build playlists from items in the VLC current playlist, the easiest is probably "Show in Finder"
+and then drag the file into a text file.
+</p>
+
+<p>
+VLC only has one playlist, which you can load tracks and m3us into. You can save the whole thing as an m3u.
+This saves URIs, which is fine for VLC but creates some extra work later with my mobile scripts.
+I would love the old iTunes experience, in which I created so many fun lists, but this way works
+okay, there is no waiting around for a database, and I'm not locked into anything.
+</p>
+
+<p>
+You can view and edit track metadata right in VLC.
+
+BUG! Seems to mess up album metadata!
+</p>
+
+<p>
+For ratings, I just edit the comment fields of the files, adding 1 to 5 asterisks.
+The purist in me sees this as very ugly. The media should be immutable, and
+my personal usage of them should rely on data stored elsewhere. I'm ruining
+checksums by editing files! But, there is nothing that I know of that relies
+on comment fields, and the advantages of not having any auxiliary database are worth it.
+</p>
+
+<p>
+There are some minor pain points due to the lack of any database.
+</p>
+
+<p>
+File names may be such that
+it may not be totally obvious what a given track is before you open it
+(note you can make VLC the default to open audio and m3u files in Mac OS).
+Searching the library by metadata may require some auxiliary tool.
+If this ever really becomes an issue, I might look to a tool like Beets which helps clean up and
+index a music collection, or perhaps VLC (or VLC 4) can do this with it's media library features.
+</p>
+
+<p>
+Renaming or moving files also isn't so easy - if you do this you will break playlists unless you
+update your m3u files.
+</p>
+
+<p>
+Similarly, since I rely on absolute paths, I have a script to change the roots of all
+paths in the m3u files (which I needed anyway for the mobile player approach below).
+You could probably avoid this issue
+by linking your media directory to a fixed path, and just updating the link if you
+move your library.
+</p>
+
+<p>
+The lack of the database means you can't have as much fun with smart playlists
+based on added dated, last played date, play count, etc. - these things are not logically associated with the audio files, but a given user's usage of those files. Figuring out
+a way to store that data isn't worth the complication, to me (especially
+given my hack above for ratings, which I do still care about).
+</p>
+
+
+<p>
+VLC 4 promises a big overhaul of the UI and may become more useful, or
+might become more bloated - let's see. I assume that my existing minimalist workflow will
+still work, and if it doesn't, there are plenty of ways to play m3u files.
+(It also promises gapless playback, a feature which, as I recall, also came to iTunes later than you might think - I'm guessing it's a bit finicky to implement across many audio formats- it'd be fun to look into the source.. TODO)
+</p>
+
+<p>
+Ok, you say, but this is an antiquated view of the world - we're all on our phones, now! I personally do spend a lot of time listening to music from my laptop, at home with my entire library available on my NAS, but point taken. What's the mobile solution? (Spoiler alert, I don't have a great one, yet).
+</p>
+
+<h2>Mobile player - Syncthing, Poweramp, and scripts</h2>
+
+<p>
+My rights-based argument above extends to playing music on my phone - I also believe I have a right
+to control my own computing hardware and to enjoy my music there. After all,
+I would assume that most music, right now, is consumed via smartphone.
+</p>
+
+<p>
+This is one of the "how is so hard?" topics. A phone is a little computer, right,
+and computers can play audio files, right? So can I put my audio files on
+my little pocket computer and listen to them? At least, if my little computer
+is running Android, the open source operating system?
+</p>
+
+<p>
+I struggled so much to do this with my iPhone that when it died, I got an Android phone (Fairphone 4).
+</p>
+
+<p>
+The officially supported file transfer solution for Android is horrendous. Stay away.
+I also found using Google Drive, to be surpringly inconvenient (and I assume Dropbox or similar services would also be). These also run counter to the overarching ethos of avoiding
+solutions using complex software that may or may not be supported/free in the future. (I realize I'm not very pure on this point, as I'm using Apple's operating system).
+</p>
+
+<p>
+Fortunately there is <a href="https://syncthing.net">SyncThing</a>.
+There is available for Mac OS and Android (not iOS) and
+solved the problem of
+getting files to and from the phone better than anything else so far.
+</p>
+
+<p>
+TODO try VLC on phone and/or try an approach where you duplicate the *absolute* file path on the phone and in the m3us..
+</p>
+
+<p>
+To play music on the phone, I paid for the excellent PowerAmp (note there is a non-Google Play version).
+This understands m3us with path relative to the directory they're in.
+</p>
+
+<p>
+To generate the payload of music files and playlist files for the phone, I
+had to do a bit of scripting. This doesn't yet form a real solution for most people, sadly.
+</p>
+
+<p>
+I start with a list of playlists from my playlists folder.
+A Script runs through all those playlists,
+copying the required subset of music files to a staging location. The playlists themselves
+are also saved there, after processing to remove prefixes from the paths, and convert any URIs to plain
+file paths.
+</p>
+
+<p>
+Once that's done, syncthing is used to sync the staging folder to the phone.
+(Unfortunately, syncthing can't be running at the same time as my current scripts).
+</p>
+
+
+
+<!--START FOOTER -- This line and below can be automatically rewritten!-->
+<div class="footer">
+<hr>
+&copy; 2023 Patrick Sanan
+<span style="float:right;">Made with 🤷 by editing <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></span>
+</div>
+</body>
+</html>

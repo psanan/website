@@ -1,0 +1,87 @@
+
+
+<p>
+This comes up so often at work that I feel it's worth going deep on.
+</p>
+
+<p>TODO: this is good, but I should pick less confusing and more relevant examples. Don't make the variant also about blue eyes</p>
+
+<p>
+The setup:  there is some population P. In this population, there is a rate at which something is true. You observe a subset of the population N, and count how many times the thing is true, M. You then esimtate that the rate as M/N.
+</p>
+
+<p>
+For example, some people have blue eyes and some don't. In the population of the world, there is some rate at which people have blue eyes. I observe some people and count how many have blue eyes. How good of an estimate is that?
+</p>
+
+<p>
+A very similar but more relevant setup: the same, but now you're interested in the population where A is true, and within that, how often B is true. Say I build a blue-eye detecting robot. If I take it to every person on Earth, for the blue-eyed people it'll guess wrong for a certain percentage of them (the "false negative rate"). I can take it to people try it out. Assuming I'm perfect at blue eye detection myself, I don't actually have to try it on the non-blue-eyed people, so this is really the same problem as above, but it'll take me longer to find N blue-eyed people on Earth, M of whom will fool my robot.
+</p>
+
+<p>
+We'll start with a big assumption: I can uniformly, randomly, pick people on Earth.
+</p>
+
+<p>
+And another big one: the rate of blue-eyed people is constant in time. This isn't really true - people are born and die while I'm measuring eye color, and. Birth and death rates won't be identical in areas with more or less blue eyed genes.
+</p>
+
+<p>
+Finally, let's assume that the true population P is basically infinite. That is, I can ignore the fact that the world population is actually itself a sample of some more theoretical underlying distribution and just treat the overall rate as the "true" number.
+</p>
+
+<p>
+With all that, for any given person, they simply have some chance R of having blue eyes, independent of anything else. I observe N of them, and M have blue eyes, so estimate R_est = M/N.
+</p>
+
+<p>
+Now let's say I want to do something with my R_est. I should come up with a more fun example, but let's just say that I want a 95% confidence interval on for R. This means that if I were to repeatedly measure N people and compute R_est, 95% of the tie I'd get a result in that interval.
+</p>
+
+<p>
+If I know R exactly, I can compute.
+
+So let's commit a crime and assume R = R_est.
+
+This is such a common thing that it's very well-studied (and implemented in sofware). This is the <a href="https://en.wikipedia.org/wiki/Binomial_distribution">Binomial Distribution</a> with parameters N and R (corresponding to n and p in the article).
+
+<p>
+In this case, the disribution of R = M/N is the same distribution, just scaled, so I can easily read off the confidence interval.
+</p>
+
+<p>
+So let's do that for some numbers! This is very key if you want to work with data, because (in my experience), this is enough for a lot of purposes when you just want to know "is this enough data to measure this rate?"
+</p>
+
+<p>
+Let's consider a few different sample sizes and a few different rates.
+<p>
+
+<p>
+What if the rate is 50%?
+</p>
+
+
+<p>
+But I don't know R exactly! It seems intuitive that if check a huge number of people N, approaching P itself, I'll get R very accurately, but checking can be expensive, and in the real world R might very well not be constant with time, so measurements over long time windows give some sort of averaged result, when you might want the rate at a more localized point in time.
+</p>
+
+<p>
+You can see how you'd compute this by noting that my interviewing process is itself a binomial distribution. I choose N people randomly out of the (huge) P, each of whom has a probability R of being blue-eyed. That count, M, is distributed according to the CDF above, so the distribution of R_est, M/N, is a scaled version of that.
+</p>
+
+<p>
+Now we have a sort of inverse-feeling problem. Before, I knew R and wanted the distribtution of B. Now, I want to know the distribution of R, based on my knowedge of R_est (essentially a count) and N.
+</p>
+
+<p>
+Note here that N is critical - it's the number of observations I actually made. In our variant above, a common mistake would be to base conclusions on the number of people I met, even though I didn't actually need to test my robot on all of them.
+</p>
+
+<p>
+First, let's gain some intuition by solving the wrong problem.
+Say R = R_est. Then the M I observed is the most likely outcome (the probability distribution functino peaks there), but if I were to pick a different set of N people, I would likely observe a different number of blue eyes. I could cheat a bit and say
+</p>
+
+<p> The more precise way to do this is described <a href="https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval">here</a>
+</p>
