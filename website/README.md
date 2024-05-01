@@ -1,6 +1,6 @@
 # Source for patricksanan.org
 
-This is a "fun" website, in the learning-to-code, web 1.0 sense.
+This is a "fun" website, in the web 1.0 sense.
 
 It tries to avoid layers of abstraction and complication beyond
 [basic HTML and CSS](https://developer.mozilla.org). It takes
