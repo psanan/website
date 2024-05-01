@@ -53,9 +53,7 @@ def create_small_images(directory):
                 f"Warning! Unexpected small file {filename} found in {small_directory}"
             )
     if expected_filenames:
-        _eprint(
-            f"ERROR! {small_directory} is missing {expected_filenames}"
-        )
+        _eprint(f"ERROR! {small_directory} is missing {expected_filenames}")
     return small_directory
 
 
@@ -104,31 +102,24 @@ def _grid_html(directory, base_directory_prefix):
 
 
 def grid_main():
-    """Prepares files and prints HTML to use an image dir in a post.
+    description = """Prepares files and prints HTML to use an image dir in a post. E.g
 
-    Typical usage is e.g.
-       ./image_utils.py -q foo | pbcopy
-       ./image_utils.py -d ../site/images/foo -p ../site | pbcopy
-    """
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--quick-directory', '-q')
-    parser.add_argument('--directory', '-d')
-    parser.add_argument('--prefix-directory', '-p', default="")
+    ./image_utils.py -q swiss-cantonal-highpoints | pbcopy"""
+    parser = argparse.ArgumentParser(
+        description=description,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('--quick-directory', '-q', required=True)
     parser.add_argument('--generate', action='store_true')
     parser.add_argument('--no-generate', dest='generate', action='store_false')
     parser.set_defaults(generate=True)
     args = parser.parse_args()
 
-    if args.quick_directory:
-        args.directory = os.path.join(IMAGES_DIR, args.quick_directory)
-        args.prefix_directory = IMAGES_DIR_PREFIX
-
-    if not args.directory:
-        parser.error("Specify an argument for the directory")
+    directory = os.path.join(IMAGES_DIR, args.quick_directory)
 
     if args.generate:
-        create_small_images(args.directory)
-    _grid_html(args.directory, args.prefix_directory)
+        create_small_images(directory)
+
+    _grid_html(directory, IMAGES_DIR_PREFIX)
 
 
 if __name__ == "__main__":
