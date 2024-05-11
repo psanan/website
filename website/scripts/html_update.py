@@ -1,15 +1,6 @@
 #!/usr/bin/env python
 """Updates HTML source."""
 
-# TODO for release
-# - pass pylint
-# - Scan through carefully for confusing things, unneccessary complexity, etc.
-# - Look for stuff to delete or shrink
-# - pass pyint again
-# - YAPF everything
-# - squash to a new main branch (back up old history locally I guess)
-# - make public
-
 import argparse
 import os
 import sys
@@ -17,7 +8,8 @@ import sys
 import html_utils
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
-DEFAULT_SITE_PATH = os.path.join(THIS_DIR, "..", "site")
+DEFAULT_SITE_PATH = os.path.realpath(os.path.join(THIS_DIR, "..", "site"))
+
 
 def _update_directory(directory):
     """Updates all HTML files in a directory. Returns if anything changed."""

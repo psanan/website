@@ -6,7 +6,8 @@ import subprocess
 import sys
 
 SMALL_DIRNAME = "small"
-IGNORE_FILES = [".DS_Store", SMALL_DIRNAME]
+IMAGE_DIR_IGNORE_FILES = [".DS_Store", SMALL_DIRNAME]
+
 
 def copyright_string(html=True):
     """Produces a copyright string, with an option for HTML."""
@@ -18,6 +19,7 @@ def copyright_string(html=True):
 def eprint(*args, **kwargs):
     """Print to stderr."""
     print(*args, file=sys.stderr, **kwargs)
+
 
 def figure_small_path(path):
     """Returns the small-image path corresponding to a given image or directory."""
@@ -35,7 +37,7 @@ def create_small_images(directory):
     expected_filenames = set()
     for filename in sorted(os.listdir(directory)):
         path = os.path.join(directory, filename)
-        if os.path.isdir(filename) or filename in IGNORE_FILES:
+        if os.path.isdir(filename) or filename in IMAGE_DIR_IGNORE_FILES:
             continue
         small_path = os.path.join(small_directory, filename)
         # Use Imagemagick's "convert" to
@@ -45,7 +47,7 @@ def create_small_images(directory):
                        check=True)
         expected_filenames.add(filename)
     for filename in os.listdir(small_directory):
-        if filename in IGNORE_FILES:
+        if filename in IMAGE_DIR_IGNORE_FILES:
             continue
         if filename in expected_filenames:
             expected_filenames.remove(filename)

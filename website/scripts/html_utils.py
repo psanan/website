@@ -10,9 +10,6 @@ HEADER_TAG_PREFIX = "<!--END HEADER"
 FOOTER_TAG_PREFIX = "<!--START FOOTER"
 SKIP_TAG_PREFIX = "<!--DO NOT UPDATE"
 
-THIS_DIR = os.path.dirname(os.path.realpath(__file__))
-DEFAULT_SITE_PATH = os.path.join(THIS_DIR, "..", "site")
-
 
 def _process_header_lines(header_lines):
     # Get a title from the first h1 tag
@@ -30,11 +27,24 @@ def _process_header_lines(header_lines):
         '    <meta name="author" content="Patrick Sanan" />\n',
         f'    <title>{title}</title>\n',
         '    <link rel="stylesheet" href="styles/styles.css" />\n',
-        '    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />\n',
+        ('    <link href="atom.xml" type="application/atom+xml" '
+             'rel="alternate" title="Atom feed" />\n'),
         '  </head>\n',
         '<body>\n',
         '<div>\n',
-        '<a href="index.html">patricksanan.org</a> | <a href="reports.html">trip reports</a> | <a href="music.html">music</a> | <a href="teaching-and-open-source-software.html">academic</a> | <a href="misc.html">misc.</a> | <a href="links.html">links</a> | <a href="Sanan_CV.pdf">CV</a> | <a href="contact.html">contact</a> <span style="float:right;"><a href="atom.xml" rel="alternate">feed</a> <a href="atom.xml" rel="alternate"><img src="images/feed-icon-14x14.png" style="vertical-align:middle" /></a></span>\n',
+        ('<a href="index.html">patricksanan.org</a> | '
+         '<a href="reports.html">trip reports</a> | '
+         '<a href="music.html">music</a> | '
+         '<a href="teaching-and-open-source-software.html">academic</a> | '
+         '<a href="misc.html">misc.</a> | '
+         '<a href="links.html">links</a> | '
+         '<a href="Sanan_CV.pdf">CV</a> | '
+         '<a href="contact.html">contact</a> '
+         '<span style="float:right;">'
+         '<a href="atom.xml" rel="alternate">feed</a> '
+         '<a href="atom.xml" rel="alternate">'
+         '<img src="images/feed-icon-14x14.png" style="vertical-align:middle" />'
+         '</a></span>\n'),
         '</div>\n',
         f'<h1>{title}</h1>\n',
         f'{HEADER_TAG_PREFIX} -- This line and above can be automatically rewritten!-->\n',
@@ -47,7 +57,8 @@ def _footer_lines():
         '<div class="footer">\n',
         '<hr>\n',
         f'{utils.copyright_string()}\n',
-        '<span style="float:right;">Made with 🤷 by editing <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></span>\n',
+        ('<span style="float:right;">Made with 🤷 by editing '
+         '<a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></span>\n'),
         '</div>\n',
         '</body>\n',
         '</html>\n',
@@ -112,12 +123,14 @@ def update_header_and_footer(path):
 
     if not header_comment_found:
         print(
-            f"  WARNING: no header comment ({HEADER_TAG_PREFIX}) found. {path} cannot be updated"
+            (f"  WARNING: no header comment ({HEADER_TAG_PREFIX}) found. "
+             f"{path} cannot be updated.")
         )
         return True
     if not footer_comment_found:
         print(
-            f"  WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. footer will not be updated for {path}"
+            (f"  WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. "
+             "footer will not be updated for {path}.")
         )
 
     if lines == lines_out:  # could be slow
@@ -135,13 +148,14 @@ def _is_grid_item_div_open(line):
     return "<div" in line and "grid-item" in line
 
 
-# This requires a class in the closing tag, which is ugly - properly, use a stack to deal with nested item divs
+# This requires a class in the closing tag, which is ugly.
+# More properly, use a stack to deal with nested item divs
 def _is_grid_item_div_close(line):
     return "</div" in line and "grid-item" in line
 
 
 def _process_grid_item_div_lines(lines):
-    """Extracts information from an image grid item element and generates a standard one."""
+    """Examines an image grid item element and generates a standard one."""
     alt = ""
     href = ""
     caption = ""
@@ -236,7 +250,8 @@ def update_figures(path):
         if new_grid_item_div_open:
             if grid_item_div_open:
                 print(
-                    f"grid-item div opened when one already open in {path}:{line_number}. Aborting figure update."
+                    ("grid-item div opened when one already open in "
+                     f"{path}:{line_number}. Aborting figure update.")
                 )
                 return True
             grid_item_div_open = True
@@ -250,7 +265,8 @@ def update_figures(path):
         if new_grid_item_div_close:
             if not grid_item_div_open:
                 print(
-                    f"grid-item closed when one not already open in {path}:{line_number}. Aborting figure update."
+                    ("grid-item closed when one not already open in "
+                     f"{path}:{line_number}. Aborting figure update.")
                 )
                 return True
             grid_item_div_open = False

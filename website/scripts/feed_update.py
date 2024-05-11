@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Utilities to generate a feed."""
+"""Generate a feed from HTML files."""
 
 import datetime
 import os
@@ -13,7 +13,7 @@ FEED_PATH = os.path.join(THIS_DIR, "..", "site", "atom.xml")
 
 
 def _scrape_html(path):
-    with open(path, "r") as html_file:
+    with open(path, "r", encoding="utf-8") as html_file:
         publication_date = None
         updated_date = None
         for line in html_file:
@@ -91,7 +91,7 @@ def _generate_feed():
             feed_lines.extend(
                 _feed_entry(filename, publication_date, updated_date))
     feed_lines.extend(_feed_footer())
-    with open(FEED_PATH, "w") as feed_file:
+    with open(FEED_PATH, "w", encoding="utf-8") as feed_file:
         feed_file.writelines(feed_lines)
 
 
