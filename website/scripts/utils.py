@@ -8,17 +8,9 @@ import sys
 SMALL_DIRNAME = "small"
 IGNORE_FILES = [".DS_Store", SMALL_DIRNAME]
 
-THIS_DIR = os.path.dirname(os.path.realpath(__file__))
-IMAGES_DIR_PREFIX = os.path.join(THIS_DIR, "..")
-IMAGES_DIR = os.path.join(IMAGES_DIR_PREFIX, "site", "images")
-
-
 def copyright_string(html=True):
     """Produces a copyright string, with an option for HTML."""
-    year_string = "2023"
-    year = datetime.date.today().year
-    if year > 2023:
-        year_string += f"-{year}"
+    year_string = f"2023-{datetime.date.today().year}"
     c_string = "&copy;" if html else "Copyright"
     return f"{c_string} {year_string} Patrick Sanan"
 

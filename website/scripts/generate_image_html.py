@@ -5,8 +5,13 @@ import argparse
 import os
 import subprocess
 
-from html_utils import *
-from utils import *
+import html_utils
+import utils
+
+THIS_DIR = os.path.dirname(os.path.realpath(__file__))
+IMAGES_DIR_PREFIX = os.path.join(THIS_DIR, "..")
+IMAGES_DIR = os.path.join(IMAGES_DIR_PREFIX, "site", "images")
+IGNORE_FILES = [".DS_Store", utils.SMALL_DIRNAME]
 
 
 def _grid_html(directory, base_directory_prefix):
@@ -17,7 +22,7 @@ def _grid_html(directory, base_directory_prefix):
         path = os.path.join(directory, filename)
         if os.path.isdir(path) or filename in IGNORE_FILES:
             continue
-        print("".join(figure_grid_html_lines(path, base_directory_prefix)),
+        print("".join(html_utils.figure_grid_html_lines(path, base_directory_prefix)),
               end="")
     print('</div> <!--grid-container-->')
 
@@ -42,7 +47,7 @@ def grid_main():
     directory = os.path.join(IMAGES_DIR, args.quick_directory)
 
     if args.generate:
-        create_small_images(directory)
+        utils.create_small_images(directory)
 
     _grid_html(directory, IMAGES_DIR_PREFIX)
 

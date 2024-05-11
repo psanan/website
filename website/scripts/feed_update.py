@@ -35,7 +35,6 @@ def _scrape_html(path):
 def _feed_header():
     lines = []
 
-    year_string = f"2023-{datetime.date.today().year}"
     datetime_string = datetime.datetime.now().astimezone().replace(
         microsecond=0).isoformat()
 

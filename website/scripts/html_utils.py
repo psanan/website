@@ -61,7 +61,7 @@ def should_skip(path):
     preserve old URLs.
     """
     if not path.endswith(".html"):
-        raise Exception(f"{path} isn't an HTML file")
+        raise ValueError(f"{path} isn't an HTML file")
     with open(path, "r", encoding="utf-8") as html_file:
         lines = html_file.readlines()
     # Check all lines for SKIP_TAG_PREFIX
@@ -81,7 +81,7 @@ def update_header_and_footer(path):
     Returns whether anything changed.
     """
     if not path.endswith(".html"):
-        raise Exception(f"{path} isn't an HTML file")
+        raise ValueError(f"{path} isn't an HTML file")
     lines_out = []
     with open(path, "r", encoding="utf-8") as html_file:
         lines = html_file.readlines()
@@ -124,7 +124,7 @@ def update_header_and_footer(path):
         # No change
         return False
 
-    with open(path, "w") as html_file:
+    with open(path, "w", encoding="utf-8") as html_file:
         html_file.writelines(lines_out)
 
     # Changes
@@ -223,7 +223,7 @@ def figure_grid_html_lines(input_path,
 def update_figures(path):
     """Updates figures for a give HTML file. Returns whether anything changed (or should)."""
     if not path.endswith(".html"):
-        raise Exception(f"{path} isn't an HTML file")
+        raise ValueError(f"{path} isn't an HTML file")
     lines_out = []
     with open(path, "r", encoding="utf-8") as html_file:
         lines = html_file.readlines()

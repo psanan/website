@@ -2,25 +2,27 @@
 """Updates HTML source."""
 
 # TODO for release
-# - Refactor so all HTML-heavy stuff is in html_utils, move imagemagick to utils.py and get rid of image_utils.py
+# - pass pylint
 # - Scan through carefully for confusing things, unneccessary complexity, etc.
 # - Look for stuff to delete or shrink
-# - pass pylint (and YAPF google style) perfectly
+# - pass pyint again
+# - YAPF everything
 # - squash to a new main branch (back up old history locally I guess)
 # - make public
 
 import argparse
 import os
-import re
 import sys
 
-import utils
-from html_utils import *
+import html_utils
+
+THIS_DIR = os.path.dirname(os.path.realpath(__file__))
+DEFAULT_SITE_PATH = os.path.join(THIS_DIR, "..", "site")
 
 def _update_directory(directory):
     """Updates all HTML files in a directory. Returns if anything changed."""
     if not os.path.isdir(directory):
-        raise Exception(f"{directory} is not a directory")
+        raise ValueError(f"{directory} is not a directory")
     anything_changed = False
     skipped_filenames = []
     print(f"Updating HTML in {directory}:")
@@ -31,13 +33,13 @@ def _update_directory(directory):
 
         # Proceed somewhat inefficiently, opening and overwriting
         # the file several times.
-        if should_skip(path):
+        if html_utils.should_skip(path):
             skipped_filenames.append(filename)
             continue
         print(f"  {filename}")
-        if update_header_and_footer(path):
+        if html_utils.update_header_and_footer(path):
             anything_changed = True
-        if update_figures(path):
+        if html_utils.update_figures(path):
             anything_changed = True
 
     if skipped_filenames:
@@ -48,7 +50,7 @@ def _update_directory(directory):
     return anything_changed
 
 
-def main():
+def _main():
     description = """Updates HTML and returns a non-zero exit code if anything changed."""
     parser = argparse.ArgumentParser(
         description=description,
@@ -61,4 +63,4 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(1 if main() else 0)
+    sys.exit(1 if _main() else 0)
