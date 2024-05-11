@@ -1,5 +1,30 @@
 #!/usr/bin/env python
-"""Utilities to automatically update HTML source"""
+"""Utilities to automatically update HTML source.
+
+This is essentially a scripted find-replace across
+all the HTML files.
+
+This allows the use of plain HTML files, without
+any custom templating or build process, using
+an external tool to bulk update commo elements.
+
+I use this Python script to do this work, but others
+may prefer to use another method, say a tool available
+from their IDE.
+
+The general approach is to use special HTML comments
+to flag sections of the file to be automatically updated,
+relying on a version control diff tool (e.g. Git
+and associated tools to view the changes).
+"""
+
+# TODO for release
+# - Rethink top-level structure and make sure that's crystal clear and self-docing
+#  - all HTML-related stuff in one file, imagemagic-related stuff in another, two scripts which call these?
+# - Scan through carefully for confusing things, unneccessary complexity, etc.
+# - Collect scattered printing to high level place in controlling functions
+# - separate control logic from HTML specifics
+# - pass pylint (and YAPF google style) perfectly
 
 import argparse
 import os
@@ -18,7 +43,7 @@ DEFAULT_SITE_PATH = os.path.join(THIS_DIR, "..", "site")
 
 
 def _process_header_lines(header_lines):
-    # Look for a title in an h1 tag
+    # Get a title from the first h1 tag
     title = "patricksanan.org"
     for line in header_lines:
         if "<h1>" in line:
@@ -176,7 +201,7 @@ def _process_grid_item_div_lines(lines):
 
 
 def _update_figures(path):
-    """Updates figures for a give html file. Returns whether anything changed (or should)."""
+    """Updates figures for a give HTML file. Returns whether anything changed (or should)."""
     if not path.endswith(".html"):
         raise Exception(f"{path} isn't an HTML file")
     lines_out = []
@@ -231,27 +256,25 @@ def _update_directory(directory):
     """Updates all HTML files in a directory. Returns if anything changed."""
     if not os.path.isdir(directory):
         raise Exception(f"{directory} is not a directory")
-    change = False
+    anything_changed = False
     for filename in os.listdir(directory):
         if not filename.endswith(".html"):
             continue
         print(f"{filename}")
-        change = change or update_header_and_footer(
+        anything_changed = anything_changed or update_header_and_footer(
             os.path.join(directory, filename))
 
         # For now, an out-of-place process to update figures!
-        change = change or _update_figures(os.path.join(directory, filename))
+        anything_changed = anything_changed or _update_figures(os.path.join(directory, filename))
 
-    return change
+    return anything_changed
 
 
-def update_main():
-    """Example usage:
-
-    ./html_update.py
-
-    Returns True if anything changed
-    """
+def main():
+    description = """Updates HTML and returns a non-zero exit code if anything changed."""
+    parser = argparse.ArgumentParser(
+        description=description,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
     parser = argparse.ArgumentParser()
     parser.add_argument('--directory', '-d', default=DEFAULT_SITE_PATH)
     args = parser.parse_args()
@@ -260,5 +283,5 @@ def update_main():
 
 
 if __name__ == "__main__":
-    # Return a non-zero exit code if anything changed
-    sys.exit(1 if update_main() else 0)
+    anything_changed = main()
+    sys.exit(1 if anything_changed else 0)

@@ -6,6 +6,8 @@ import os
 import sys
 import subprocess
 
+from utils import eprint
+
 SMALL_DIRNAME = "small"
 IGNORE_FILES = [".DS_Store", SMALL_DIRNAME]
 
@@ -22,8 +24,6 @@ def _get_small_path(path):
                         os.path.basename(path))
 
 
-def _eprint(*args, **kwargs):
-    print(*args, file=sys.stderr, **kwargs)
 
 
 def create_small_images(directory):
@@ -39,7 +39,7 @@ def create_small_images(directory):
         small_path = os.path.join(small_directory, filename)
         # Use Imagemagick's "convert" to
         # resize the largest dimension to 300px
-        _eprint(f"Info: Generating {small_path}")
+        eprint(f"Info: Generating {small_path}")
         subprocess.run(["convert", "-resize", "300x300>", path, small_path],
                        check=True)
         expected_filenames.add(filename)
@@ -102,9 +102,13 @@ def _grid_html(directory, base_directory_prefix):
 
 
 def grid_main():
-    description = """Prepares files and prints HTML to use an image dir in a post. E.g
-
-    ./image_utils.py -q swiss-cantonal-highpoints | pbcopy"""
+    demo_post_name = "swiss-cantonal-highpoints"
+    demo_dir = os.path.join(IMAGES_DIR, demo_post_name)
+    description = f"""Prepares files and prints HTML to use an image dir in a post. E.g
+    mkdir -p {demo_dir}
+    cp img1.jpg {demo_dir}
+    # Pipe output to macOS clipboard
+    python {__file__} -q {demo_post_name} | pbcopy"""
     parser = argparse.ArgumentParser(
         description=description,
         formatter_class=argparse.RawDescriptionHelpFormatter)

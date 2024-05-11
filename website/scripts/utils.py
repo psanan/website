@@ -11,3 +11,8 @@ def copyright_string(html=True):
         year_string += f"-{year}"
     c_string = "&copy;" if html else "Copyright"
     return f"{c_string} {year_string} Patrick Sanan"
+
+
+def eprint(*args, **kwargs):
+    """Print to stderr."""
+    print(*args, file=sys.stderr, **kwargs)
