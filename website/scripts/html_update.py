@@ -65,13 +65,13 @@ def _process_header_lines(header_lines):
         '<a href="index.html">patricksanan.org</a> | <a href="reports.html">trip reports</a> | <a href="music.html">music</a> | <a href="teaching-and-open-source-software.html">academic</a> | <a href="misc.html">misc.</a> | <a href="links.html">links</a> | <a href="Sanan_CV.pdf">CV</a> | <a href="contact.html">contact</a> <span style="float:right;"><a href="atom.xml" rel="alternate">feed</a> <a href="atom.xml" rel="alternate"><img src="images/feed-icon-14x14.png" style="vertical-align:middle" /></a></span>\n',
         '</div>\n',
         f'<h1>{title}</h1>\n',
-        '<!--END HEADER -- This line and above can be automatically rewritten!-->\n',
+        f'{HEADER_TAG_PREFIX} -- This line and above can be automatically rewritten!-->\n',
     ]
 
 
 def _footer_lines():
     return [
-        '<!--START FOOTER -- This line and below can be automatically rewritten!-->\n',
+        f'{FOOTER_TAG_PREFIX} -- This line and below can be automatically rewritten!-->\n',
         '<div class="footer">\n',
         '<hr>\n',
         f'{utils.copyright_string()}\n',

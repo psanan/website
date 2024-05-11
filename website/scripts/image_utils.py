@@ -61,7 +61,7 @@ def figure_grid_html_lines(input_path,
                            base_directory_prefix,
                            alt="",
                            caption=""):
-    """Produce an html figure snippet for a given image within a grid.
+    """Produce an HTML figure snippet for a given image within a grid.
 
     Includes paths relative to the provided base_directory prefix."""
 
