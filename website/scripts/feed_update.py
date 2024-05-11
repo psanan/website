@@ -35,10 +35,7 @@ def _scrape_html(path):
 def _feed_header():
     lines = []
 
-    year_string = "2023"
-    year = datetime.date.today().year
-    if year > 2023:
-        year_string += f"-{year}"
+    year_string = f"2023-{datetime.date.today().year}"
     datetime_string = datetime.datetime.now().astimezone().replace(
         microsecond=0).isoformat()
 
@@ -100,10 +97,6 @@ def _generate_feed():
 
 
 def _main():
-    """Example usage:
-
-    ./feed_update.py
-    """
     _generate_feed()
 
 

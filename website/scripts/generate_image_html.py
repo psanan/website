@@ -3,8 +3,10 @@
 
 import argparse
 import os
+import subprocess
 
-from image_utils import *
+from html_utils import *
+from utils import *
 
 
 def _grid_html(directory, base_directory_prefix):
