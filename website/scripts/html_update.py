@@ -1,30 +1,13 @@
 #!/usr/bin/env python
-"""Utilities to automatically update HTML source.
-
-This is essentially a scripted find-replace across
-all the HTML files.
-
-This allows the use of plain HTML files, without
-any custom templating or build process, using
-an external tool to bulk update commo elements.
-
-I use this Python script to do this work, but others
-may prefer to use another method, say a tool available
-from their IDE.
-
-The general approach is to use special HTML comments
-to flag sections of the file to be automatically updated,
-relying on a version control diff tool (e.g. Git
-and associated tools to view the changes).
-"""
+"""Updates HTML source."""
 
 # TODO for release
 # - Rethink top-level structure and make sure that's crystal clear and self-docing
 #  - all HTML-related stuff in one file, imagemagic-related stuff in another, two scripts which call these?
 # - Scan through carefully for confusing things, unneccessary complexity, etc.
-# - Collect scattered printing to high level place in controlling functions
 # - separate control logic from HTML specifics
 # - pass pylint (and YAPF google style) perfectly
+# - figure updates to in place?
 
 import argparse
 import os
@@ -36,7 +19,7 @@ import utils
 
 HEADER_TAG_PREFIX = "<!--END HEADER"
 FOOTER_TAG_PREFIX = "<!--START FOOTER"
-CUSTOM_HEADER_TAG_PREFIX = "<!--CUSTOM HEADER"
+SKIP_TAG_PREFIX = "<!--DO NOT UPDATE"
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 DEFAULT_SITE_PATH = os.path.join(THIS_DIR, "..", "site")
@@ -81,14 +64,30 @@ def _footer_lines():
         '</html>\n',
     ]
 
+def _should_skip(path):
+    """Determines if an HTML file should be skipped for updates.
 
-def update_header_and_footer(path):
-    """Overwrite header and footer, if custom comments are found.
+    This is intended to be used for things like redirects to
+    preserve old URLs.
+    """
+    with open(path, "r") as html_file:
+        lines = html_file.readlines()
+    # Check all lines for SKIP_TAG_PREFIX
+    # Consider presence of a normal header tag to mean "don't skip",
+    # to avoid always scanning all of most files.
+    for line in lines:
+        if SKIP_TAG_PREFIX in line:
+            return True
+        if HEADER_TAG_PREFIX in line:
+            return False
+    return False
+
+
+def _update_header_and_footer(path):
+    """Overwrites HTML header and/or footer, relying on custom coments.
 
     Returns whether anything changed.
     """
-    if not path.endswith(".html"):
-        raise Exception(f"{path} isn't an HTML file")
     lines_out = []
     with open(path, "r") as html_file:
         lines = html_file.readlines()
@@ -96,11 +95,6 @@ def update_header_and_footer(path):
     footer_comment_found = False
     header_lines = []
     for line in lines:
-        # Do not update if a custom header comment is found
-        if CUSTOM_HEADER_TAG_PREFIX in line:
-            print("  Not updating: Custom header marker found")
-            return False
-
         # Check for header comment, adding the header if found
         if not header_comment_found:
             header_comment_found = line.lstrip().startswith(HEADER_TAG_PREFIX)
@@ -257,15 +251,25 @@ def _update_directory(directory):
     if not os.path.isdir(directory):
         raise Exception(f"{directory} is not a directory")
     anything_changed = False
+    skipped_filenames = []
+    print(f"Updating in {directory}:")
     for filename in os.listdir(directory):
         if not filename.endswith(".html"):
             continue
-        print(f"{filename}")
-        anything_changed = anything_changed or update_header_and_footer(
-            os.path.join(directory, filename))
+        path = os.path.join(directory, filename)
+        if _should_skip(path):
+            skipped_filenames.append(filename)
+            continue
+        print(f"  {filename}")
+        anything_changed = anything_changed or _update_header_and_footer(path)
 
         # For now, an out-of-place process to update figures!
-        anything_changed = anything_changed or _update_figures(os.path.join(directory, filename))
+        anything_changed = anything_changed or _update_figures(path)
+
+    if skipped_filenames:
+        print("Skipped the following files:")
+        for filename in skipped_filenames:
+            print(f"  {filename}")
 
     return anything_changed
 
