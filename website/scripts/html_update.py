@@ -2,12 +2,10 @@
 """Updates HTML source."""
 
 # TODO for release
-# - Rethink top-level structure and make sure that's crystal clear and self-docing
-#  - all HTML-related stuff in one file, imagemagic-related stuff in another, two scripts which call these?
+# - Fix bug
 # - Scan through carefully for confusing things, unneccessary complexity, etc.
 # - separate control logic from HTML specifics
 # - pass pylint (and YAPF google style) perfectly
-# - figure updates to in place?
 
 import argparse
 import os
@@ -210,7 +208,7 @@ def _update_figures(path):
         if new_grid_item_div_open:
             if grid_item_div_open:
                 print(
-                    f"grid-item div opened when one already open in {path}:{line_number}. Aborting"
+                    f"grid-item div opened when one already open in {path}:{line_number}. Aborting figure update."
                 )
                 return True
             grid_item_div_open = True
@@ -224,22 +222,22 @@ def _update_figures(path):
         if new_grid_item_div_close:
             if not grid_item_div_open:
                 print(
-                    f"grid-item closed when one not already open in {path}:{line_number}. Aborting"
+                    f"grid-item closed when one not already open in {path}:{line_number}. Aborting figure update."
                 )
                 return True
             grid_item_div_open = False
             lines_out.extend(_process_grid_item_div_lines(grid_item_div_lines))
             grid_item_div_lines = []
     if grid_item_div_open:
-        print(f"grid-item div never closed in {path}. Aborting")
+        print(f"grid-item div never closed in {path}. Aborting figure update.")
         return True
 
     if lines == lines_out:  # could be slow
         # No change
         return False
 
-    # write to a different path
-    with open(path + ".new", "w") as html_file:
+    # Overwrite
+    with open(path, "w") as html_file:
         html_file.writelines(lines_out)
 
     # Something changed
@@ -257,13 +255,14 @@ def _update_directory(directory):
         if not filename.endswith(".html"):
             continue
         path = os.path.join(directory, filename)
+
+        # Proceed somewhat inefficiently, opening and overwriting
+        # the file several times.
         if _should_skip(path):
             skipped_filenames.append(filename)
             continue
         print(f"  {filename}")
         anything_changed = anything_changed or _update_header_and_footer(path)
-
-        # For now, an out-of-place process to update figures!
         anything_changed = anything_changed or _update_figures(path)
 
     if skipped_filenames:

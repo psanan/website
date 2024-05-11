@@ -1,6 +1,7 @@
 """Utility functions used in multiple places."""
 
 import datetime
+import sys
 
 
 def copyright_string(html=True):
