@@ -2,10 +2,12 @@
 """Updates HTML source."""
 
 # TODO for release
-# - Fix bug
+# - Refactor so all HTML-heavy stuff is in html_utils, move imagemagick to utils.py and get rid of image_utils.py
 # - Scan through carefully for confusing things, unneccessary complexity, etc.
-# - separate control logic from HTML specifics
+# - Look for stuff to delete or shrink
 # - pass pylint (and YAPF google style) perfectly
+# - squash to a new main branch (back up old history locally I guess)
+# - make public
 
 import argparse
 import os
@@ -250,7 +252,7 @@ def _update_directory(directory):
         raise Exception(f"{directory} is not a directory")
     anything_changed = False
     skipped_filenames = []
-    print(f"Updating in {directory}:")
+    print(f"Updating HTML in {directory}:")
     for filename in os.listdir(directory):
         if not filename.endswith(".html"):
             continue
@@ -262,8 +264,10 @@ def _update_directory(directory):
             skipped_filenames.append(filename)
             continue
         print(f"  {filename}")
-        anything_changed = anything_changed or _update_header_and_footer(path)
-        anything_changed = anything_changed or _update_figures(path)
+        if _update_header_and_footer(path):
+            anything_changed = True
+        if _update_figures(path):
+            anything_changed = True
 
     if skipped_filenames:
         print("Skipped the following files:")

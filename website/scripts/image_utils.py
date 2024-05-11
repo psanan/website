@@ -2,7 +2,6 @@
 """Utilities to work with images"""
 
 import os
-import sys
 import subprocess
 
 from utils import eprint
