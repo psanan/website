@@ -43,8 +43,11 @@ def create_small_images(directory):
         # Use Imagemagick's "convert" to
         # resize the largest dimension to 300px
         eprint(f"Info: Generating {small_path}")
-        subprocess.run(["convert", "-resize", "300x300>", path, small_path],
+        try:
+            subprocess.run(["convert", "-resize", "300x300>", path, small_path],
                        check=True)
+        except CalledProcessError as error:
+            eprint("ERROR! Conversion failed:", error)
         expected_filenames.add(filename)
     for filename in os.listdir(small_directory):
         if filename in IMAGE_DIR_IGNORE_FILES:
