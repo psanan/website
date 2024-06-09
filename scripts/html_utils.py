@@ -156,7 +156,7 @@ def _is_grid_item_div_close(line):
 
 def _process_grid_item_div_lines(lines):
     """Examines an image grid item element and generates a standard one."""
-    alt = None
+    alt = ""
     href = ""
     caption = ""
     for line in lines:
@@ -196,9 +196,6 @@ def _process_grid_item_div_lines(lines):
     if not href:
         print("  WARNING. href not found in grid item - not processing!", lines)
         return lines
-
-    if alt is None:
-        alt = caption
 
     return figure_grid_html_lines(input_path=href,
                                   base_directory_prefix="",
