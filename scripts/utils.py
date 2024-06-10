@@ -46,7 +46,7 @@ def create_small_images(directory):
         try:
             subprocess.run(["convert", "-resize", "300x300>", path, small_path],
                        check=True)
-        except CalledProcessError as error:
+        except subprocess.CalledProcessError as error:
             eprint("ERROR! Conversion failed:", error)
         expected_filenames.add(filename)
     for filename in os.listdir(small_directory):
