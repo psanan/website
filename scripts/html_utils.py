@@ -252,8 +252,12 @@ def update_figures(path):
     line_number = 0
     for line in lines:
         line_number += 1
-        new_grid_container_div_open = _is_grid_container_div_open(line)
-        if new_grid_container_div_open:
+        if _is_grid_container_div_open(line):
+            if grid_item_div_open:
+                eprint(
+                    ("grid-container opened with grid-item still open in "
+                     f"{path}:{line_number}. Aborting figure update.")
+                )
             if grid_container_div_open:
                 eprint(
                     ("grid-container div opened when one already open in "
@@ -261,8 +265,7 @@ def update_figures(path):
                 )
                 return True
             grid_container_div_open = True
-        new_grid_item_div_open = _is_grid_item_div_open(line)
-        if new_grid_item_div_open:
+        if _is_grid_item_div_open(line):
             # One could check grid_container_div_open here to require
             # that all grid-items appear inside grid-containers
             if grid_item_div_open:
@@ -278,8 +281,7 @@ def update_figures(path):
         else:
             lines_out.append(line)
 
-        new_grid_item_div_close = _is_grid_item_div_close(line)
-        if new_grid_item_div_close:
+        if _is_grid_item_div_close(line):
             if not grid_item_div_open:
                 eprint(
                     ("grid-item closed when one not already open in "
@@ -289,9 +291,12 @@ def update_figures(path):
             grid_item_div_open = False
             lines_out.extend(_process_grid_item_div_lines(grid_item_div_lines))
             grid_item_div_lines = []
-
-        new_grid_container_div_close = _is_grid_container_div_close(line)
-        if new_grid_container_div_close:
+        if _is_grid_container_div_close(line):
+            if grid_item_div_open:
+                eprint(
+                    ("grid-container closed with grid-item still open in "
+                     f"{path}:{line_number}. Aborting figure update.")
+                )
             if not grid_container_div_open:
                 eprint(
                     ("grid-container closed when one not already open in "
