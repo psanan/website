@@ -227,10 +227,6 @@ def figure_grid_html_lines(input_path,
         path = input_path
     small_path = utils.figure_small_path(path)
 
-    # default caption to make it easier to write real captions
-    if not caption:
-        caption = path
-
     lines = []
     lines.append('<div class="grid-item">\n')
     lines.append('<figure>\n')
