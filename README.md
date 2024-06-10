@@ -20,7 +20,7 @@ To deploy, upload the contents of `site/` (including hidden files) to your
 web server (probably to `$HOME/public_html`).
 
 Python scripts in `scripts/` (using only standard modules) help with feed generation
-and bulk and formatting operations on the HTML.
+and bulk formatting operations on the HTML.
 
 `deploy.sh`, for convenience, gives more hints.
 
