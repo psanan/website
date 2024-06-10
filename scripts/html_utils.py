@@ -5,6 +5,7 @@ import os
 import re
 
 import utils
+from utils import eprint
 
 HEADER_TAG_PREFIX = "<!--END HEADER"
 FOOTER_TAG_PREFIX = "<!--START FOOTER"
@@ -122,13 +123,13 @@ def update_header_and_footer(path):
             lines_out.append(line)
 
     if not header_comment_found:
-        print(
+        eprint(
             (f"  WARNING: no header comment ({HEADER_TAG_PREFIX}) found. "
              f"{path} cannot be updated.")
         )
         return True
     if not footer_comment_found:
-        print(
+        eprint(
             (f"  WARNING: no footer comment ({FOOTER_TAG_PREFIX}) found. "
              "footer will not be updated for {path}.")
         )
@@ -171,19 +172,19 @@ def _process_grid_item_div_lines(lines):
         match = re.search(r'alt\w*=\w*"([^"]*)"', line)
         if match:
             if alt:
-                print(
+                eprint(
                     "  WARNING - two alt strings found in grid item! Not processing"
                 )
                 return lines
             alt = match.group(1).strip()
         if "<figcaption>" in line:
             if "</figcaption>" not in line:
-                print(
+                eprint(
                     "  WARNING - Unclosed or multi-line figcaption found! Not processing"
                 )
                 return lines
             if caption:
-                print(
+                eprint(
                     "  WARNING - two captions found in grid item! Not processing"
                 )
                 return lines
@@ -196,13 +197,13 @@ def _process_grid_item_div_lines(lines):
             match = re.search(r'href\w*=\w*"([^"]*)"', line)
             if match:
                 if href:
-                    print(
+                    eprint(
                         "  WARNING - two hrefs found in grid item! Not processing"
                     )
                     return lines
                 href = match.group(1).strip()
     if not href:
-        print("  WARNING. href not found in grid item - not processing!", lines)
+        eprint("  WARNING. href not found in grid item - not processing!", lines)
         return lines
 
     return figure_grid_html_lines(input_path=href,
@@ -258,7 +259,7 @@ def update_figures(path):
         new_grid_container_div_open = _is_grid_container_div_open(line)
         if new_grid_container_div_open:
             if grid_container_div_open:
-                print(
+                eprint(
                     ("grid-container div opened when one already open in "
                      f"{path}:{line_number}. Aborting figure update.")
                 )
@@ -269,7 +270,7 @@ def update_figures(path):
             # One could check grid_container_div_open here to require
             # that all grid-items appear inside grid-containers
             if grid_item_div_open:
-                print(
+                eprint(
                     ("grid-item div opened when one already open in "
                      f"{path}:{line_number}. Aborting figure update.")
                 )
@@ -284,7 +285,7 @@ def update_figures(path):
         new_grid_item_div_close = _is_grid_item_div_close(line)
         if new_grid_item_div_close:
             if not grid_item_div_open:
-                print(
+                eprint(
                     ("grid-item closed when one not already open in "
                      f"{path}:{line_number}. Aborting figure update.")
                 )
@@ -296,17 +297,17 @@ def update_figures(path):
         new_grid_container_div_close = _is_grid_container_div_close(line)
         if new_grid_container_div_close:
             if not grid_container_div_open:
-                print(
+                eprint(
                     ("grid-container closed when one not already open in "
                      f"{path}:{line_number}. Aborting figure update.")
                 )
                 return True
             grid_container_div_open = False
     if grid_item_div_open:
-        print(f"grid-item div never closed in {path}. Aborting figure update.")
+        eprint(f"grid-item div never closed in {path}. Aborting figure update.")
         return True
     if grid_container_div_open:
-        print(f"grid-item div never closed in {path}. Aborting figure update.")
+        eprint(f"grid-item div never closed in {path}. Aborting figure update.")
         return True
 
     if lines == lines_out:  # could be slow
