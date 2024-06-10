@@ -149,9 +149,17 @@ def _is_grid_item_div_open(line):
 
 
 # This requires a class in the closing tag, which is ugly.
-# More properly, use a stack to deal with nested item divs
+# More properly, use a stack to deal with nested divs
 def _is_grid_item_div_close(line):
     return "</div" in line and "grid-item" in line
+
+def _is_grid_container_div_open(line):
+    return "<div" in line and "grid-container" in line
+
+# This requires a class in the closing tag, which is ugly.
+# More properly, use a stack to deal with nested divs
+def _is_grid_container_div_close(line):
+    return "</div" in line and "grid-container" in line
 
 
 def _process_grid_item_div_lines(lines):
@@ -241,13 +249,25 @@ def update_figures(path):
     lines_out = []
     with open(path, "r", encoding="utf-8") as html_file:
         lines = html_file.readlines()
+    grid_container_div_open = False
     grid_item_div_open = False
     grid_item_div_lines = []
     line_number = 0
     for line in lines:
         line_number += 1
+        new_grid_container_div_open = _is_grid_container_div_open(line)
+        if new_grid_container_div_open:
+            if grid_container_div_open:
+                print(
+                    ("grid-container div opened when one already open in "
+                     f"{path}:{line_number}. Aborting figure update.")
+                )
+                return True
+            grid_container_div_open = True
         new_grid_item_div_open = _is_grid_item_div_open(line)
         if new_grid_item_div_open:
+            # One could check grid_container_div_open here to require
+            # that all grid-items appear inside grid-containers
             if grid_item_div_open:
                 print(
                     ("grid-item div opened when one already open in "
@@ -272,7 +292,20 @@ def update_figures(path):
             grid_item_div_open = False
             lines_out.extend(_process_grid_item_div_lines(grid_item_div_lines))
             grid_item_div_lines = []
+
+        new_grid_container_div_close = _is_grid_container_div_close(line)
+        if new_grid_container_div_close:
+            if not grid_container_div_open:
+                print(
+                    ("grid-container closed when one not already open in "
+                     f"{path}:{line_number}. Aborting figure update.")
+                )
+                return True
+            grid_container_div_open = False
     if grid_item_div_open:
+        print(f"grid-item div never closed in {path}. Aborting figure update.")
+        return True
+    if grid_container_div_open:
         print(f"grid-item div never closed in {path}. Aborting figure update.")
         return True
 
