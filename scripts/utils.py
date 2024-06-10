@@ -6,7 +6,8 @@ import subprocess
 import sys
 
 SMALL_DIRNAME = "small"
-IMAGE_DIR_IGNORE_FILES = [".DS_Store", SMALL_DIRNAME]
+# Lowercase. Can be extended to anything else ImageMagick will understand.
+ALLOWED_IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png"]
 
 
 def copyright_string(html=True):
@@ -17,7 +18,7 @@ def copyright_string(html=True):
 
 
 def eprint(*args, **kwargs):
-    """Print to stderr."""
+    """Prints to stderr."""
     print(*args, file=sys.stderr, **kwargs)
 
 
@@ -29,15 +30,19 @@ def figure_small_path(path):
                         os.path.basename(path))
 
 
+def _is_image(filename):
+    return os.path.splitext(filename)[0].lower() in ALLOWED_IMAGE_EXTENSIONS
+
+
 def create_small_images(directory):
-    """Use Imagemagick to create small versions of images in a directory."""
+    """Uses Imagemagick to create small versions of images in a directory."""
     small_directory = figure_small_path(directory)
     if not os.path.exists(small_directory):
         os.makedirs(small_directory)
     expected_filenames = set()
     for filename in sorted(os.listdir(directory)):
         path = os.path.join(directory, filename)
-        if os.path.isdir(filename) or filename in IMAGE_DIR_IGNORE_FILES:
+        if not _is_image(filename):
             continue
         small_path = os.path.join(small_directory, filename)
         # Use Imagemagick's "convert" to
@@ -45,12 +50,12 @@ def create_small_images(directory):
         eprint(f"Info: Generating {small_path}")
         try:
             subprocess.run(["convert", "-resize", "300x300>", path, small_path],
-                       check=True)
+                           check=True)
         except subprocess.CalledProcessError as error:
             eprint("ERROR! Conversion failed:", error)
         expected_filenames.add(filename)
     for filename in os.listdir(small_directory):
-        if filename in IMAGE_DIR_IGNORE_FILES:
+        if not _is_image(filename):
             continue
         if filename in expected_filenames:
             expected_filenames.remove(filename)
