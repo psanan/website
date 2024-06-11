@@ -2,7 +2,6 @@
 
 import datetime
 import os
-import sys
 
 
 SMALL_DIRNAME = "small"
@@ -12,11 +11,6 @@ def copyright_string(html=True):
     year_string = f"2023-{datetime.date.today().year}"
     c_string = "&copy;" if html else "Copyright"
     return f"{c_string} {year_string} Patrick Sanan"
-
-
-def eprint(*args, **kwargs):
-    """Prints to stderr."""
-    print(*args, file=sys.stderr, **kwargs)
 
 
 def figure_small_path(path):

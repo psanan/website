@@ -6,7 +6,6 @@ import os
 import subprocess
 
 import utils
-from utils import eprint
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 IMAGES_DIR_PREFIX = os.path.realpath(os.path.join(THIS_DIR, ".."))
@@ -31,12 +30,12 @@ def _create_small_images(directory):
         small_path = os.path.join(small_directory, filename)
         # Use Imagemagick's "convert" to
         # resize the largest dimension to 300px
-        eprint(f"Info: Generating {small_path}")
+        print(f"Info: Generating {small_path}")
         try:
             subprocess.run(["convert", "-resize", "300x300>", path, small_path],
                            check=True)
         except subprocess.CalledProcessError as error:
-            eprint("ERROR! Conversion failed:", error)
+            print("ERROR! Conversion failed:", error)
         expected_filenames.add(filename)
     for filename in os.listdir(small_directory):
         if not _is_image(filename):
@@ -44,11 +43,11 @@ def _create_small_images(directory):
         if filename in expected_filenames:
             expected_filenames.remove(filename)
         else:
-            eprint(
+            print(
                 f"Warning! Unexpected small file {filename} found in {small_directory}"
             )
     if expected_filenames:
-        eprint(f"ERROR! {small_directory} is missing {expected_filenames}")
+        print(f"ERROR! {small_directory} is missing {expected_filenames}")
     return small_directory
 
 
