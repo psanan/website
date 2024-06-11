@@ -252,9 +252,7 @@ def update_figures(path):
     grid_container_div_open = False
     grid_item_div_open = False
     grid_item_div_lines = []
-    line_number = 0
-    for line in lines:
-        line_number += 1
+    for line_number, line in enumerate(lines, start=1):
         if _is_grid_container_div_open(line):
             if grid_item_div_open:
                 print(("grid-container opened with grid-item still open in "
