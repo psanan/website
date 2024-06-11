@@ -3,13 +3,53 @@
 
 import argparse
 import os
+import subprocess
 
-import html_utils
 import utils
+from utils import eprint
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 IMAGES_DIR_PREFIX = os.path.realpath(os.path.join(THIS_DIR, ".."))
 IMAGES_DIR = os.path.join(IMAGES_DIR_PREFIX, "site", "images")
+ALLOWED_IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png"]  # Lowercase
+
+
+def _is_image(filename):
+    return os.path.splitext(filename)[0].lower() in ALLOWED_IMAGE_EXTENSIONS
+
+
+def _create_small_images(directory):
+    """Uses Imagemagick to create small versions of images in a directory."""
+    small_directory = utils.figure_small_path(directory)
+    if not os.path.exists(small_directory):
+        os.makedirs(small_directory)
+    expected_filenames = set()
+    for filename in sorted(os.listdir(directory)):
+        path = os.path.join(directory, filename)
+        if not _is_image(filename):
+            continue
+        small_path = os.path.join(small_directory, filename)
+        # Use Imagemagick's "convert" to
+        # resize the largest dimension to 300px
+        eprint(f"Info: Generating {small_path}")
+        try:
+            subprocess.run(["convert", "-resize", "300x300>", path, small_path],
+                           check=True)
+        except subprocess.CalledProcessError as error:
+            eprint("ERROR! Conversion failed:", error)
+        expected_filenames.add(filename)
+    for filename in os.listdir(small_directory):
+        if not _is_image(filename):
+            continue
+        if filename in expected_filenames:
+            expected_filenames.remove(filename)
+        else:
+            eprint(
+                f"Warning! Unexpected small file {filename} found in {small_directory}"
+            )
+    if expected_filenames:
+        eprint(f"ERROR! {small_directory} is missing {expected_filenames}")
+    return small_directory
 
 
 def _main():
@@ -28,7 +68,7 @@ def _main():
 
     directory = os.path.join(IMAGES_DIR, args.quick_directory)
 
-    utils.create_small_images(directory)
+    _create_small_images(directory)
 
 
 if __name__ == "__main__":
