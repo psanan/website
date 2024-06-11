@@ -311,7 +311,9 @@ def update_figures(path):
         print(f"grid-item div never closed in {path}. Aborting figure update.")
         return True
     if container_open:
-        print(f"grid-container div never closed in {path}. Aborting figure update.")
+        print(
+            f"grid-container div never closed in {path}. Aborting figure update."
+        )
         return True
 
     if lines == lines_out:  # could be slow
