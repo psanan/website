@@ -14,7 +14,7 @@ ALLOWED_IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png"]  # Lowercase
 
 
 def _is_image(filename):
-    return os.path.splitext(filename)[0].lower() in ALLOWED_IMAGE_EXTENSIONS
+    return os.path.splitext(filename)[1].lower() in ALLOWED_IMAGE_EXTENSIONS
 
 
 def _create_small_images(directory):
