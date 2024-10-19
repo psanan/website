@@ -26,11 +26,7 @@ and bulk formatting operations on the HTML.
 
 Scripts depend on some command line tools:
 
-* rsync to upload
-* ImageMagick to shrink images
+* [rsync](https://en.wikipedia.org/wiki/Rsync) to upload
+* [ImageMagick](https://imagemagick.org/index.php) to shrink images
 
-Other helpful tools:
-
-* Git to track changes
-* Shellcheck and Pylint to check style
-* Yapf to format Python
+[Git](https://git-scm.com/) is practically essential, to track changes.
