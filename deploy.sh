@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# Note that the blow relies on an SSH alias "webhost"
+# Note that the below relies on an SSH alias "webhost"
 # to define where to upload files.
 # See e.g. https://wiki.debian.org/SshAliases
 
