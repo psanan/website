@@ -85,7 +85,7 @@ def _generate_feed():
         if not updated_date:
             updated_date = publication_date
 
-        print(f"{filename} pub: {publication_date} up: {updated_date}")
+        print(f"  {filename} published: {publication_date} updated: {updated_date}")
 
         if publication_date is not None:
             feed_lines.extend(
